@@ -1,1 +1,1 @@
-# quiz_app_FE
+# react-template
