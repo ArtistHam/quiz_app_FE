@@ -46,6 +46,6 @@ module.exports = {
     },
     hot: true,
     open: true,
-    historyApiFallback: true, //Включил поддержку маршрутов
+    historyApiFallback: true,
   },
 };
