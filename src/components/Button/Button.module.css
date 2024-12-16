@@ -1,0 +1,52 @@
+.button {
+  width: 208px;
+  height: 58px;
+  font-family: "Source Sans 3", sans-serif;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: none;
+  transition: background-color 0.3s ease;
+}
+
+.primary {
+  background: #ff8300;
+  backdrop-filter: blur(7.5px);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34.18px;
+  color: #023047;
+}
+
+.secondary {
+  background: linear-gradient(
+    140.03deg,
+    rgba(180, 227, 192, 0.2) 18.86%,
+    rgba(2, 48, 71, 0) 95.02%
+  );
+  backdrop-filter: blur(7.5px);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 34.18px;
+  color: #f0fdff;
+}
+
+.outline-orange {
+  background: transparent;
+  border: 1px solid rgba(255, 131, 0, 1);
+  font-size: 1.625rem;
+  font-weight: 600;
+  line-height: 2.314rem;
+  color: rgba(240, 253, 255, 1);
+}
+
+.outline-light {
+  background: transparent;
+  border: 1px solid rgba(240, 253, 255, 1);
+  font-size: 1.625rem;
+  font-weight: 500;
+  line-height: 34.18px;
+  color: #f0fdff;
+}

@@ -1,3 +1,4 @@
+// quiz_app_FE/src/utils/api.js
 import axios from "axios";
 
 const BASE_URL = "http://localhost:5001/api";
@@ -15,15 +16,30 @@ export const fetchQuestions = async () => {
   }
 };
 
-// the function expects the backend to return an object with the score and time fields
 export const submitScore = async (resultData) => {
   try {
-    const response = await axios.post(`${BASE_URL}/submit-score`, resultData);
-    // It's assumed that response.data = { score: number, time: number }
-    return response.data;
+    // отправляем на новый эндпоинт /finish_quiz
+    const response = await axios.post(`${BASE_URL}/finish_quiz`, resultData);
+    // Сейчас бек возвращает просто результаты без подсчёта
+    // Мы замокаем ответ, вернём что-то типа { score: 8, time: 90 }
+    return { score: 8, time: 90 };
   } catch (error) {
     console.error(
       "Error submitting score:",
+      error.response ? error.response.data : error.message
+    );
+    throw error;
+  }
+};
+
+export const fetchHighscores = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/highscore`);
+    return response.data.scores;
+    // scores: [{ nickname: "Artist", time: "120", score: "10" }, ...]
+  } catch (error) {
+    console.error(
+      "Error fetching highscores:",
       error.response ? error.response.data : error.message
     );
     throw error;

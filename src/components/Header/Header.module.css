@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: #0e3a4e;
+  height: 72px;
+  position: relative;
+  z-index: 4;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo {
+  width: 23px;
+  height: 23px;
+  margin-right: 16px;
+}
+
+.appName {
+  font-size: 20px;
+  color: var(--color-light-grey);
+  font-weight: 500;
+}
+
+.resultsPage {
+  justify-content: end;
+}
+
+.resultsPage .logoContainer {
+  display: flex;
+  margin-right: 260px;
+  align-items: center;
+}
