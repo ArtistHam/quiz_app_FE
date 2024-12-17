@@ -1,4 +1,3 @@
-// quiz_app_FE/src/utils/api.js
 import axios from "axios";
 
 const BASE_URL = "http://localhost:5001/api";
@@ -18,10 +17,8 @@ export const fetchQuestions = async () => {
 
 export const submitScore = async (resultData) => {
   try {
-    // отправляем на новый эндпоинт /finish_quiz
     const response = await axios.post(`${BASE_URL}/finish_quiz`, resultData);
-    // Сейчас бек возвращает просто результаты без подсчёта
-    // Мы замокаем ответ, вернём что-то типа { score: 8, time: 90 }
+    //mock
     return { score: 8, time: 90 };
   } catch (error) {
     console.error(

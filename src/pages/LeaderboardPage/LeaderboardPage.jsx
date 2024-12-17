@@ -36,7 +36,6 @@ const LeaderboardPage = () => {
     return `${m} min ${s} sec`;
   };
 
-  // Мобильная версия без данных
   if (isMobile && !scores) {
     return (
       <>
@@ -49,7 +48,7 @@ const LeaderboardPage = () => {
     );
   }
 
-  // Мобильная версия с данными
+  // Mobile
   if (isMobile && scores) {
     return (
       <>
@@ -100,7 +99,6 @@ const LeaderboardPage = () => {
     );
   }
 
-  // Десктопная версия, нет данных
   if (!scores) {
     return (
       <>
@@ -113,7 +111,7 @@ const LeaderboardPage = () => {
     );
   }
 
-  // Десктопная версия с данными
+  // Desktop
   return (
     <>
       <Header />

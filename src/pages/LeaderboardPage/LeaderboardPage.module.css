@@ -1,4 +1,4 @@
-/* Десктопная версия (исходные стили) */
+/* desktop*/
 .container {
   position: relative;
   min-height: calc(100vh - 4.5rem);
@@ -80,7 +80,7 @@
   gap: 149px;
 }
 
-/* Мобильные стили */
+/* mobile*/
 .containerMobile {
   position: relative;
   min-height: calc(100vh - 4.5rem);

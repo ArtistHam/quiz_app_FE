@@ -32,7 +32,7 @@ const QuizResults = ({
     return `${h}:${m}:${s}`;
   };
 
-  // Мобильная версия
+  // mobile
   if (isMobile) {
     // if (!isResultAvailable) {
     //   return (
@@ -131,7 +131,7 @@ const QuizResults = ({
     );
   }
 
-  // Десктопная версия
+  // desktop
   // if (!isResultAvailable) {
   //   return (
   //     <div className={styles.container}>
