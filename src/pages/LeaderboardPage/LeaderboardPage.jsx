@@ -6,6 +6,16 @@ import { fetchHighscores } from "../../utils/api";
 
 const LeaderboardPage = () => {
   const [scores, setScores] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 576);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const loadScores = async () => {
@@ -26,6 +36,71 @@ const LeaderboardPage = () => {
     return `${m} min ${s} sec`;
   };
 
+  // Мобильная версия без данных
+  if (isMobile && !scores) {
+    return (
+      <>
+        <Header />
+        <div className={styles.containerMobile}>
+          <h1 className={styles.titleMobile}>Highscores</h1>
+          <p className={styles.loadingTextMobile}>Loading...</p>
+        </div>
+      </>
+    );
+  }
+
+  // Мобильная версия с данными
+  if (isMobile && scores) {
+    return (
+      <>
+        <Header />
+        <div className={styles.containerMobile}>
+          <h1 className={styles.titleMobile}>Highscores</h1>
+          <div className={styles.tableContainerMobile}>
+            <table className={styles.tableMobile}>
+              <thead>
+                <tr>
+                  <th className={styles.tableHeaderMobile}>Name</th>
+                  <th className={styles.tableHeaderMobile}>Time</th>
+                  <th className={styles.tableHeaderMobile}>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                {scores.map((item, index) => (
+                  <tr key={index}>
+                    <td className={styles.tableCellNickNameMobile}>
+                      {item.nickname}
+                    </td>
+                    <td className={styles.tableCellTimeMobile}>
+                      {formatTime(item.time)}
+                    </td>
+                    <td className={styles.tableCellScoreMobile}>
+                      {item.score}/10
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <img
+            src="/images/decorativeStar.png"
+            alt="Star"
+            className={styles.starImageMobile}
+          />
+          <div className={styles.leaderboardButtonsColumnMobile}>
+            <Button variant="primary" as="link" to="/?start=1">
+              Take quiz »
+            </Button>
+            <Button variant="secondary" onClick={() => window.history.back()}>
+              Close
+            </Button>
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  // Десктопная версия, нет данных
   if (!scores) {
     return (
       <>
@@ -38,6 +113,7 @@ const LeaderboardPage = () => {
     );
   }
 
+  // Десктопная версия с данными
   return (
     <>
       <Header />
@@ -66,7 +142,7 @@ const LeaderboardPage = () => {
           </table>
         </div>
         <div className={styles.buttonsRow}>
-          <Button variant="primary" as="link" to="/">
+          <Button variant="primary" as="link" to="/?start=1">
             Take quiz »
           </Button>
           <Button variant="secondary" onClick={() => window.history.back()}>

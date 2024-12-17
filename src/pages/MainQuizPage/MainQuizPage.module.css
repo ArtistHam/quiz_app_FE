@@ -98,7 +98,7 @@
 }
 
 /* =========================
-   МЕДИА-ЗАПРОСЫ
+ MEDIA QUERIES BEFORE QUIZ START
 ========================= */
 
 @media (max-width: 1600px) {
@@ -140,9 +140,7 @@
     left: -7vw;
     filter: blur(22vw);
   }
-}
 
-@media (max-width: 1600px) {
   .greenGradient {
     width: 70vw;
     bottom: -30vh;
@@ -254,10 +252,6 @@
     max-width: 12rem;
   }
 
-  .infoText {
-    display: none;
-  }
-
   .buttonsRow {
     flex-direction: column;
     gap: 1.25rem;
@@ -319,13 +313,15 @@
     font-size: 2.5rem;
     line-height: 3rem;
     margin-bottom: 3rem;
+    margin-top: 3.75rem;
     color: #ff8300;
     text-transform: uppercase;
     max-width: 12rem;
   }
 
   .infoText {
-    display: none;
+    font-weight: 300;
+    max-width: 206px;
   }
 
   .buttonsRow {
@@ -403,10 +399,12 @@
 .quizLeftColumn {
   flex: 1;
   display: flex;
-
   justify-content: center;
-  height: 100%;
-  background-color: #0e3a4e;
+  background: linear-gradient(
+    211.67deg,
+    rgba(255, 255, 255, 0.05) -3.3%,
+    rgba(44, 44, 44, 0.05) 103.56%
+  );
   min-height: calc(100vh - 4.5rem);
 }
 
@@ -445,6 +443,7 @@
   margin-bottom: 1rem;
   line-height: 4.8rem;
   color: rgba(240, 253, 255, 1);
+  z-index: 2;
 }
 
 .quizText {
@@ -587,6 +586,435 @@
 .answerButtons {
   display: flex;
   gap: 3.625rem;
+}
+
+/* =========================
+ MEDIA QUERIES QUIZ 
+========================= */
+
+@media (max-height: 1080px) {
+  .decorBottomLeft {
+    height: 37rem;
+  }
+}
+
+@media (max-height: 973px) {
+  .mediaFrame {
+    padding: 2.1rem;
+    padding-bottom: 1.7rem;
+    margin-bottom: 4.1rem;
+  }
+
+  .media,
+  .image {
+    width: 22rem;
+    height: 28.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .questionTime {
+    margin-bottom: 0.5rem;
+  }
+
+  .decorBottomLeft {
+    height: 34rem;
+  }
+}
+
+@media (max-height: 880px) {
+  .bottomSection {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-height: 800px) {
+  .media,
+  .image {
+    width: 17rem;
+    height: 25.5rem;
+  }
+
+  .mediaFrame {
+    padding: 1.4rem;
+    padding-bottom: 1.2rem;
+    margin-bottom: 3.1rem;
+  }
+
+  .bottomSection {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 1600px) {
+  .decorBottomLeft {
+    height: 27rem;
+  }
+
+  .mediaFrame {
+    padding: 2.1rem;
+    margin-bottom: 3.1rem;
+  }
+
+  .media,
+  .image {
+    margin-bottom: 1rem;
+  }
+
+  .questionTime {
+    margin-bottom: 0rem;
+  }
+
+  .quizTitle {
+    font-size: 4rem;
+  }
+
+  .quizText {
+    font-size: 1rem;
+    line-height: 1.3rem;
+    max-width: 26.5rem;
+  }
+
+  .totalTimeValue {
+    line-height: 2.5rem;
+    font-size: 1.4rem;
+  }
+
+  .totalTimeLabel {
+    font-size: 1.4rem;
+  }
+
+  .questionCounter {
+    font-size: 2.2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .progressDots {
+    gap: 0.5rem;
+  }
+
+  .dot {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .decorBottomLeft {
+    height: 30rem;
+  }
+
+  .quizTitle {
+    font-size: 3.7rem;
+  }
+
+  .quizText {
+    font-size: 1.14rem;
+    line-height: 1.3rem;
+    max-width: 25rem;
+  }
+
+  .totalTimeValue {
+    line-height: 2.5rem;
+    font-size: 1.5rem;
+  }
+
+  .totalTimeLabel {
+    font-size: 1.3rem;
+  }
+
+  .questionCounter {
+    font-size: 2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .progressDots {
+    gap: 0.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .dot {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+
+  .media,
+  .image {
+    width: 20.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .mediaFrame {
+    margin-top: 1.8rem;
+    padding: 1.8rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .questionTime {
+    font-size: 1.1rem;
+  }
+
+  .timerIcon {
+    width: 1.6rem;
+    height: 1.46rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  .decorBottomLeft {
+    height: 30rem;
+  }
+
+  .quizTitle {
+    font-size: 3.7rem;
+  }
+
+  .quizText {
+    font-size: 1.14rem;
+    line-height: 1.3rem;
+    max-width: 25rem;
+  }
+
+  .totalTimeValue {
+    line-height: 2.5rem;
+    font-size: 1.5rem;
+  }
+
+  .totalTimeLabel {
+    font-size: 1.3rem;
+  }
+
+  .questionCounter {
+    font-size: 2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .progressDots {
+    gap: 0.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .dot {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+
+  .media,
+  .image {
+    width: 20.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .mediaFrame {
+    margin-top: 1.8rem;
+    padding: 1.8rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .questionTime {
+    font-size: 1.1rem;
+  }
+
+  .timerIcon {
+    width: 1.6rem;
+    height: 1.46rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .quizLayout {
+    display: block;
+  }
+
+  .topSection {
+    margin-top: 1.3rem;
+  }
+
+  .bottomSection {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  .quizTitle {
+    font-size: 3.6rem;
+    margin-bottom: 0;
+    line-height: 4.4rem;
+  }
+
+  .quizText {
+    font-size: 1rem;
+    line-height: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .totalTime {
+    margin-bottom: 1rem;
+    max-width: 10.75rem;
+    color: rgba(240, 253, 255, 1);
+  }
+
+  .totalTimeLabel {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+  }
+
+  .totalTimeValue {
+    line-height: 1.85rem;
+    font-size: 1.5rem;
+  }
+
+  .questionCounter {
+    font-size: 1.8rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .progressDots {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .dot {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+
+  .mediaFrame {
+    margin-top: 1.8rem;
+    padding: 1.6rem;
+    margin-bottom: 2.1rem;
+  }
+
+  .questionTime {
+    font-size: 1rem;
+  }
+
+  .timerIcon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .answerButtons {
+    gap: 2.625rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* Дополнительные стили для мобильной версии */
+@media (max-width: 576px) {
+  /* Перед стартом квиза кнопки по центру */
+  .buttonsRow {
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Когда квиз запущен: мобильный вариант */
+  .mobileQuizContainer {
+    position: relative;
+    background: var(--color-dark-teal);
+    min-height: calc(100vh - 4.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  .mobileMediaFrame {
+    width: 327px;
+    border: 1px solid var(--color-light-grey);
+    border-radius: 20px;
+    padding: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .mobileTopBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: var(--color-light-grey);
+  }
+
+  .mobileTimeBlock {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .mobileQuestionCounter {
+    font-size: 1rem;
+    color: var(--color-light-grey);
+  }
+
+  .media,
+  .image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .answerButtonsMobile {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .mobileBlurBlock {
+    width: 327px;
+    height: 82px;
+    background: linear-gradient(
+      142.99deg,
+      rgba(163, 221, 233, 0.2) 14.13%,
+      rgba(2, 48, 71, 0.2) 105.19%
+    );
+    backdrop-filter: blur(7.5px);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    margin-bottom: 2rem;
+    z-index: 3;
+  }
+
+  .mobileBlurQuestionCounter {
+    font-size: 1.2rem;
+    color: var(--color-light-grey);
+  }
+
+  .mobileProgressDots {
+    display: flex;
+    gap: 0.3rem;
+  }
+
+  .mobileAiHuman {
+    position: absolute;
+    width: 198.83px;
+    height: 246.42px;
+    bottom: -20px; /* частично выходит за край */
+    right: 10px;
+    transform: scaleX(-1); /* разворачиваем */
+    opacity: 0.8;
+  }
+
+  /* Уточним таймер для мобильного квиза */
+  .timerIcon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
 }
 
 /* =========================================
