@@ -1,7 +1,7 @@
 .mainScreenContainer {
   display: flex;
   justify-content: center;
-  min-height: calc(100vh - 4.5rem);
+  min-height: 100vh;
   background: var(--color-dark-teal);
   position: relative;
   overflow: hidden;
@@ -10,7 +10,7 @@
 .mainLayout {
   display: flex;
   color: var(--color-light-grey);
-  max-width: 75rem;
+  max-width: 88rem;
   width: 100%;
   z-index: 2;
 }
@@ -45,33 +45,34 @@
 .leftColumn {
   display: flex;
   flex-direction: column;
-  max-width: 41.25rem;
+  max-width: 44.25rem;
   z-index: 1;
   margin-bottom: 6.5rem;
-  margin-left: 2rem;
 }
 
 .starImage {
-  width: 13.25rem;
-  height: 13.06rem;
+  width: 121.32px;
+  height: 121.32px;
   margin-top: 6.5rem;
   margin-bottom: 4rem;
 }
 
 .mainTitle {
-  font-weight: 400;
-  font-size: 6rem;
-  line-height: 7rem;
+  font-family: "Ubuntu";
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 110.3px;
   margin-bottom: 2rem;
 }
 
 .infoText {
-  font-family: var(--font-secondary);
+  font-family: "Source Sans 3";
   font-size: 1.25rem;
   line-height: 1.8rem;
-  margin-bottom: 6rem;
-  max-width: 33.2rem;
-  letter-spacing: -0.04em;
+  margin-bottom: 68px;
+  max-width: 34.2rem;
+  font-weight: 300;
+  color: rgba(188, 201, 204, 1);
 }
 
 .buttonsRow {
@@ -145,7 +146,7 @@
 
 @media (min-height: 900px) {
   .starImage {
-    margin-top: 8rem;
+    margin-top: 157px;
   }
 }
 
@@ -242,7 +243,6 @@
     margin-top: 5.75rem;
     margin-bottom: 3rem;
     color: #ff8300;
-    text-transform: uppercase;
     max-width: 12rem;
   }
 
@@ -288,10 +288,10 @@
   }
 
   .starImage {
-    width: 13rem;
-    height: 13rem;
+    width: 51px;
+    height: 52px;
     position: absolute;
-    top: -5%;
+    top: 2%;
     left: 50%;
     transform: translate(-50%, 0);
     margin: 0;
@@ -300,12 +300,11 @@
 
   .mainTitle {
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 40px;
     line-height: 3rem;
     margin-bottom: 48px;
     margin-top: 100px;
-    color: #ff8300;
-    text-transform: uppercase;
+    color: rgba(240, 253, 255, 1);
     max-width: 12rem;
   }
 
@@ -328,19 +327,6 @@
     margin-top: 2rem;
     position: relative;
     object-fit: cover;
-  }
-
-  .greenGradient {
-    position: absolute;
-    width: 80vw;
-    height: auto;
-    aspect-ratio: 1146 / 1398;
-    bottom: 0;
-    left: 10%;
-    z-index: -1;
-  }
-
-  .orangeGradient {
-    display: none;
+    z-index: 3;
   }
 }

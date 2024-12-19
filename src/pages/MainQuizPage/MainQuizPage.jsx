@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import * as styles from "./MainQuizPage.module.css";
 
 import QuizResults from "../../components/QuizResults/QuizResults";
@@ -12,7 +11,7 @@ import Header from "../../components/Header/Header";
 import { useIsMobile } from "../../utils/hooks/useIsMobile";
 import { useQuizTimer } from "../../utils/hooks/useQuizTimer";
 import { useQuestions } from "../../utils/hooks/useQuestions";
-import { submitScore } from "../../utils/api";
+import { submitScore, submitHighscore } from "../../utils/api";
 
 import dayjs from "dayjs";
 
@@ -30,6 +29,7 @@ const MainQuizPage = () => {
     isCompleted: false,
     finalScore: null,
     finalTime: null,
+    isTopTen: false,
   });
 
   const [userName, setUserName] = useState("");
@@ -75,11 +75,18 @@ const MainQuizPage = () => {
   };
 
   const handleAnswer = (answer) => {
-    const currentFile = questions[currentQuestion];
+    const currentFileObj = questions[currentQuestion];
+    const userIsReal = answer === "real";
+    const isCorrect = currentFileObj.isReal === userIsReal;
 
+    // Сохраняем правильность ответа сразу
     setUserAnswers((prevAnswers) => [
       ...prevAnswers,
-      { file: currentFile, isReal: answer === "real" },
+      {
+        id: currentFileObj.id,
+        isReal: userIsReal,
+        correct: isCorrect,
+      },
     ]);
 
     if (currentQuestion < questions.length - 1) {
@@ -95,25 +102,57 @@ const MainQuizPage = () => {
     }
   };
 
-  const handleSubmit = async () => {
+  useEffect(() => {
+    const fetchFinalResults = async () => {
+      if (
+        quizMeta.isCompleted &&
+        quizMeta.finalScore === null &&
+        userAnswers.length === 10
+      ) {
+        setSubmitting(true);
+        const requestData = {
+          results: userAnswers.map((ans) => ({
+            id: ans.id,
+            isReal: ans.isReal,
+          })),
+          time: totalTimeSpent,
+        };
+
+        try {
+          const responseData = await submitScore(requestData);
+          setQuizMeta((prev) => ({
+            ...prev,
+            finalScore: responseData.score,
+            finalTime: totalTimeSpent,
+            isTopTen: responseData.isHighScore,
+          }));
+        } catch (error) {
+          console.error("Error submitting score:", error);
+        } finally {
+          setSubmitting(false);
+        }
+      }
+    };
+
+    fetchFinalResults();
+  }, [quizMeta.isCompleted, quizMeta.finalScore, totalTimeSpent, userAnswers]);
+
+  const handleSubmitHighscore = async () => {
     setSubmitting(true);
     const requestData = {
+      name: userName,
+      time: quizMeta.finalTime,
       results: userAnswers.map((ans) => ({
-        file: ans.file,
+        id: ans.id,
         isReal: ans.isReal,
       })),
-      name: userName,
     };
 
     try {
-      const responseData = await submitScore(requestData);
-      setQuizMeta((prev) => ({
-        ...prev,
-        finalScore: responseData.score,
-        finalTime: responseData.time,
-      }));
+      await submitHighscore(requestData);
+      window.location.href = "/leaderboard";
     } catch (error) {
-      console.error("Error submitting score:", error);
+      console.error("Error submitting highscore:", error);
     } finally {
       setSubmitting(false);
     }
@@ -130,6 +169,7 @@ const MainQuizPage = () => {
       isCompleted: false,
       finalScore: null,
       finalTime: null,
+      isTopTen: false,
     });
     setUserName("");
     setQuestionStartTime(null);
@@ -139,7 +179,8 @@ const MainQuizPage = () => {
 
   if (!showQuiz) {
     return (
-      <>
+      <div className={styles.pageWrapper}>
+        <div className={styles.background}></div>
         <Header />
         <StartScreen
           isMobile={isMobile}
@@ -147,51 +188,70 @@ const MainQuizPage = () => {
           handleMobileTakeQuiz={handleMobileTakeQuiz}
           handleMobileReady={handleMobileReady}
         />
-      </>
+      </div>
     );
   }
 
   if (questions === null) {
-    return <LoadingScreen />;
+    return (
+      <div className={styles.pageWrapper}>
+        <div className={styles.background}></div>
+        <Header />
+        <LoadingScreen />
+      </div>
+    );
   }
 
-  if (quizMeta.isCompleted) {
+  if (quizMeta.isCompleted && quizMeta.finalScore === null) {
     return (
-      <>
+      <div className={styles.pageWrapper}>
+        <div className={styles.background}></div>
+        <Header isResultsPage={true} />
+        <LoadingScreen />
+      </div>
+    );
+  }
+
+  if (quizMeta.isCompleted && quizMeta.finalScore !== null) {
+    return (
+      <div className={styles.pageWrapper}>
+        <div className={styles.background}></div>
         <Header isResultsPage={true} />
         <QuizResults
           score={quizMeta.finalScore}
           timeTaken={quizMeta.finalTime}
-          onSubmit={handleSubmit}
+          onSubmitHighscore={handleSubmitHighscore}
           userName={userName}
           setUserName={setUserName}
           resetQuiz={resetQuiz}
           submitting={submitting}
           onTryAgain={handleTryAgain}
+          isTopTen={quizMeta.isTopTen}
         />
-      </>
+      </div>
     );
   }
 
-  // Quiz in progress
-  const currentFile = questions[currentQuestion];
-  const extension = currentFile.split(".").pop().toLowerCase();
-  const isVideo = ["mp4", "mov"].includes(extension);
   const totalQuestions = 10;
+  const currentFile = questions[currentQuestion];
+  const extension = currentFile.url.split(".").pop().toLowerCase();
+  const isVideo = ["mp4", "mov"].includes(extension);
   const questionCount = `${currentQuestion + 1}/${totalQuestions}`;
+
   const progressDots = Array.from({ length: totalQuestions }, (_, i) => {
-    if (i < currentQuestion) {
-      return styles.dotPast;
+    if (i < userAnswers.length) {
+      return userAnswers[i].correct ? "correct" : "incorrect";
     } else if (i === currentQuestion) {
-      return styles.dotCurrent;
+      return "current";
     } else {
-      return styles.dotFuture;
+      return "future";
     }
   });
 
   if (isMobile) {
     return (
-      <>
+      <div className={styles.pageWrapper}>
+        <div className={styles.background}></div>
         <Header />
         <MobileQuiz
           currentFile={currentFile}
@@ -201,12 +261,13 @@ const MainQuizPage = () => {
           questionTimeSpent={questionTimeSpent}
           progressDots={progressDots}
         />
-      </>
+      </div>
     );
   }
 
   return (
-    <>
+    <div className={styles.pageWrapper}>
+      <div className={styles.background}></div>
       <Header />
       <DesktopQuiz
         currentFile={currentFile}
@@ -215,9 +276,9 @@ const MainQuizPage = () => {
         totalTimeSpent={totalTimeSpent}
         questionTimeSpent={questionTimeSpent}
         questionCount={questionCount}
-        progressDots={progressDots.map((cls) => cls)}
+        progressDots={progressDots}
       />
-    </>
+    </div>
   );
 };
 

@@ -18,8 +18,8 @@ export const fetchQuestions = async () => {
 export const submitScore = async (resultData) => {
   try {
     const response = await axios.post(`${BASE_URL}/finish_quiz`, resultData);
-    //mock
-    return { score: 8, time: 90 };
+
+    return response.data;
   } catch (error) {
     console.error(
       "Error submitting score:",
@@ -37,6 +37,20 @@ export const fetchHighscores = async () => {
   } catch (error) {
     console.error(
       "Error fetching highscores:",
+      error.response ? error.response.data : error.message
+    );
+    throw error;
+  }
+};
+
+export const submitHighscore = async (data) => {
+  // data: { name, time, results: [...] }
+  try {
+    const response = await axios.post(`${BASE_URL}/highscore`, data);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error submitting highscore:",
       error.response ? error.response.data : error.message
     );
     throw error;

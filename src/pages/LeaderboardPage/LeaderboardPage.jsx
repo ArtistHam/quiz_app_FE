@@ -68,7 +68,7 @@ const LeaderboardPage = () => {
                 {scores.map((item, index) => (
                   <tr key={index}>
                     <td className={styles.tableCellNickNameMobile}>
-                      {item.nickname}
+                      {item.name}
                     </td>
                     <td className={styles.tableCellTimeMobile}>
                       {formatTime(item.time)}
@@ -116,6 +116,7 @@ const LeaderboardPage = () => {
     <>
       <Header />
       <div className={styles.container}>
+        <div className={styles.gradientOverlay}></div>
         <h1 className={styles.title}>Highscores</h1>
         <div className={styles.tableContainer}>
           <table className={styles.table}>
@@ -129,7 +130,7 @@ const LeaderboardPage = () => {
             <tbody>
               {scores.map((item, index) => (
                 <tr key={index}>
-                  <td className={styles.tableCellNickName}>{item.nickname}</td>
+                  <td className={styles.tableCellNickName}>{item.name}</td>
                   <td className={styles.tableCellTime}>
                     {formatTime(item.time)}
                   </td>

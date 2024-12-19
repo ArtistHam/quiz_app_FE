@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 4.5rem);
+  min-height: 100vh;
   overflow: hidden;
 }
 
@@ -29,7 +29,7 @@
     rgba(255, 255, 255, 0.05) -3.3%,
     rgba(44, 44, 44, 0.05) 103.56%
   );
-  min-height: calc(100vh - 4.5rem);
+  min-height: 100vh;
   position: relative;
 }
 
@@ -55,17 +55,20 @@
 }
 
 .quizTitle {
+  font-family: "Ubuntu";
   font-size: 4.25rem;
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: 1rem;
   line-height: 4.8rem;
   color: rgba(240, 253, 255, 1);
+  letter-spacing: 0.02em;
   z-index: 2;
 }
 
 .quizText {
-  font-weight: 400;
-  font-size: 1.25rem;
+  font-family: "Source Sans 3";
+  font-weight: 300;
+  font-size: 20px;
   line-height: 1.75rem;
   margin-bottom: 2rem;
   max-width: 30rem;
@@ -86,7 +89,7 @@
 
 .decorBottomLeft {
   position: absolute;
-  left: -5.3rem;
+  left: -0.7rem;
   bottom: 0;
   width: auto;
   height: 40rem;
@@ -97,7 +100,7 @@
 .rotatedGradient {
   position: absolute;
   left: -21rem;
-  bottom: -34rem;
+  bottom: -20rem;
   width: 751.14px;
   height: 873.18px;
   background: radial-gradient(
@@ -105,40 +108,34 @@
     rgba(152, 235, 184, 0.4) 0%,
     rgba(14, 95, 118, 0) 100%
   );
-  transform: rotate(-49.51deg);
-  z-index: 1;
-}
 
-.centerBottomDecor {
-  position: absolute;
-  width: 262.88px;
-  left: 24%;
-  top: 86%;
-  transform: translateX(-50%);
-  z-index: 2;
-  filter: blur(7.5px);
+  transform: rotate(-49.51deg);
 }
 
 .totalTime {
+  font-family: "Source Sans 3";
   margin-bottom: 3.4rem;
   max-width: 10.75rem;
   color: rgba(240, 253, 255, 1);
+  font-weight: 300;
 }
 
 .totalTimeLabel {
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 24px;
   margin-bottom: 0.125rem;
   line-height: 2.136rem;
 }
 
 .totalTimeValue {
   line-height: 2.85rem;
-  font-size: 2rem;
+  font-size: 32px;
 }
 
 .questionCounter {
-  font-size: 3rem;
+  font-family: "Source Sans 3";
+  font-weight: 300;
+  font-size: 48px;
   margin-bottom: 1rem;
 }
 
@@ -146,27 +143,35 @@
   display: flex;
   gap: 0.5rem;
   margin-bottom: 2rem;
+  z-index: 10;
 }
 
-/* Точки */
-.dot,
-.dotPast,
-.dotCurrent,
-.dotFuture {
-  width: 1rem;
-  height: 1rem;
+.dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   display: inline-block;
+  margin: 0 4px;
+}
+
+.dotCorrect {
+  background: rgba(88, 119, 17, 1);
+}
+
+.dotIncorrect {
+  background: rgba(255, 30, 0, 0.5);
+}
+
+.dotCurrent {
+  background: rgba(255, 131, 0, 1);
 }
 
 .dotPast {
-  background-color: #ff830080;
+  background: rgba(255, 255, 255, 0.5);
 }
-.dotCurrent {
-  background-color: #ff8300;
-}
+
 .dotFuture {
-  background-color: #f0fdff33;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .quizRightColumn {
@@ -186,7 +191,6 @@
   margin-bottom: 4.5rem;
 }
 
-/* Восстанавливаем объект-fit и размеры */
 .media,
 .image {
   width: 30rem;
@@ -197,11 +201,13 @@
 }
 
 .questionTime {
+  font-family: "Source Sans 3";
+  font-weight: 300;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1.25rem;
-  font-size: 1.25rem;
+  font-size: 20px;
   color: var(--color-light-grey);
   margin-bottom: 2.12rem;
 }
@@ -218,7 +224,7 @@
 
 @media (max-height: 1080px) {
   .decorBottomLeft {
-    height: 37rem;
+    height: 36.5rem;
   }
 }
 

@@ -1,7 +1,7 @@
 /* desktop*/
 .container {
   position: relative;
-  min-height: calc(100vh - 4.5rem);
+  min-height: 100vh;
   background: var(--color-dark-teal);
   color: var(--color-light-grey);
   font-family: var(--font-family);
@@ -9,6 +9,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: start;
+  overflow: hidden;
 }
 
 .title {
@@ -23,10 +24,11 @@
   width: 1008px;
   height: 662px;
   background: linear-gradient(
-    157deg,
-    rgba(180, 227, 194, 0.3) -2.95%,
-    rgba(2, 48, 71, 0) 110.43%
+    153.55deg,
+    rgba(205, 254, 92, 0.15) -1.67%,
+    rgba(2, 48, 71, 0) 97.81%
   );
+
   backdrop-filter: blur(7.5px);
   border-radius: 20px;
   padding: 53px 80px;
@@ -43,8 +45,10 @@
 }
 
 .tableHeader {
+  font-family: "Source Sans 3";
   text-align: center;
   font-size: 24px;
+  font-style: italic;
   padding-bottom: 1rem;
   font-weight: 400;
   letter-spacing: -0.04em;
@@ -60,6 +64,7 @@
 }
 
 .tableCellTime {
+  font-family: "Ubuntu Sans";
   text-align: center;
   font-weight: 100;
   font-size: 28px;
@@ -68,6 +73,7 @@
 }
 
 .tableCellScore {
+  font-family: "Ubuntu Sans";
   text-align: center;
   font-weight: 400;
   font-size: 28px;
@@ -83,7 +89,7 @@
 /* mobile*/
 .containerMobile {
   position: relative;
-  min-height: calc(100vh - 4.5rem);
+  min-height: 100vh;
   background: var(--color-dark-teal);
   color: var(--color-light-grey);
   font-family: var(--font-family);
@@ -162,4 +168,19 @@
   flex-direction: column;
   gap: 16px;
   margin-bottom: 40px;
+}
+
+.gradientOverlay {
+  position: absolute;
+  bottom: 21%;
+  right: 65%;
+  width: 1428px;
+  height: 772px;
+  background: radial-gradient(
+    42.31% 42.63% at 53.97% 50.15%,
+    rgba(254, 179, 6, 0.3) 0%,
+    rgba(54, 30, 181, 0) 71%
+  );
+  transform: rotate(90deg);
+  z-index: 1;
 }

@@ -1,26 +1,26 @@
-/* Исходные стили (десктоп) остаются без изменений */
 .container {
   position: relative;
-  min-height: calc(100vh - 4.5rem);
+  min-height: 100vh;
   background: var(--color-dark-teal);
   overflow: hidden;
   color: rgba(240, 253, 255, 1);
   font-family: var(--font-secondary);
   color: rgba(240, 253, 255, 1);
-  z-index: 9999;
+  z-index: 1;
 }
 
 .backgroundImage {
   position: absolute;
-  width: 1288px;
-  height: 1148px;
-  left: 0;
-  top: -39px;
-  background: url("http://localhost:3000/images/aiHuman2.png") no-repeat center
+  width: 1084px;
+  height: 1087px;
+  left: -20px;
+  top: 0;
+  background: url("http://localhost:3000/images/man.png") no-repeat center
     center;
   background-size: cover;
   z-index: 1;
   backdrop-filter: blur(7.5px);
+  transform: rotateY(180deg);
 }
 
 .title {
@@ -43,19 +43,19 @@
 }
 
 .position {
+  padding-left: 15rem;
 }
 
 .glassContainer {
   position: relative;
   width: 1020px;
   height: 634px;
-  background: radial-gradient(
-    86.56% 83.47% at 40.07% 81.65%,
-    rgba(255, 194, 234, 0.25) 0%,
-    rgba(71, 226, 248, 0.25) 0.01%,
-    rgba(254, 187, 230, 0.25) 40%,
-    rgba(255, 255, 172, 0.25) 100%
+  background: linear-gradient(
+    256.88deg,
+    rgba(205, 254, 92, 0.2) -7.71%,
+    rgba(30, 115, 132, 0.2) 65.69%
   );
+
   backdrop-filter: blur(7.5px);
   border-radius: 20px;
   z-index: 3;
@@ -64,7 +64,6 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 3rem 3.688rem;
-  box-sizing: border-box;
 }
 
 .star {
@@ -88,6 +87,21 @@
   }
 }
 
+.gradientOverlay {
+  position: absolute;
+  bottom: -75%;
+  right: -31%;
+  width: 1140.81px;
+  height: 1189.05px;
+  background: radial-gradient(
+    42.31% 42.63% at 53.97% 50.15%,
+    rgba(254, 179, 6, 0.5) 0%,
+    rgba(54, 30, 181, 0) 100%
+  );
+
+  z-index: 1;
+}
+
 .scoreBlock {
   margin-bottom: 2rem;
   font-weight: 400;
@@ -95,7 +109,7 @@
 }
 
 .scoreLabel {
-  margin-bottom: 5.7rem;
+  margin-bottom: 6.7rem;
   color: #f0fdff;
   font-weight: 500;
   line-height: 68px;
@@ -142,7 +156,7 @@
 .sumbitBlock {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 29px;
   margin-left: 55px;
   margin-bottom: 59px;
 }
@@ -154,19 +168,24 @@
 }
 
 .nameInput {
-  width: 221px;
-  height: 36px;
+  width: 290px;
+  height: 38px;
   font-size: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-  color: var(--color-light-grey);
+  background: #f0fdff;
+  border-radius: 10px;
+  color: rgb(30, 28, 28);
   backdrop-filter: blur(7.5px);
   border: none;
   outline: none;
+  padding: 13px 21px;
 }
 
 .nameInput::placeholder {
   color: var(--color-light-grey);
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(14, 95, 118, 0.5);
 }
 
 .buttonsRow {
@@ -180,20 +199,15 @@
   gap: 58px;
 }
 
-/* ==============================
-   МОБИЛЬНАЯ ВЕРСИЯ
-   @media для max-width: 576px
-============================== */
-
 @media (max-width: 576px) {
   .containerMobile {
     position: relative;
-    min-height: calc(100vh - 4.5rem);
+    min-height: 100vh;
     background: var(--color-dark-teal);
     overflow: hidden;
     color: rgba(240, 253, 255, 1);
     font-family: var(--font-secondary);
-    z-index: 9999;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -204,8 +218,8 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url("http://localhost:3000/images/aiHuman2.png") no-repeat
-      bottom center;
+    background: url("http://localhost:3000/images/man.png") no-repeat bottom
+      center;
     background-size: contain;
     z-index: 1;
   }

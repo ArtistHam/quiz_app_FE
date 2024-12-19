@@ -16,18 +16,18 @@ const MobileQuiz = ({
       <div className={styles.mobileMediaFrame}>
         {isVideo ? (
           <video key={questionCount} className={styles.media} controls>
-            <source src={`http://${currentFile}`} type="video/mp4" />
+            <source src={currentFile.url} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         ) : (
           <img
             key={questionCount}
-            src={`http://${currentFile}`}
+            src={currentFile.url}
             alt="question"
             className={styles.image}
           />
         )}
-        <div className={styles.mobileTopBar}>
+        <div className={styles.mobileBar}>
           <img
             src="/images/timerIcon.png"
             alt="Timer"
@@ -50,17 +50,24 @@ const MobileQuiz = ({
       <div className={styles.mobileBlurBlock}>
         <div className={styles.mobileBlurQuestionCounter}>{questionCount}</div>
         <div className={styles.mobileProgressDots}>
-          {progressDots.map((dotClass, i) => (
-            <span key={i} className={dotClass} />
+          {progressDots.map((status, i) => (
+            <span
+              key={i}
+              className={`${styles.dot} ${
+                status === "correct"
+                  ? styles.dotCorrect
+                  : status === "incorrect"
+                  ? styles.dotIncorrect
+                  : status === "current"
+                  ? styles.dotCurrent
+                  : status === "past"
+                  ? styles.dotPast
+                  : styles.dotFuture
+              }`}
+            />
           ))}
         </div>
       </div>
-
-      <img
-        src="/images/aiHuman3.png"
-        alt="Decor"
-        className={styles.mobileAiHuman}
-      />
     </div>
   );
 };

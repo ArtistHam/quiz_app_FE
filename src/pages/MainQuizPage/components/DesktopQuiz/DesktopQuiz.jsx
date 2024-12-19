@@ -18,7 +18,7 @@ const DesktopQuiz = ({
         <div className={styles.quizLeftColumn}>
           <div className={styles.centeredLeftColumn}>
             <div className={styles.topSection}>
-              <h1 className={styles.quizTitle}>Quiz has started!</h1>
+              <h1 className={styles.quizTitle}>Quiz Has Started!</h1>
               <p className={styles.quizText}>
                 Now you see an image or a video with two buttons below: "Real"
                 and "Fake".
@@ -44,24 +44,33 @@ const DesktopQuiz = ({
               <div className={styles.questionCounter}>{questionCount}</div>
 
               <div className={styles.progressDots}>
-                {progressDots.map((dotClass, i) => (
-                  <span key={i} className={dotClass} />
+                {progressDots.map((status, i) => (
+                  <span
+                    key={i}
+                    className={`${styles.dot} ${
+                      status === "correct"
+                        ? styles.dotCorrect
+                        : status === "incorrect"
+                        ? styles.dotIncorrect
+                        : status === "current"
+                        ? styles.dotCurrent
+                        : status === "past"
+                        ? styles.dotPast
+                        : styles.dotFuture
+                    }`}
+                  />
                 ))}
               </div>
             </div>
           </div>
           <div className={styles.decorContainer}>
             <img
-              src="/images/aiHuman3.png"
+              src="/images/woman.png"
               alt="Decor"
               className={styles.decorBottomLeft}
             />
 
             <div className={styles.rotatedGradient}></div>
-
-            <div className={styles.centerBottomDecor}>
-              <img src="/images/decorativeStar3.png" alt="Decor" />
-            </div>
           </div>
         </div>
 
@@ -69,13 +78,13 @@ const DesktopQuiz = ({
           <div className={styles.mediaFrame}>
             {isVideo ? (
               <video key={questionCount} className={styles.media} controls>
-                <source src={`http://${currentFile}`} type="video/mp4" />
+                <source src={currentFile.url} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             ) : (
               <img
                 key={questionCount}
-                src={`http://${currentFile}`}
+                src={currentFile.url}
                 alt="question"
                 className={styles.image}
               />
@@ -92,16 +101,10 @@ const DesktopQuiz = ({
           </div>
 
           <div className={styles.answerButtons}>
-            <Button
-              variant="outline-orange"
-              onClick={() => handleAnswer("real")}
-            >
+            <Button variant="primary" onClick={() => handleAnswer("real")}>
               Real
             </Button>
-            <Button
-              variant="outline-orange"
-              onClick={() => handleAnswer("fake")}
-            >
+            <Button variant="primary" onClick={() => handleAnswer("fake")}>
               Fake
             </Button>
           </div>

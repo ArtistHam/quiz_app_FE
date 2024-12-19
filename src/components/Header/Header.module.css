@@ -1,10 +1,15 @@
 .header {
-  display: flex;
-  justify-content: center;
-  background-color: #0e3a4e;
+  position: absolute;
+  top: 0;
+  width: 100%;
   height: 72px;
-  position: relative;
+  display: flex;
+  align-items: center;
   z-index: 4;
+
+  background: rgba(217, 217, 217, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 .logoContainer {
@@ -31,6 +36,6 @@
 
 .resultsPage .logoContainer {
   display: flex;
-  margin-right: 260px;
+  margin-right: 325px;
   align-items: center;
 }

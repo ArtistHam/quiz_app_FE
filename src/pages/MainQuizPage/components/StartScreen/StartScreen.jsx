@@ -10,7 +10,6 @@ const StartScreen = ({
 }) => {
   return (
     <div className={styles.mainScreenContainer}>
-      <div className={styles.orangeGradient}></div>
       <div className={styles.mainLayout}>
         <div className={styles.leftColumn}>
           <img
@@ -18,30 +17,51 @@ const StartScreen = ({
             alt="Star"
             className={styles.starImage}
           />
-          <h1 className={styles.mainTitle}>Will you guess?</h1>
+          <h1 className={styles.mainTitle}>Will You Guess?</h1>
 
           {(!isMobile || mobileStep === "info") && (
             <p className={styles.infoText}>
               You will see an image or a video with two buttons next to it:
-              "Real" and "Fake". After making a choice, you are presented with
-              the next image (total of 10 images). Upon completing the quiz, you
-              will see your score (number of correct guesses) and time taken.
+              "Real" and "Fake".
+              {isMobile && (
+                <>
+                  <br />
+                  <br />
+                </>
+              )}
+              After making a choice, you are presented with the next image
+              (total of 10 images).
+              {isMobile && (
+                <>
+                  <br />
+                  <br />
+                </>
+              )}
+              Upon completing the quiz, you will see your score (number of
+              correct guesses) and time taken.
             </p>
           )}
 
           <div className={styles.buttonsRow}>
             {(!isMobile || mobileStep === "initial") && (
               <>
-                <Button variant="primary" onClick={handleMobileTakeQuiz}>
+                <Button
+                  variant={isMobile ? "outline-orange" : "primary"}
+                  onClick={handleMobileTakeQuiz}
+                >
                   Take quiz »
                 </Button>
-                <Button variant="secondary" as="link" to="/leaderboard">
+                <Button
+                  variant={isMobile ? "mobile-secondary" : "secondary"}
+                  as="link"
+                  to="/leaderboard"
+                >
                   Highscore
                 </Button>
               </>
             )}
             {isMobile && mobileStep === "info" && (
-              <Button variant="primary" onClick={handleMobileReady}>
+              <Button variant="mobile-primary" onClick={handleMobileReady}>
                 I'm ready!
               </Button>
             )}
@@ -51,11 +71,10 @@ const StartScreen = ({
         {(!isMobile || (isMobile && mobileStep === "initial")) && (
           <div className={styles.rightColumn}>
             <img
-              src="/images/aiHuman.png"
+              src="/images/man.png"
               alt="Decorative"
               className={styles.mainImage}
             />
-            <div className={styles.greenGradient}></div>
           </div>
         )}
       </div>

@@ -9,7 +9,7 @@ const Header = ({ isResultsPage = false }) => {
     >
       <Link to="/" className={styles.logoContainer}>
         <img src="/images/logo.png" alt="App Logo" className={styles.logo} />
-        <span className={styles.appName}>Quiz App</span>
+        <span className={styles.appName}>iProov Deepfake Quiz</span>
       </Link>
     </header>
   );

@@ -4,14 +4,12 @@ import Button from "../Button/Button";
 
 const QuizResults = ({
   score,
-  onSubmit,
+  onSubmitHighscore,
   userName,
   setUserName,
-  resetQuiz,
   timeTaken,
   submitting,
-  isTopTen = true,
-  onTryAgain,
+  isTopTen = false,
 }) => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -24,7 +22,6 @@ const QuizResults = ({
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const isResultAvailable = score !== null && timeTaken !== null;
   const formatTime = (timeInSeconds) => {
     const h = String(Math.floor(timeInSeconds / 3600)).padStart(2, "0");
     const m = String(Math.floor((timeInSeconds % 3600) / 60)).padStart(2, "0");
@@ -32,27 +29,9 @@ const QuizResults = ({
     return `${h}:${m}:${s}`;
   };
 
-  // mobile
+  const timeFormatted = formatTime(timeTaken);
+
   if (isMobile) {
-    // if (!isResultAvailable) {
-    //   return (
-    //     <div className={styles.containerMobile}>
-    //       <div className={styles.backgroundImageMobile}></div>
-    //       <div className={styles.positionalContainerMobile}>
-    //         <div className={styles.positionMobile}>
-    //           <h1 className={styles.titleMobile}>Great job!</h1>
-    //           <div className={styles.glassContainerMobile}>
-    //             <div className={styles.starMobile}></div>
-    //             <div className={styles.loadingTextMobile}>Loading...</div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   );
-    // }
-
-    const timeFormatted = formatTime(timeTaken);
-
     return (
       <div className={styles.containerMobile}>
         <div className={styles.backgroundImageMobile}></div>
@@ -88,14 +67,14 @@ const QuizResults = ({
                   <div className={styles.submitBlockMobile}>
                     <input
                       type="text"
-                      placeholder="Your name"
+                      placeholder="Please enter your name here"
                       value={userName}
                       onChange={(e) => setUserName(e.target.value)}
                       className={styles.nameInputMobile}
                     />
                     <Button
-                      variant="primary"
-                      onClick={onSubmit}
+                      variant="submit-desktop"
+                      onClick={onSubmitHighscore}
                       disabled={submitting}
                       className={styles.submitButtonMobile}
                     >
@@ -105,10 +84,10 @@ const QuizResults = ({
                 </>
               ) : (
                 <div className={styles.buttonsColumnMobile}>
-                  <Button variant="outline-light" onClick={onTryAgain}>
-                    Try again
+                  <Button variant="primary" as="link" to="/">
+                    Learn more
                   </Button>
-                  <Button variant="outline-light" as="link" to="/leaderboard">
+                  <Button variant="secondary" as="link" to="/leaderboard">
                     Highscore
                   </Button>
                 </div>
@@ -117,10 +96,10 @@ const QuizResults = ({
 
             {isTopTen && (
               <div className={styles.buttonsRowTopTenOutsideMobile}>
-                <Button variant="outline-light" onClick={onTryAgain}>
-                  Try again
+                <Button variant="primary" as="link" to="/">
+                  Learn more
                 </Button>
-                <Button variant="outline-light" as="link" to="/leaderboard">
+                <Button variant="secondary" as="link" to="/leaderboard">
                   Highscore
                 </Button>
               </div>
@@ -131,29 +110,11 @@ const QuizResults = ({
     );
   }
 
-  // desktop
-  // if (!isResultAvailable) {
-  //   return (
-  //     <div className={styles.container}>
-  //       <div className={styles.backgroundImage}></div>
-  //       <div className={styles.positionalContainer}>
-  //         <div className={styles.position}>
-  //           <h1 className={styles.title}>Great job!</h1>
-  //           <div className={styles.glassContainer}>
-  //             <div className={styles.star}></div>
-  //             <div>Loading...</div>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
-  const timeFormatted = formatTime(timeTaken);
-
+  // Desktop
   return (
     <div className={styles.container}>
       <div className={styles.backgroundImage}></div>
+      <div className={styles.gradientOverlay}></div>
       <div className={styles.positionalContainer}>
         <div className={styles.position}>
           <h1 className={styles.title}>Great job!</h1>
@@ -169,7 +130,6 @@ const QuizResults = ({
               </p>
               <div className={styles.scoreInfo}>
                 <p className={styles.time}>{timeFormatted}</p>
-                {/* Заменили вложенные p-tags */}
                 <div className={styles.correctAnswers}>
                   <span className={styles.score}>{score}/10</span>
                   <span>right answers</span>
@@ -185,37 +145,32 @@ const QuizResults = ({
                   Enter your name and submit
                 </p>
                 <div className={styles.sumbitBlock}>
-                  <p className={styles.nameLabel}>Your name:</p>
                   <input
                     type="text"
-                    placeholder=""
+                    placeholder="Please enter your name here"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
                     className={styles.nameInput}
                   />
-                </div>
-                <div className={styles.buttonsRowTopTen}>
                   <Button
-                    variant="primary"
-                    onClick={onSubmit}
+                    variant="submit-desktop"
+                    onClick={onSubmitHighscore}
                     disabled={submitting}
                   >
                     {submitting ? "Submitting..." : "Submit"}
                   </Button>
-                  <Button variant="outline-light" onClick={onTryAgain}>
-                    Try again
-                  </Button>
-                  <Button variant="outline-light" as="link" to="/leaderboard">
+                </div>
+                <div className={styles.buttonsRowTopTen}>
+                  <Button variant="primary">Learn more</Button>
+                  <Button variant="secondary" as="link" to="/leaderboard">
                     Highscore
                   </Button>
                 </div>
               </>
             ) : (
               <div className={styles.buttonsRow}>
-                <Button variant="outline-light" onClick={onTryAgain}>
-                  Try again
-                </Button>
-                <Button variant="outline-light" as="link" to="/leaderboard">
+                <Button variant="primary">Learn more</Button>
+                <Button variant="secondary" as="link" to="/leaderboard">
                   Highscore
                 </Button>
               </div>

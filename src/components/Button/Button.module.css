@@ -1,5 +1,5 @@
 .button {
-  width: 208px;
+  width: 248px;
   height: 58px;
   font-family: "Source Sans 3", sans-serif;
   cursor: pointer;
@@ -9,6 +9,8 @@
   justify-content: center;
   text-transform: none;
   transition: background-color 0.3s ease;
+  text-decoration: none;
+  color: #f0fdff;
 }
 
 .primary {
@@ -21,32 +23,102 @@
 }
 
 .secondary {
-  background: linear-gradient(
-    140.03deg,
-    rgba(180, 227, 192, 0.2) 18.86%,
-    rgba(2, 48, 71, 0) 95.02%
-  );
+  position: relative;
+  background: transparent;
   backdrop-filter: blur(7.5px);
   font-size: 24px;
   font-weight: 500;
   line-height: 34.18px;
-  color: #f0fdff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    112.74deg,
+    #cdfe5c 26.75%,
+    rgba(2, 48, 71, 0) 115.6%
+  );
+  z-index: -1;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  box-sizing: border-box;
+}
+
+.submit-desktop {
+  width: 155px;
+  height: 38px;
+  background: linear-gradient(
+    145.15deg,
+    rgba(240, 253, 255, 0.3) 12.15%,
+    rgba(240, 253, 255, 0.06) 89.04%
+  );
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.mobile-primary {
+  width: 198px;
+  height: 48px;
+  background: #ff8300;
+  color: rgba(2, 48, 71, 1);
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .outline-orange {
+  width: 276px;
+  height: 42px;
   background: transparent;
-  border: 1px solid rgba(255, 131, 0, 1);
-  font-size: 1.625rem;
+  border: 1px solid var(--color-orange);
+  font-size: 16px;
   font-weight: 600;
-  line-height: 2.314rem;
-  color: rgba(240, 253, 255, 1);
 }
 
-.outline-light {
+.mobile-secondary {
+  position: relative;
   background: transparent;
-  border: 1px solid rgba(240, 253, 255, 1);
-  font-size: 1.625rem;
+  backdrop-filter: blur(7.5px);
+  font-size: 16px;
   font-weight: 500;
   line-height: 34.18px;
-  color: #f0fdff;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+  width: 276px;
+  height: 42px;
+}
+
+.mobile-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    112.74deg,
+    #cdfe5c 26.75%,
+    rgba(2, 48, 71, 0) 115.6%
+  );
+  z-index: -1;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  box-sizing: border-box;
 }
