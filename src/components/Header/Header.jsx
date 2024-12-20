@@ -7,8 +7,8 @@ const Header = ({ isResultsPage = false }) => {
     <header
       className={`${styles.header} ${isResultsPage ? styles.resultsPage : ""}`}
     >
-      <Link to="/" className={styles.logoContainer}>
-        <img src="/images/logo.png" alt="App Logo" className={styles.logo} />
+      <Link to="/quiz_app_FE/" className={styles.logoContainer}>
+        <img src="/quiz_app_FE/images/logo.png" alt="App Logo" className={styles.logo} />
         <span className={styles.appName}>iProov Deepfake Quiz</span>
       </Link>
     </header>

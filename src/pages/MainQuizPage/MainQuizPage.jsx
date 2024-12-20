@@ -14,9 +14,11 @@ import { useQuestions } from "../../utils/hooks/useQuestions";
 import { submitScore, submitHighscore } from "../../utils/api";
 
 import dayjs from "dayjs";
+import { useNavigate } from "react-router-dom";
 
 const MainQuizPage = () => {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
 
   const [showQuiz, setShowQuiz] = useState(false);
   const { questions, setQuestions, loadQuestions } = useQuestions();
@@ -150,7 +152,7 @@ const MainQuizPage = () => {
 
     try {
       await submitHighscore(requestData);
-      window.location.href = "/leaderboard";
+      navigate("/quiz_app_FE/leaderboard");
     } catch (error) {
       console.error("Error submitting highscore:", error);
     } finally {

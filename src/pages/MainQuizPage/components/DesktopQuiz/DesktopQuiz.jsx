@@ -18,19 +18,19 @@ const DesktopQuiz = ({
         <div className={styles.quizLeftColumn}>
           <div className={styles.centeredLeftColumn}>
             <div className={styles.topSection}>
-              <h1 className={styles.quizTitle}>Quiz Has Started!</h1>
+              <h1 className={styles.quizTitle}>Real Or Fake?</h1>
               <p className={styles.quizText}>
-                Now you see an image or a video with two buttons below: "Real"
-                and "Fake".
-                <br />
-                <br />
-                Make your choice depending on what you think about this one:
-                whether it’s a real person’s photo, or it’s a fake made by an
-                AI.
-                <br />
-                <br />
-                The time is counting!
+                You’ll see 10 images or videos, one at a time.
               </p>
+              <p className={styles.quizText}>
+                Examine each carefully, then choose whether you think it’s
+                genuine or AI-generated.
+              </p>
+              <p className={styles.quizText}>
+                The clock is ticking, so move quickly for a better score. But
+                remember, accuracy matters.
+              </p>
+              <p className={styles.quizText}>Good luck!</p>
             </div>
 
             <div className={styles.bottomSection}>
@@ -65,7 +65,7 @@ const DesktopQuiz = ({
           </div>
           <div className={styles.decorContainer}>
             <img
-              src="/images/woman.png"
+              src="/quiz_app_FE/images/woman.png"
               alt="Decor"
               className={styles.decorBottomLeft}
             />
@@ -92,7 +92,7 @@ const DesktopQuiz = ({
 
             <div className={styles.questionTime}>
               <img
-                src="/images/timerIcon.png"
+                src="/quiz_app_FE/images/timerIcon.png"
                 alt="Timer"
                 className={styles.timerIcon}
               />

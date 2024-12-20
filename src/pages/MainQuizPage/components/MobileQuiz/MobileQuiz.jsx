@@ -29,7 +29,7 @@ const MobileQuiz = ({
         )}
         <div className={styles.mobileBar}>
           <img
-            src="/images/timerIcon.png"
+            src="/quiz_app_FE/images/timerIcon.png"
             alt="Timer"
             className={styles.timerIcon}
           />

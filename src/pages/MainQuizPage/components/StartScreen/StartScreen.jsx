@@ -13,32 +13,20 @@ const StartScreen = ({
       <div className={styles.mainLayout}>
         <div className={styles.leftColumn}>
           <img
-            src="/images/decorativeStar.png"
+            src="/quiz_app_FE/images/decorativeStar.png"
             alt="Star"
             className={styles.starImage}
           />
-          <h1 className={styles.mainTitle}>Will You Guess?</h1>
+          <h1 className={styles.mainTitle}>Can You Spot A Deepfake?</h1>
 
           {(!isMobile || mobileStep === "info") && (
-            <p className={styles.infoText}>
-              You will see an image or a video with two buttons next to it:
-              "Real" and "Fake".
-              {isMobile && (
-                <>
-                  <br />
-                  <br />
-                </>
-              )}
-              After making a choice, you are presented with the next image
-              (total of 10 images).
-              {isMobile && (
-                <>
-                  <br />
-                  <br />
-                </>
-              )}
-              Upon completing the quiz, you will see your score (number of
-              correct guesses) and time taken.
+            <p className={styles.infoText} style={{ fontSize: "24px" }}>
+              As criminals get better at using AI to create convincing fake
+              images and videos, it’s more important than ever to know what’s
+              real and what’s not. Deepfakes can make people appear to say or do
+              things that never happened, blurring the line between truth and
+              illusion. Some are easy to detect – others aren’t. Take our quiz
+              to test your skills at spotting deepfakes!
             </p>
           )}
 
@@ -49,14 +37,14 @@ const StartScreen = ({
                   variant={isMobile ? "outline-orange" : "primary"}
                   onClick={handleMobileTakeQuiz}
                 >
-                  Take quiz »
+                  Start quiz »
                 </Button>
                 <Button
                   variant={isMobile ? "mobile-secondary" : "secondary"}
                   as="link"
-                  to="/leaderboard"
+                  to="/quiz_app_FE/leaderboard"
                 >
-                  Highscore
+                  View Highscore
                 </Button>
               </>
             )}
@@ -71,7 +59,7 @@ const StartScreen = ({
         {(!isMobile || (isMobile && mobileStep === "initial")) && (
           <div className={styles.rightColumn}>
             <img
-              src="/images/man.png"
+              src="/quiz_app_FE/images/man.png"
               alt="Decorative"
               className={styles.mainImage}
             />

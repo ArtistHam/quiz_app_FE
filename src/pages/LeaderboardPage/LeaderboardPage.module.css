@@ -14,15 +14,13 @@
 
 .title {
   font-size: 56px;
-  line-height: 64px;
-  margin-top: 43px;
-  margin-bottom: 46px;
+  margin-top: 90px;
+  margin-bottom: 26px;
   font-weight: 500;
 }
 
 .tableContainer {
   width: 1008px;
-  height: 662px;
   background: linear-gradient(
     153.55deg,
     rgba(205, 254, 92, 0.15) -1.67%,
@@ -35,12 +33,11 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin-bottom: 69px;
+  margin-bottom: 30px;
 }
 
 .table {
   width: 100%;
-  margin-bottom: 2rem;
   color: rgba(240, 253, 255, 1);
 }
 

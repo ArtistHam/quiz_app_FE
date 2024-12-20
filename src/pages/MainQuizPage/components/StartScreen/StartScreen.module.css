@@ -60,8 +60,7 @@
 .mainTitle {
   font-family: "Ubuntu";
   font-weight: 700;
-  font-size: 96px;
-  line-height: 110.3px;
+  font-size: 64px;
   margin-bottom: 2rem;
 }
 
@@ -70,9 +69,8 @@
   font-size: 1.25rem;
   line-height: 1.8rem;
   margin-bottom: 68px;
-  max-width: 34.2rem;
   font-weight: 300;
-  color: rgba(188, 201, 204, 1);
+  color: #F0FDFF;
 }
 
 .buttonsRow {
@@ -91,7 +89,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  height: 88vh;
+  height: 100vh;
 }
 
 /* =========================

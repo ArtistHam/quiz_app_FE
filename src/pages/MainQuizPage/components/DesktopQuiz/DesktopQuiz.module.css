@@ -42,7 +42,6 @@
 .topSection {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   margin-top: 4.3rem;
 }
 
@@ -63,14 +62,14 @@
   color: rgba(240, 253, 255, 1);
   letter-spacing: 0.02em;
   z-index: 2;
+  margin-top: 89px;
 }
 
 .quizText {
   font-family: "Source Sans 3";
   font-weight: 300;
-  font-size: 20px;
-  line-height: 1.75rem;
-  margin-bottom: 2rem;
+  font-size: 24px;
+  margin-bottom: 24px;
   max-width: 30rem;
   color: rgba(240, 253, 255, 1);
   letter-spacing: -0.04em;
@@ -297,12 +296,12 @@
   .quizTitle {
     font-size: 4rem;
   }
-
+/* 
   .quizText {
     font-size: 1rem;
     line-height: 1.3rem;
     max-width: 26.5rem;
-  }
+  } */
 
   .totalTimeValue {
     line-height: 2.5rem;

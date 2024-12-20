@@ -82,12 +82,12 @@ const LeaderboardPage = () => {
             </table>
           </div>
           <img
-            src="/images/decorativeStar.png"
+            src="/quiz_app_FE/images/decorativeStar.png"
             alt="Star"
             className={styles.starImageMobile}
           />
           <div className={styles.leaderboardButtonsColumnMobile}>
-            <Button variant="primary" as="link" to="/?start=1">
+            <Button variant="primary" as="link" to="/quiz_app_FE/">
               Take quiz »
             </Button>
             <Button variant="secondary" onClick={() => window.history.back()}>
@@ -117,36 +117,49 @@ const LeaderboardPage = () => {
       <Header />
       <div className={styles.container}>
         <div className={styles.gradientOverlay}></div>
-        <h1 className={styles.title}>Highscores</h1>
-        <div className={styles.tableContainer}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th className={styles.tableHeader}>Name</th>
-                <th className={styles.tableHeader}>Time</th>
-                <th className={styles.tableHeader}>Score</th>
-              </tr>
-            </thead>
-            <tbody>
-              {scores.map((item, index) => (
-                <tr key={index}>
-                  <td className={styles.tableCellNickName}>{item.name}</td>
-                  <td className={styles.tableCellTime}>
-                    {formatTime(item.time)}
-                  </td>
-                  <td className={styles.tableCellScore}>{item.score}/10</td>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "start",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          <h1 className={styles.title}>Highscores</h1>
+          <div className={styles.tableContainer}>
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  <th className={styles.tableHeader}>Name</th>
+                  <th className={styles.tableHeader}>Time</th>
+                  <th className={styles.tableHeader}>Score</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className={styles.buttonsRow}>
-          <Button variant="primary" as="link" to="/?start=1">
-            Take quiz »
-          </Button>
-          <Button variant="secondary" onClick={() => window.history.back()}>
-            Close
-          </Button>
+              </thead>
+              <tbody>
+                {scores.map((item, index) => (
+                  <tr key={index}>
+                    <td className={styles.tableCellNickName}>{item.name}</td>
+                    <td className={styles.tableCellTime}>
+                      {formatTime(item.time)}
+                    </td>
+                    <td className={styles.tableCellScore}>{item.score}/10</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className={styles.buttonsRow}>
+            <Button variant="primary" as="link" to="/quiz_app_FE/">
+              Take quiz »
+            </Button>
+            <Button variant="secondary" onClick={() => window.history.back()}>
+              Close
+            </Button>
+          </div>
         </div>
       </div>
     </>

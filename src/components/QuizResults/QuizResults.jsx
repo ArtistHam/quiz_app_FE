@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as styles from "./QuizResults.module.css";
 import Button from "../Button/Button";
+import { useNavigate } from "react-router-dom";
 
 const QuizResults = ({
   score,
@@ -9,9 +10,11 @@ const QuizResults = ({
   setUserName,
   timeTaken,
   submitting,
+  resetQuiz,
   isTopTen = false,
 }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkMobile = () => {
@@ -60,7 +63,7 @@ const QuizResults = ({
                     Enter your name and Submit
                   </p>
                   <img
-                    src="/images/arrow.png"
+                    src="/quiz_app_FE/images/arrow.png"
                     alt="Arrow"
                     className={styles.arrowImageMobile}
                   />
@@ -84,10 +87,14 @@ const QuizResults = ({
                 </>
               ) : (
                 <div className={styles.buttonsColumnMobile}>
-                  <Button variant="primary" as="link" to="/">
+                  <Button variant="primary" as="link" to="/quiz_app_FE/">
                     Learn more
                   </Button>
-                  <Button variant="secondary" as="link" to="/leaderboard">
+                  <Button
+                    variant="secondary"
+                    as="link"
+                    to="/quiz_app_FE/leaderboard"
+                  >
                     Highscore
                   </Button>
                 </div>
@@ -96,10 +103,10 @@ const QuizResults = ({
 
             {isTopTen && (
               <div className={styles.buttonsRowTopTenOutsideMobile}>
-                <Button variant="primary" as="link" to="/">
+                <Button variant="primary" as="link" to="/quiz_app_FE/">
                   Learn more
                 </Button>
-                <Button variant="secondary" as="link" to="/leaderboard">
+                <Button variant="secondary" to="/quiz_app_FE/leaderboard">
                   Highscore
                 </Button>
               </div>
@@ -117,23 +124,41 @@ const QuizResults = ({
       <div className={styles.gradientOverlay}></div>
       <div className={styles.positionalContainer}>
         <div className={styles.position}>
-          <h1 className={styles.title}>Great job!</h1>
+          <h1 className={styles.title} style={{ fontSize: "68px" }}>
+            You did it!
+          </h1>
           <div className={styles.glassContainer}>
             <div className={styles.star}></div>
-            <div className={styles.scoreBlock}>
+            <div className={styles.scoreBlock} style={{ fontSize: "24px" }}>
+              You’ve completed the challenge.
               <p
                 className={
                   isTopTen ? styles.scoreLabelTopTen : styles.scoreLabel
                 }
+                style={{ fontSize: "48px", marginBottom: "40px" }}
               >
-                Your score:
+                Your result:
               </p>
               <div className={styles.scoreInfo}>
-                <p className={styles.time}>{timeFormatted}</p>
                 <div className={styles.correctAnswers}>
-                  <span className={styles.score}>{score}/10</span>
-                  <span>right answers</span>
+                  <div className={styles.score} style={{ fontSize: "48px" }}>
+                    {score}/10
+                  </div>
+                  <div style={{ fontSize: "32px" }}>correct guesses</div>
                 </div>
+                <p style={{ fontSize: "24px", fontStyle: "italic" }}>in</p>
+
+                <p
+                  className={styles.time}
+                  style={{ fontSize: "32px", marginBottom: "55px" }}
+                >
+                  {timeFormatted}
+                </p>
+                {!isTopTen && (
+                  <p style={{ fontSize: "24px", fontStyle: "italic" }}>
+                    Try again to get your name into the highscore list!
+                  </p>
+                )}
               </div>
             </div>
 
@@ -161,16 +186,40 @@ const QuizResults = ({
                   </Button>
                 </div>
                 <div className={styles.buttonsRowTopTen}>
-                  <Button variant="primary">Learn more</Button>
-                  <Button variant="secondary" as="link" to="/leaderboard">
+                  <Button
+                    variant="primary"
+                    onClick={() => {
+                      resetQuiz();
+                      navigate("/quiz_app_FE/");
+                    }}
+                  >
+                    Try again
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    as="link"
+                    to="/quiz_app_FE/leaderboard"
+                  >
                     Highscore
                   </Button>
                 </div>
               </>
             ) : (
               <div className={styles.buttonsRow}>
-                <Button variant="primary">Learn more</Button>
-                <Button variant="secondary" as="link" to="/leaderboard">
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    resetQuiz();
+                    navigate("/quiz_app_FE/");
+                  }}
+                >
+                  Try again
+                </Button>
+                <Button
+                  variant="secondary"
+                  as="link"
+                  to="/quiz_app_FE/leaderboard"
+                >
                   Highscore
                 </Button>
               </div>
