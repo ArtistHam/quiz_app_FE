@@ -11,10 +11,10 @@
 
 .backgroundImage {
   position: absolute;
-  width: 1084px;
-  height: 1087px;
-  left: -20px;
-  top: 0;
+  width: 100vh;
+  height: 99vh;
+  left: 39px;
+  top: 11px;
   background: url("http://localhost:3000/images/man.png") no-repeat center
     center;
   background-size: cover;
@@ -25,7 +25,6 @@
 
 .title {
   position: relative;
-  margin-top: 63px;
   margin-bottom: 75px;
   font-size: 68px;
   font-weight: 500;
@@ -43,6 +42,7 @@
 }
 
 .position {
+  padding-top: 135px;
   padding-left: 15rem;
 }
 

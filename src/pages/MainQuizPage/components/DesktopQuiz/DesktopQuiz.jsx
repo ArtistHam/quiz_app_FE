@@ -18,18 +18,20 @@ const DesktopQuiz = ({
         <div className={styles.quizLeftColumn}>
           <div className={styles.centeredLeftColumn}>
             <div className={styles.topSection}>
-              <h1 className={styles.quizTitle}>Quiz Has Started!</h1>
+              <h1 className={styles.quizTitle}>Real or fake?</h1>
               <p className={styles.quizText}>
-                Now you see an image or a video with two buttons below: "Real"
-                and "Fake".
+                You’ll see 10 images or videos, one at a time.
                 <br />
                 <br />
-                Make your choice depending on what you think about this one:
-                whether it’s a real person’s photo, or it’s a fake made by an
-                AI.
+                Examine each carefully, then choose whether you think it’s
+                genuine or AI-generated.
                 <br />
                 <br />
-                The time is counting!
+                The clock is ticking, so move quickly for a better score. But
+                remember, accuracy matters.
+                <br />
+                <br />
+                Good luck!
               </p>
             </div>
 

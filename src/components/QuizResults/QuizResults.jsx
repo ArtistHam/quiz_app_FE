@@ -40,7 +40,7 @@ const QuizResults = ({
             <h1 className={styles.titleMobile}>Great job!</h1>
             <div className={styles.glassContainerMobile}>
               <div className={styles.starMobile}></div>
-              <p className={styles.scoreLabelMobile}>Your score:</p>
+              <p className={styles.scoreLabelMobile}>Your result:</p>
               <div className={styles.resultsBlockMobile}>
                 <p className={styles.timeMobile}>{timeFormatted}</p>
                 <p className={styles.answersMobile}>
@@ -126,7 +126,7 @@ const QuizResults = ({
                   isTopTen ? styles.scoreLabelTopTen : styles.scoreLabel
                 }
               >
-                Your score:
+                Your result:
               </p>
               <div className={styles.scoreInfo}>
                 <p className={styles.time}>{timeFormatted}</p>

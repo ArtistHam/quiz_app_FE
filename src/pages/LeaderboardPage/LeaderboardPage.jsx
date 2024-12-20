@@ -39,7 +39,7 @@ const LeaderboardPage = () => {
   if (isMobile && !scores) {
     return (
       <>
-        <Header />
+        <Header alignment="center" />
         <div className={styles.containerMobile}>
           <h1 className={styles.titleMobile}>Highscores</h1>
           <p className={styles.loadingTextMobile}>Loading...</p>
@@ -48,11 +48,10 @@ const LeaderboardPage = () => {
     );
   }
 
-  // Mobile
   if (isMobile && scores) {
     return (
       <>
-        <Header />
+        <Header alignment="center" />
         <div className={styles.containerMobile}>
           <h1 className={styles.titleMobile}>Highscores</h1>
           <div className={styles.tableContainerMobile}>
@@ -102,7 +101,7 @@ const LeaderboardPage = () => {
   if (!scores) {
     return (
       <>
-        <Header />
+        <Header alignment="center" />
         <div className={styles.container}>
           <h1 className={styles.title}>Highscores</h1>
           <p>Loading...</p>
@@ -111,10 +110,9 @@ const LeaderboardPage = () => {
     );
   }
 
-  // Desktop
   return (
     <>
-      <Header />
+      <Header alignment="center" />
       <div className={styles.container}>
         <div className={styles.gradientOverlay}></div>
         <h1 className={styles.title}>Highscores</h1>

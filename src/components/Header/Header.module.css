@@ -3,13 +3,33 @@
   top: 0;
   width: 100%;
   height: 72px;
-  display: flex;
-  align-items: center;
   z-index: 4;
-
   background: rgba(217, 217, 217, 0.05);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerInner {
+  max-width: 88rem;
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.center {
+  justify-content: center;
+}
+
+.right {
+  justify-content: flex-end;
 }
 
 .logoContainer {
@@ -31,11 +51,10 @@
 }
 
 .resultsPage {
-  justify-content: end;
 }
 
-.resultsPage .logoContainer {
-  display: flex;
-  margin-right: 325px;
-  align-items: center;
+@media (max-width: 576px) {
+  .headerInner {
+    justify-content: center !important;
+  }
 }

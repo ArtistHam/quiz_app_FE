@@ -1,5 +1,5 @@
 .button {
-  width: 248px;
+  width: 208px;
   height: 58px;
   font-family: "Source Sans 3", sans-serif;
   cursor: pointer;
@@ -23,6 +23,7 @@
 }
 
 .secondary {
+  width: 251px;
   position: relative;
   background: transparent;
   backdrop-filter: blur(7.5px);

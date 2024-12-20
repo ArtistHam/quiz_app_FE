@@ -12,7 +12,6 @@ import { useIsMobile } from "../../utils/hooks/useIsMobile";
 import { useQuizTimer } from "../../utils/hooks/useQuizTimer";
 import { useQuestions } from "../../utils/hooks/useQuestions";
 import { submitScore, submitHighscore } from "../../utils/api";
-
 import dayjs from "dayjs";
 
 const MainQuizPage = () => {
@@ -79,7 +78,6 @@ const MainQuizPage = () => {
     const userIsReal = answer === "real";
     const isCorrect = currentFileObj.isReal === userIsReal;
 
-    // Сохраняем правильность ответа сразу
     setUserAnswers((prevAnswers) => [
       ...prevAnswers,
       {
@@ -177,11 +175,18 @@ const MainQuizPage = () => {
     setMobileStep("initial");
   };
 
+  let headerAlignment = "left";
+  if (quizMeta.isCompleted && quizMeta.finalScore !== null) {
+    headerAlignment = "right";
+  } else if (!showQuiz) {
+    headerAlignment = "left";
+  }
+
   if (!showQuiz) {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header />
+        <Header alignment={headerAlignment} />
         <StartScreen
           isMobile={isMobile}
           mobileStep={mobileStep}
@@ -196,7 +201,7 @@ const MainQuizPage = () => {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header />
+        <Header alignment={headerAlignment} />
         <LoadingScreen />
       </div>
     );
@@ -206,7 +211,7 @@ const MainQuizPage = () => {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header isResultsPage={true} />
+        <Header alignment={headerAlignment} isResultsPage={true} />
         <LoadingScreen />
       </div>
     );
@@ -216,7 +221,7 @@ const MainQuizPage = () => {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header isResultsPage={true} />
+        <Header alignment={headerAlignment} isResultsPage={true} />
         <QuizResults
           score={quizMeta.finalScore}
           timeTaken={quizMeta.finalTime}
@@ -252,7 +257,7 @@ const MainQuizPage = () => {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header />
+        <Header alignment={headerAlignment} />
         <MobileQuiz
           currentFile={currentFile}
           isVideo={isVideo}
@@ -268,7 +273,7 @@ const MainQuizPage = () => {
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.background}></div>
-      <Header />
+      <Header alignment={headerAlignment} />
       <DesktopQuiz
         currentFile={currentFile}
         isVideo={isVideo}

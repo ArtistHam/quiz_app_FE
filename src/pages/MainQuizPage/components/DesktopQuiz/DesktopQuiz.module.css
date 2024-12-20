@@ -31,19 +31,20 @@
   );
   min-height: 100vh;
   position: relative;
+  padding-top: 161px;
 }
 
 .centeredLeftColumn {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 29px;
 }
 
 .topSection {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 4.3rem;
+  /* margin-top: 4.3rem; */
 }
 
 .bottomSection {
@@ -58,7 +59,7 @@
   font-family: "Ubuntu";
   font-size: 4.25rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 35px;
   line-height: 4.8rem;
   color: rgba(240, 253, 255, 1);
   letter-spacing: 0.02em;
@@ -68,7 +69,7 @@
 .quizText {
   font-family: "Source Sans 3";
   font-weight: 300;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 1.75rem;
   margin-bottom: 2rem;
   max-width: 30rem;
@@ -117,7 +118,7 @@
   margin-bottom: 3.4rem;
   max-width: 10.75rem;
   color: rgba(240, 253, 255, 1);
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .totalTimeLabel {
@@ -134,7 +135,7 @@
 
 .questionCounter {
   font-family: "Source Sans 3";
-  font-weight: 300;
+  font-weight: 400;
   font-size: 48px;
   margin-bottom: 1rem;
 }
@@ -147,8 +148,8 @@
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   display: inline-block;
   margin: 0 4px;
