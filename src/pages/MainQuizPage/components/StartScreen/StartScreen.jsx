@@ -64,7 +64,7 @@ const StartScreen = ({
                   as="link"
                   to="/leaderboard"
                 >
-                  Highscore
+                  View highscores
                 </Button>
               </>
             )}
