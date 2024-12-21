@@ -22,13 +22,31 @@
   color: #023047;
 }
 
+.primary:hover {
+  background: rgba(254, 179, 6, 1);
+}
+
+.quiz-desktop {
+  background: #ff8300;
+  backdrop-filter: blur(7.5px);
+  font-size: 30px;
+  font-weight: 700;
+  color: #023047;
+  width: 248px;
+  height: 68px;
+}
+
+.quiz-desktop:hover {
+  background: rgba(254, 179, 6, 1);
+}
+
 .secondary {
   width: 251px;
   position: relative;
   background: transparent;
   backdrop-filter: blur(7.5px);
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 34.18px;
   border: none;
   padding: 10px 20px;
@@ -55,6 +73,10 @@
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   box-sizing: border-box;
+}
+
+.secondary:hover {
+  background: rgba(254, 179, 6, 1);
 }
 
 .submit-desktop {
@@ -122,4 +144,56 @@
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   box-sizing: border-box;
+}
+
+.quiz-next {
+  width: 266px;
+  height: 68px;
+  background: rgba(240, 253, 255, 1);
+  font-size: 30px;
+  font-weight: 700;
+  color: #023047;
+  transition: background-color 0.3s ease;
+  border: none;
+  z-index: 1;
+}
+
+.quiz-next:hover {
+  background: rgba(254, 179, 6, 1);
+}
+
+.quiz-mobile-next {
+  width: 327px;
+  height: 42px;
+  background: transparent;
+  font-family: "Ubuntu";
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 34px;
+  color: #f0fdff;
+  position: relative;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  backdrop-filter: blur(4px);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.quiz-mobile-next::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    112.74deg,
+    #f0fdff 26.75%,
+    rgba(2, 48, 71, 0) 115.6%
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.quiz-mobile-next:hover {
+  background: rgba(254, 179, 6, 0.2);
 }

@@ -21,7 +21,7 @@
 }
 
 .quizLeftColumn {
-  flex: 1;
+  flex: 0.86;
   display: flex;
   justify-content: center;
   background: linear-gradient(
@@ -34,17 +34,33 @@
   padding-top: 161px;
 }
 
+.blurredLeft {
+  position: relative;
+  filter: blur(4px);
+}
+
+.blurredLeft::before {
+  content: "";
+  position: absolute;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
 .centeredLeftColumn {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left: 29px;
+  padding-left: 99px;
 }
 
 .topSection {
   display: flex;
   flex-direction: column;
-  /* margin-top: 4.3rem; */
 }
 
 .bottomSection {
@@ -186,10 +202,11 @@
 .mediaFrame {
   border: 1px solid var(--color-light-grey);
   border-radius: 1.25rem;
-  padding: 2.35rem;
+  padding: 35px;
   padding-bottom: 0;
   position: relative;
-  margin-bottom: 4.5rem;
+  margin-bottom: 3.7rem;
+  transition: border-color 0.3s ease;
 }
 
 .media,
@@ -197,8 +214,8 @@
   width: 30rem;
   height: 35.5rem;
   object-fit: cover;
-  margin-bottom: 2rem;
   border-radius: 4px;
+  z-index: 1;
 }
 
 .questionTime {
@@ -211,6 +228,7 @@
   font-size: 20px;
   color: var(--color-light-grey);
   margin-bottom: 2.12rem;
+  margin-top: 30px;
 }
 
 .timerIcon {
@@ -220,7 +238,92 @@
 
 .answerButtons {
   display: flex;
-  gap: 3.625rem;
+  gap: 58px;
+}
+
+.blurred {
+  filter: blur(4px);
+}
+
+.blurred::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: 6;
+}
+
+.blurLeft {
+}
+
+.answerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 88%;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.blurBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(15px);
+  z-index: 1;
+}
+
+.answerContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 61px;
+}
+
+.answerStar {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.3s;
+}
+
+.answerText {
+  font-family: "Ubuntu";
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 34.47px;
+  color: #f0fdff;
+  text-align: center;
+  white-space: pre-line;
+}
+
+.timeHighlight {
+  color: rgba(255, 131, 0, 1) !important;
+}
+
+.quiz-next {
+  width: 266px;
+  height: 68px;
+  background: rgba(240, 253, 255, 1);
+  font-size: 30px;
+  font-weight: 700;
+  color: #023047;
+  transition: background-color 0.3s ease;
+}
+
+.quiz-next:hover {
+  background: rgba(254, 179, 6, 1);
 }
 
 @media (max-height: 1080px) {
@@ -530,4 +633,40 @@
     gap: 2.625rem;
     margin-bottom: 2.5rem;
   }
+}
+
+.mediaWrapper {
+  position: relative;
+  padding-bottom: 0;
+  position: relative;
+
+  transition: border-color 0.3s ease;
+}
+
+.mediaWrapper.blurred::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.blurredMedia {
+  filter: blur(4px);
+}
+
+.blurredMedia::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99%;
+  pointer-events: none;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.3); /* затемнение */
 }

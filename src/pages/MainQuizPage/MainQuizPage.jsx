@@ -12,6 +12,7 @@ import { useIsMobile } from "../../utils/hooks/useIsMobile";
 import { useQuizTimer } from "../../utils/hooks/useQuizTimer";
 import { useQuestions } from "../../utils/hooks/useQuestions";
 import { submitScore, submitHighscore } from "../../utils/api";
+
 import dayjs from "dayjs";
 
 const MainQuizPage = () => {
@@ -20,7 +21,13 @@ const MainQuizPage = () => {
   const [showQuiz, setShowQuiz] = useState(false);
   const { questions, setQuestions, loadQuestions } = useQuestions();
   const [currentQuestion, setCurrentQuestion] = useState(0);
+
   const [userAnswers, setUserAnswers] = useState([]);
+
+  const [currentAnswerState, setCurrentAnswerState] = useState({
+    answered: false,
+    isCorrect: false,
+  });
 
   const [quizMeta, setQuizMeta] = useState({
     startedAt: null,
@@ -53,7 +60,6 @@ const MainQuizPage = () => {
       handleStartQuiz();
     }
   };
-
   const handleMobileReady = () => {
     handleStartQuiz();
   };
@@ -74,18 +80,25 @@ const MainQuizPage = () => {
   };
 
   const handleAnswer = (answer) => {
+    if (currentAnswerState.answered) return;
+
     const currentFileObj = questions[currentQuestion];
     const userIsReal = answer === "real";
     const isCorrect = currentFileObj.isReal === userIsReal;
 
-    setUserAnswers((prevAnswers) => [
-      ...prevAnswers,
-      {
-        id: currentFileObj.id,
-        isReal: userIsReal,
-        correct: isCorrect,
-      },
+    setUserAnswers((prev) => [
+      ...prev,
+      { id: currentFileObj.id, isReal: userIsReal, correct: isCorrect },
     ]);
+
+    setCurrentAnswerState({
+      answered: true,
+      isCorrect,
+    });
+  };
+
+  const handleNext = () => {
+    setCurrentAnswerState({ answered: false, isCorrect: false });
 
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
@@ -161,6 +174,7 @@ const MainQuizPage = () => {
     setQuestions(null);
     setCurrentQuestion(0);
     setUserAnswers([]);
+    setCurrentAnswerState({ answered: false, isCorrect: false });
     setQuizMeta({
       startedAt: null,
       completedAt: null,
@@ -265,6 +279,8 @@ const MainQuizPage = () => {
           questionCount={questionCount}
           questionTimeSpent={questionTimeSpent}
           progressDots={progressDots}
+          currentAnswerState={currentAnswerState}
+          onNext={handleNext}
         />
       </div>
     );
@@ -282,6 +298,8 @@ const MainQuizPage = () => {
         questionTimeSpent={questionTimeSpent}
         questionCount={questionCount}
         progressDots={progressDots}
+        currentAnswerState={currentAnswerState}
+        onNext={handleNext}
       />
     </div>
   );
