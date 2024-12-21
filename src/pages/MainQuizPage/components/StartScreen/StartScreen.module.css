@@ -1,0 +1,315 @@
+.mainScreenContainer {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.mainLayout {
+  display: flex;
+  color: var(--color-light-grey);
+  max-width: 88rem;
+  width: 100%;
+  z-index: 2;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 50rem;
+  z-index: 1;
+}
+
+.starImage {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 50px;
+}
+
+.mainTitle {
+  font-family: "Ubuntu";
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 73.54px;
+  margin-bottom: 20px;
+}
+
+.infoText {
+  font-family: "Source Sans 3";
+  font-size: 1.25rem;
+  line-height: 1.8rem;
+  margin-bottom: 23px;
+  max-width: 39.2rem;
+  font-weight: 300;
+  color: rgba(240, 253, 255, 1);
+}
+
+.buttonsRow {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1.5rem;
+}
+
+.rightColumn {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+  flex: 1;
+  min-height: 100vh;
+}
+
+.manDecor {
+  position: absolute;
+  top: auto;
+  right: -14rem;
+  width: 56vw;
+  height: 99vh;
+  background: url("http://localhost:3000/images/man.png") no-repeat bottom right;
+  background-size: cover;
+  z-index: 1;
+}
+
+.buttonTextDecor {
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+  margin-left: 9px;
+}
+
+/* =========================
+ MEDIA QUERIES BEFORE QUIZ START
+========================= */
+@media (max-width: 1600px) {
+  .mainTitle {
+    font-size: 4.5rem;
+    line-height: 6.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .infoText {
+    font-size: 1rem;
+    line-height: 1.7rem;
+    margin-bottom: 1rem;
+    max-width: 27.2rem;
+  }
+
+  .starImage {
+    width: 8.5rem;
+    height: 8.3rem;
+    /* margin-top: 5rem; */
+    margin-bottom: 2rem;
+  }
+
+  .buttonsRow {
+    gap: 2.8rem;
+    margin-top: 1.3rem;
+  }
+
+  .greenGradient {
+    width: 64vw;
+    bottom: -40vh;
+    right: -1vw;
+  }
+
+  .orangeGradient {
+    width: 15vw;
+    height: auto;
+    top: 50vh;
+    left: -7vw;
+    filter: blur(22vw);
+  }
+
+  .greenGradient {
+    width: 70vw;
+    bottom: -30vh;
+    right: -1vw;
+  }
+}
+
+@media (min-height: 900px) {
+  .starImage {
+    /* margin-top: 157px; */
+  }
+}
+
+@media (max-width: 1200px) {
+  .mainTitle {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .infoText {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    margin-bottom: 4rem;
+  }
+
+  .starImage {
+    width: 10rem;
+    height: 10rem;
+    /* margin-top: 2rem; */
+    margin-bottom: 2rem;
+  }
+
+  .buttonsRow {
+    gap: 2.5rem;
+    margin-top: 1rem;
+  }
+
+  .greenGradient {
+    bottom: -22vh;
+    right: 1vw;
+  }
+}
+
+@media (max-width: 1080px) {
+  .mainLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1080px;
+  }
+
+  .starImage {
+    /* margin-top: 1rem; */
+    margin-bottom: -1rem;
+  }
+
+  .leftColumn {
+    max-width: 1080px;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .infoText {
+    max-width: 35.2rem;
+  }
+
+  .manDecor {
+    width: 100vh;
+    height: 100vh;
+    background-position: bottom right;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainLayout {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .leftColumn {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .starImage {
+    width: 13rem;
+    height: 13rem;
+    position: absolute;
+    top: -5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 0;
+    z-index: -1;
+  }
+
+  .mainTitle {
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    margin-top: 5.75rem;
+    margin-bottom: 3rem;
+    color: #ff8300;
+    max-width: 12rem;
+  }
+
+  .buttonsRow {
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .manDecor {
+    width: 500px;
+    height: 500px;
+    background-position: center;
+  }
+
+  .greenGradient {
+    position: absolute;
+    width: 80vw;
+    height: auto;
+    aspect-ratio: 1146 / 1398;
+    bottom: 0;
+    left: 10%;
+    z-index: -1;
+  }
+
+  .orangeGradient {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .mainLayout {
+    position: relative;
+    margin-top: 0;
+  }
+
+  .leftColumn {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .starImage {
+    width: 51px;
+    height: 52px;
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 0;
+    z-index: -1;
+  }
+
+  .mainTitle {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 3rem;
+    margin-bottom: 48px;
+    margin-top: 100px;
+    color: rgba(240, 253, 255, 1);
+    max-width: 12rem;
+  }
+
+  .infoText {
+    font-weight: 300;
+    max-width: 206px;
+  }
+
+  .buttonsRow {
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .manDecor {
+    width: 300px;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+  }
+}
