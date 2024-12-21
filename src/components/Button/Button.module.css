@@ -26,6 +26,20 @@
   background: rgba(254, 179, 6, 1);
 }
 
+.primary-results {
+  width: 246px;
+  height: 58px;
+  background: #ff8300;
+  font-family: "Source Sans 3";
+  font-size: 26px;
+  font-weight: 400;
+  color: #023047;
+}
+
+.primary-results:hover {
+  background: rgba(254, 179, 6, 1);
+}
+
 .quiz-desktop {
   background: #ff8300;
   backdrop-filter: blur(7.5px);
@@ -77,6 +91,7 @@
 
 .secondary:hover {
   background: rgba(254, 179, 6, 1);
+  color: rgba(2, 48, 71, 1);
 }
 
 .submit-desktop {
@@ -91,6 +106,14 @@
   border-radius: 10px;
   font-weight: 700;
   font-size: 20px;
+}
+
+.submit-desktop:hover {
+  background: linear-gradient(
+    145.15deg,
+    rgba(240, 253, 255, 0.7) 12.15%,
+    rgba(240, 253, 255, 0.14) 89.04%
+  );
 }
 
 .mobile-primary {

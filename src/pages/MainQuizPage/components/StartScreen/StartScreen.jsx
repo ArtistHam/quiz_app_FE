@@ -78,7 +78,6 @@ const StartScreen = ({
 
         {(!isMobile || (isMobile && mobileStep === "initial")) && (
           <div className={styles.rightColumn}>
-            {/* Добавляем отдельный div для man */}
             <div className={styles.manDecor}></div>
           </div>
         )}

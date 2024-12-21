@@ -33,7 +33,6 @@ export const fetchHighscores = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/highscore`);
     return response.data.scores;
-    // scores: [{ nickname: "Artist", time: "120", score: "10" }, ...]
   } catch (error) {
     console.error(
       "Error fetching highscores:",
@@ -44,7 +43,6 @@ export const fetchHighscores = async () => {
 };
 
 export const submitHighscore = async (data) => {
-  // data: { name, time, results: [...] }
   try {
     const response = await axios.post(`${BASE_URL}/highscore`, data);
     return response.data;

@@ -49,11 +49,11 @@
 .glassContainer {
   position: relative;
   width: 1020px;
-  height: 634px;
+  height: 655px;
   background: linear-gradient(
     256.88deg,
-    rgba(205, 254, 92, 0.2) -7.71%,
-    rgba(30, 115, 132, 0.2) 65.69%
+    rgba(205, 254, 92, 0.2) -35.71%,
+    rgba(30, 115, 132, 0.2) 40.69%
   );
 
   backdrop-filter: blur(7.5px);
@@ -69,8 +69,8 @@
 .star {
   position: absolute;
   width: 294.73px;
-  height: 294.73px;
-  top: -3.5rem;
+  height: 334.79px;
+  top: -5rem;
   right: -3rem;
   background: url("http://localhost:3000/images/decorativeStar2.png") no-repeat
     center center;
@@ -94,16 +94,15 @@
   width: 1140.81px;
   height: 1189.05px;
   background: radial-gradient(
-    42.31% 42.63% at 53.97% 50.15%,
-    rgba(254, 179, 6, 0.5) 0%,
-    rgba(54, 30, 181, 0) 100%
+    41.31% 38.63% at 53.97% 43.15%,
+    rgba(251, 183, 6, 0.7) 7%,
+    rgba(59, 36, 183, 0) 102%
   );
 
   z-index: 1;
 }
 
 .scoreBlock {
-  margin-bottom: 2rem;
   font-weight: 400;
   font-size: 48px;
 }
@@ -368,4 +367,120 @@
     gap: 20px;
     margin-top: 20px;
   }
+}
+
+.mainPanel {
+}
+
+.learnMoreBlock {
+  max-width: 700px;
+  margin-bottom: 2rem;
+}
+
+.panelTitle {
+  font-family: "Source Sans 3";
+  font-size: 48px;
+  font-weight: 400;
+}
+
+.panelText {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.panelTextGeneral {
+  margin-left: 58px;
+  margin-top: 73px;
+  max-width: 566px;
+  margin-bottom: 111px;
+}
+
+.resultBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.resultStats {
+  display: flex;
+  flex-direction: column;
+  font-family: "Source Sans 3";
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  font-size: 32px;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.resultsCounter {
+  font-size: 64px;
+  line-height: 0.8;
+}
+
+.resultTime {
+  font-size: 32px;
+  font-weight: 300;
+  margin-top: -10px;
+}
+
+.resultScore {
+  font-size: 32px;
+}
+
+.resultScore span {
+  font-style: italic;
+}
+
+.tryAgainBlock {
+  margin-top: 1.5rem;
+}
+
+.panelArrows {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 58px;
+  margin-left: 58px;
+}
+
+.arrowButton {
+  width: 40px;
+  height: 40px;
+}
+
+.buttonsRowBottom {
+  display: flex;
+  gap: 36px;
+  margin-left: 58px;
+}
+
+.submitHighscoreBlock {
+  display: flex;
+
+  align-items: center;
+  gap: 29px;
+}
+
+.marginResultBlock {
+  padding-left: 47px;
+}
+.centralBlock {
+  display: flex;
+  flex-direction: column;
+  margin-top: 38px;
+}
+
+.resultsBlockMargin {
+  font-family: "Source Sans 3";
+  font-weight: 300;
+  margin-top: 80px;
+}
+.panelTextMargin {
+  margin-top: 20px;
+}
+
+.resultScoreMargin {
+  margin-bottom: 55px;
 }

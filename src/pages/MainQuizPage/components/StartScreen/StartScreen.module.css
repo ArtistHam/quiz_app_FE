@@ -189,8 +189,8 @@
   }
 
   .manDecor {
-    width: 800px;
-    height: 800px;
+    width: 100vh;
+    height: 100vh;
     background-position: bottom right;
   }
 }

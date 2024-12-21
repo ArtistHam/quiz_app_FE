@@ -46,6 +46,7 @@ const MainQuizPage = () => {
   const { totalTimeSpent, questionTimeSpent, setQuestionTimeSpent } =
     useQuizTimer(quizMeta, showQuiz, questionStartTime);
 
+  // Смотрим, есть ли ?start=1 в URL — тогда сразу начать квиз
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("start") === "1") {
@@ -60,6 +61,7 @@ const MainQuizPage = () => {
       handleStartQuiz();
     }
   };
+
   const handleMobileReady = () => {
     handleStartQuiz();
   };
@@ -196,11 +198,18 @@ const MainQuizPage = () => {
     headerAlignment = "left";
   }
 
+  const inQuizOrResults = showQuiz || quizMeta.isCompleted;
+  const onLogoClick = inQuizOrResults
+    ? () => {
+        resetQuiz();
+      }
+    : null;
+
   if (!showQuiz) {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header alignment={headerAlignment} />
+        <Header alignment={headerAlignment} onLogoClick={onLogoClick} />
         <StartScreen
           isMobile={isMobile}
           mobileStep={mobileStep}
@@ -215,7 +224,7 @@ const MainQuizPage = () => {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header alignment={headerAlignment} />
+        <Header alignment={headerAlignment} onLogoClick={onLogoClick} />
         <LoadingScreen />
       </div>
     );
@@ -225,7 +234,11 @@ const MainQuizPage = () => {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header alignment={headerAlignment} isResultsPage={true} />
+        <Header
+          alignment={headerAlignment}
+          isResultsPage={true}
+          onLogoClick={onLogoClick}
+        />
         <LoadingScreen />
       </div>
     );
@@ -235,7 +248,11 @@ const MainQuizPage = () => {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header alignment={headerAlignment} isResultsPage={true} />
+        <Header
+          alignment={headerAlignment}
+          isResultsPage={true}
+          onLogoClick={onLogoClick}
+        />
         <QuizResults
           score={quizMeta.finalScore}
           timeTaken={quizMeta.finalTime}
@@ -271,7 +288,7 @@ const MainQuizPage = () => {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header alignment={headerAlignment} />
+        <Header alignment={headerAlignment} onLogoClick={onLogoClick} />
         <MobileQuiz
           currentFile={currentFile}
           isVideo={isVideo}
@@ -289,7 +306,7 @@ const MainQuizPage = () => {
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.background}></div>
-      <Header alignment={headerAlignment} />
+      <Header alignment={headerAlignment} onLogoClick={onLogoClick} />
       <DesktopQuiz
         currentFile={currentFile}
         isVideo={isVideo}

@@ -41,7 +41,7 @@ const LeaderboardPage = () => {
       <>
         <Header alignment="center" />
         <div className={styles.containerMobile}>
-          <h1 className={styles.titleMobile}>Highscores</h1>
+          <h1 className={styles.titleMobile}>Highscore list</h1>
           <p className={styles.loadingTextMobile}>Loading...</p>
         </div>
       </>
@@ -53,7 +53,7 @@ const LeaderboardPage = () => {
       <>
         <Header alignment="center" />
         <div className={styles.containerMobile}>
-          <h1 className={styles.titleMobile}>Highscores</h1>
+          <h1 className={styles.titleMobile}>Highscore list</h1>
           <div className={styles.tableContainerMobile}>
             <table className={styles.tableMobile}>
               <thead>
@@ -103,7 +103,7 @@ const LeaderboardPage = () => {
       <>
         <Header alignment="center" />
         <div className={styles.container}>
-          <h1 className={styles.title}>Highscores</h1>
+          <h1 className={styles.title}>Highscore list</h1>
           <p>Loading...</p>
         </div>
       </>
@@ -115,12 +115,16 @@ const LeaderboardPage = () => {
       <Header alignment="center" />
       <div className={styles.container}>
         <div className={styles.gradientOverlay}></div>
-        <h1 className={styles.title}>Highscores</h1>
+        <h1 className={styles.title}>Highscore list</h1>
         <div className={styles.tableContainer}>
           <table className={styles.table}>
             <thead>
               <tr>
-                <th className={styles.tableHeader}>Name</th>
+                <th
+                  className={`${styles.tableHeader} ${styles.tableHeaderName}`}
+                >
+                  Name
+                </th>
                 <th className={styles.tableHeader}>Time</th>
                 <th className={styles.tableHeader}>Score</th>
               </tr>
@@ -139,11 +143,15 @@ const LeaderboardPage = () => {
           </table>
         </div>
         <div className={styles.buttonsRow}>
-          <Button variant="primary" as="link" to="/?start=1">
-            Take quiz »
+          <Button
+            variant="primary-results"
+            as="link"
+            to="https://www.iproov.com/"
+          >
+            Learn more <span className={styles.buttonTextDecor}> &raquo;</span>
           </Button>
-          <Button variant="secondary" onClick={() => window.history.back()}>
-            Close
+          <Button variant="secondary" as="link" to="/?start=1">
+            Try yourself
           </Button>
         </div>
       </div>
