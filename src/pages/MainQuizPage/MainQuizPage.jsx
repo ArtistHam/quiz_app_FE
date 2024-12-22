@@ -40,13 +40,16 @@ const MainQuizPage = () => {
 
   const [userName, setUserName] = useState("");
   const [submitting, setSubmitting] = useState(false);
+
+  // Мобильные шаги: "initial" → "info1" → "info2"
   const [mobileStep, setMobileStep] = useState("initial");
+
   const [questionStartTime, setQuestionStartTime] = useState(null);
 
   const { totalTimeSpent, questionTimeSpent, setQuestionTimeSpent } =
     useQuizTimer(quizMeta, showQuiz, questionStartTime);
 
-  // Смотрим, есть ли ?start=1 в URL — тогда сразу начать квиз
+  // Если в URL есть ?start=1 — сразу начинаем квиз
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("start") === "1") {
@@ -54,18 +57,33 @@ const MainQuizPage = () => {
     }
   }, []);
 
-  const handleMobileTakeQuiz = () => {
-    if (isMobile && mobileStep === "initial") {
-      setMobileStep("info");
-    } else {
-      handleStartQuiz();
+  /**
+   * Этот метод вызывается из StartScreen, когда пользователь нажимает "Start quiz"
+   * (на мобильном) или "Start quiz" (на десктопе).
+   * В мобильном случае мы просто переводим на нужный шаг,
+   * в десктопном — запускаем сам квиз.
+   */
+  const handleMobileTakeQuiz = (step) => {
+    if (!isMobile) {
+      // Десктоп
+      if (step === "startDesktop") {
+        handleStartQuiz();
+      }
+      return;
+    }
+
+    // Мобильная логика
+    if (step === "info1" || step === "info2") {
+      setMobileStep(step);
     }
   };
 
+  // Когда пользователь на шаге "info2" (Real or fake?) нажимает "I’m ready!"
   const handleMobileReady = () => {
     handleStartQuiz();
   };
 
+  // Стартуем квиз: грузим вопросы, показываем экран квиза
   const handleStartQuiz = async () => {
     setShowQuiz(true);
     await loadQuestions(setQuizMeta, setQuestionStartTime);
@@ -115,6 +133,7 @@ const MainQuizPage = () => {
     }
   };
 
+  // Когда последний вопрос отвечен и квиз завершён — отправляем "сырые" результаты на сервер
   useEffect(() => {
     const fetchFinalResults = async () => {
       if (
@@ -150,6 +169,7 @@ const MainQuizPage = () => {
     fetchFinalResults();
   }, [quizMeta.isCompleted, quizMeta.finalScore, totalTimeSpent, userAnswers]);
 
+  // Отправить рекорд в таблицу лидеров
   const handleSubmitHighscore = async () => {
     setSubmitting(true);
     const requestData = {
@@ -171,6 +191,7 @@ const MainQuizPage = () => {
     }
   };
 
+  // Сброс квиза (для кнопки Try again, либо при клике на логотип)
   const resetQuiz = () => {
     setShowQuiz(false);
     setQuestions(null);
@@ -188,9 +209,12 @@ const MainQuizPage = () => {
     setUserName("");
     setQuestionStartTime(null);
     setQuestionTimeSpent(0);
+
+    // Возвращаем мобильную логику в начальное состояние
     setMobileStep("initial");
   };
 
+  // Логика выравнивания заголовка/лого в Header
   let headerAlignment = "left";
   if (quizMeta.isCompleted && quizMeta.finalScore !== null) {
     headerAlignment = "right";
@@ -198,6 +222,7 @@ const MainQuizPage = () => {
     headerAlignment = "left";
   }
 
+  // Клик по логотипу, если мы уже в квизе или в результатах
   const inQuizOrResults = showQuiz || quizMeta.isCompleted;
   const onLogoClick = inQuizOrResults
     ? () => {
@@ -205,6 +230,7 @@ const MainQuizPage = () => {
       }
     : null;
 
+  // === 1) Ещё не начали квиз (Start screen) ===
   if (!showQuiz) {
     return (
       <div className={styles.pageWrapper}>
@@ -220,6 +246,7 @@ const MainQuizPage = () => {
     );
   }
 
+  // === 2) Загружаем вопросы... (Loading screen) ===
   if (questions === null) {
     return (
       <div className={styles.pageWrapper}>
@@ -230,6 +257,7 @@ const MainQuizPage = () => {
     );
   }
 
+  // === 3) Квиз завершён, но финальный счёт ещё не получен (ждём сервер) ===
   if (quizMeta.isCompleted && quizMeta.finalScore === null) {
     return (
       <div className={styles.pageWrapper}>
@@ -244,6 +272,7 @@ const MainQuizPage = () => {
     );
   }
 
+  // === 4) Квиз завершён и мы уже знаем финальный счёт (Results screen) ===
   if (quizMeta.isCompleted && quizMeta.finalScore !== null) {
     return (
       <div className={styles.pageWrapper}>
@@ -268,12 +297,14 @@ const MainQuizPage = () => {
     );
   }
 
+  // === 5) Иначе показываем сам квиз (Mobile или Desktop) ===
   const totalQuestions = 10;
   const currentFile = questions[currentQuestion];
   const extension = currentFile.url.split(".").pop().toLowerCase();
   const isVideo = ["mp4", "mov"].includes(extension);
   const questionCount = `${currentQuestion + 1}/${totalQuestions}`;
 
+  // Для отображения "прогресса" точками (правильный/неправильный/текущий)
   const progressDots = Array.from({ length: totalQuestions }, (_, i) => {
     if (i < userAnswers.length) {
       return userAnswers[i].correct ? "correct" : "incorrect";
@@ -284,6 +315,7 @@ const MainQuizPage = () => {
     }
   });
 
+  // Мобильная версия
   if (isMobile) {
     return (
       <div className={styles.pageWrapper}>
@@ -303,6 +335,7 @@ const MainQuizPage = () => {
     );
   }
 
+  // Десктопная версия
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.background}></div>

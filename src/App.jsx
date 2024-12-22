@@ -2,6 +2,7 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 
 import LeaderboardPage from "./pages/LeaderboardPage/LeaderboardPage";
 import MainQuizPage from "./pages/MainQuizPage/MainQuizPage";
+import StatisticPage from "./pages/StaticsticPage/StatisticPage";
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<MainQuizPage />} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
+        <Route path="/statistic" element={<StatisticPage />} />
       </Routes>
     </BrowserRouter>
   );

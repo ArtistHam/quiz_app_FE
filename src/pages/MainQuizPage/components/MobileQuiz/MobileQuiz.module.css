@@ -5,19 +5,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+
   overflow: hidden;
+  margin-top: 90px;
 }
 
 .mobileMediaFrame {
-  width: 327px;
   border: 1px solid var(--color-light-grey);
   border-radius: 20px;
-  padding: 1rem;
+  padding: 24px;
   position: relative;
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.05);
   transition: border-color 0.3s ease;
 }
 
@@ -25,9 +24,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  color: var(--color-light-grey);
+  font-family: "Source Sans 3";
+  font-size: 20px;
+  font-weight: 300;
 }
 
 .timerIcon {
@@ -36,24 +35,25 @@
 }
 
 .mobileQuestionCounter {
-  font-size: 1rem;
-  color: var(--color-light-grey);
+  align-self: flex-start;
+  color: rgba(240, 253, 255, 1);
 }
 
 .media,
 .image {
-  height: 35.5rem;
   object-fit: cover;
-  margin-bottom: 2rem;
+  margin-bottom: 24px;
   border-radius: 8px;
   transition: filter 0.3s;
+  width: 279px;
+  height: 493px;
 }
 
 .answerButtonsMobile {
   display: flex;
-  gap: 1.25rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  gap: 29px;
+  margin-top: 42px;
+  margin-bottom: 42px;
 }
 
 .mobileBlurBlock {
@@ -70,28 +70,32 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 45px;
+  padding: 18px 26px;
   z-index: 3;
 }
 
 .mobileBlurQuestionCounter {
-  font-size: 1.2rem;
-  color: var(--color-light-grey);
+  font-family: "Source Sans 3";
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1;
+  align-self: flex-start;
+  margin-bottom: 10px;
+  color: rgba(240, 253, 255, 1);
 }
 
 .mobileProgressDots {
   display: flex;
-  gap: 0.3rem;
+  gap: 17.33px;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   display: inline-block;
-  margin: 0 4px;
 }
 
 .dotCorrect {
@@ -184,7 +188,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+
   position: relative;
   margin-bottom: 2rem;
   z-index: 3;

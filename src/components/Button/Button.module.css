@@ -185,33 +185,44 @@
   background: rgba(254, 179, 6, 1);
 }
 
+.quiz-mobile {
+  font-family: Source Sans 3;
+  font-weight: 500;
+  font-size: 18px;
+  color: rgba(2, 48, 71, 1);
+  width: 149px;
+  height: 42px;
+  background-color: rgba(255, 131, 0, 1);
+}
+
 .quiz-mobile-next {
   width: 327px;
   height: 42px;
   background: transparent;
-  font-family: "Ubuntu";
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 34px;
-  color: #f0fdff;
+  font-family: "Source Sans 3";
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(240, 253, 255, 1);
   position: relative;
   border: none;
   cursor: pointer;
   text-align: center;
   transition: background-color 0.3s ease;
-  backdrop-filter: blur(4px);
-  border-radius: 4px;
   overflow: hidden;
 }
 
 .quiz-mobile-next::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1px;
   background: linear-gradient(
-    112.74deg,
+    150.74deg,
     #f0fdff 26.75%,
-    rgba(2, 48, 71, 0) 115.6%
+    rgba(2, 48, 71, 0) 106.6%
   );
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;

@@ -484,3 +484,38 @@
 .resultScoreMargin {
   margin-bottom: 55px;
 }
+
+/* ==== Only for mobile version “slides” inside glassContainerMobile ==== */
+.mobilePanelsWrapper {
+  margin-top: 40px;
+  /* Расстояние под текстом */
+}
+
+.panelTitleMobile {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.panelTextMobile {
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.mobileArrowsRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.mobileArrow {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}

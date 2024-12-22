@@ -54,7 +54,15 @@
 }
 
 @media (max-width: 576px) {
+  .header {
+    height: 58px;
+  }
+
   .headerInner {
     justify-content: center !important;
+  }
+
+  .appName {
+    font-size: 14px;
   }
 }

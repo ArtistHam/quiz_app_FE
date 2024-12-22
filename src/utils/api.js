@@ -15,6 +15,20 @@ export const fetchQuestions = async () => {
   }
 };
 
+export const fetchStatistic = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/statistic`);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error fetching statistic:"
+      // error.response ? error.response.data : error.message
+    );
+    throw error;
+  }
+};
+
 export const submitScore = async (resultData) => {
   try {
     const response = await axios.post(`${BASE_URL}/finish_quiz`, resultData);
