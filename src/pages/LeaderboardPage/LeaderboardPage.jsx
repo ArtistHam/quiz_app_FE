@@ -81,18 +81,29 @@ const LeaderboardPage = () => {
             </table>
           </div>
           <img
-            src="/images/decorativeStar.png"
+            src="/images/decorativeStar.svg"
             alt="Star"
             className={styles.starImageMobile}
           />
           <div className={styles.leaderboardButtonsColumnMobile}>
-            <Button variant="primary" as="link" to="/?start=1">
-              Take quiz »
+            <Button
+              variant="highscore-mobile-primary"
+              as="link"
+              to="https://www.iproov.com/"
+            >
+              Learn more
+              <span className={styles.buttonTextDecor}> &raquo;</span>
             </Button>
-            <Button variant="secondary" onClick={() => window.history.back()}>
-              Close
+            <Button
+              variant="highscore-mobile-secondary"
+              as="link"
+              to="/?start=1"
+            >
+              Try yourself
             </Button>
           </div>
+          <div className={styles.gradientDecorMobile}></div>
+          <div className={styles.gradientDecorMobileBottom}></div>
         </div>
       </>
     );

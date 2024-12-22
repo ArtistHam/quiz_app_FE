@@ -99,7 +99,6 @@
   .starImage {
     width: 8.5rem;
     height: 8.3rem;
-    /* margin-top: 5rem; */
     margin-bottom: 2rem;
   }
 
@@ -131,7 +130,6 @@
 
 @media (min-height: 900px) {
   .starImage {
-    /* margin-top: 157px; */
   }
 }
 
@@ -150,7 +148,6 @@
   .starImage {
     width: 10rem;
     height: 10rem;
-    /* margin-top: 2rem; */
     margin-bottom: 2rem;
   }
 
@@ -174,7 +171,6 @@
   }
 
   .starImage {
-    /* margin-top: 1rem; */
     margin-bottom: -1rem;
   }
 
@@ -280,16 +276,6 @@
     height: 52px;
   }
 
-  /* .mainTitle {
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 3rem;
-    margin-bottom: 48px;
-    margin-top: 35px;
-    color: rgba(240, 253, 255, 1);
-    max-width: 12rem;
-  } */
-
   .infoText {
     font-weight: 200;
     max-width: 283px;
@@ -342,11 +328,10 @@
 }
 
 .infoStepContainer {
-  position: relative; /* Для абсолютного позиционирования градиентов */
-  padding: 0 1rem; /* Добавляем отступы для внутреннего содержимого */
+  position: relative;
+  padding: 0 1rem;
 }
 
-/* Вертикальный градиент для info1 */
 .verticalGradient {
   position: absolute;
   top: 271px;
@@ -362,7 +347,6 @@
   transform: rotate(0.5turn);
 }
 
-/* Радиальный градиент для info2 */
 .radialGradient {
   position: absolute;
   top: 544px;
@@ -371,9 +355,9 @@
   width: 300px;
   height: 300px;
   background: radial-gradient(
-    49.87% 62.87% at 48.7% 52.05%,
-    rgba(111, 145, 113, 0.21) 13%,
-    rgba(69, 84, 116, 0) 100%
+    49.87% 51.87% at 48.7% 62.05%,
+    rgba(111, 145, 113, 0.21) 14%,
+    rgba(-1, 84, 116, 0) 75%
   );
   pointer-events: none;
   overflow: visible;

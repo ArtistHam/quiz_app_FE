@@ -49,7 +49,7 @@
   text-align: center;
   font-size: 24px;
   font-style: italic;
-  padding-bottom: 1rem;
+  padding-bottom: 33px;
   font-weight: 300;
   letter-spacing: -0.04em;
 }
@@ -102,15 +102,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 40px;
+  padding-top: 83px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .titleMobile {
   font-size: 30px;
   font-weight: 500;
   line-height: 34px;
-  margin-bottom: 24px;
+  margin-bottom: 68px;
 }
 
 .loadingTextMobile {
@@ -122,17 +123,17 @@
   width: 327px;
   height: 358px;
   background: linear-gradient(
-    157deg,
-    rgba(180, 227, 194, 0.3) -2.95%,
-    rgba(2, 48, 71, 0) 110.43%
+    153.55deg,
+    rgba(205, 254, 92, 0.15) 4.67%,
+    rgba(2, 48, 71, 0) 126.81%
   );
-  backdrop-filter: blur(7.5px);
+
   border-radius: 20px;
-  padding: 20px;
+  padding: 26px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin-bottom: 24px;
+  margin-bottom: 33px;
   overflow: auto;
 }
 
@@ -145,9 +146,10 @@
 
 .tableHeaderMobile {
   text-align: center;
-  font-size: 16px;
-  padding-bottom: 1rem;
-  font-weight: 400;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 300;
+  padding-bottom: 18px;
 }
 
 .tableCellNickNameMobile,
@@ -155,23 +157,32 @@
 .tableCellScoreMobile {
   font-size: 14px;
   text-align: center;
-  padding: 8px;
+  font-weight: 400;
+}
+
+.tableCellTimeMobile {
+  font-family: "Ubuntu Sans";
+  font-size: 14px;
+  font-weight: 100;
 }
 
 .tableCellNickNameMobile {
+  font-family: "Ubuntu Sans";
+  font-size: 14px;
+  font-weight: 500;
   text-align: start;
 }
 
 .starImageMobile {
-  width: 72px;
-  height: 71px;
-  margin-bottom: 24px;
+  width: 51px;
+  height: 52px;
+  margin-bottom: 40px;
 }
 
 .leaderboardButtonsColumnMobile {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 27px;
   margin-bottom: 40px;
 }
 
@@ -195,4 +206,30 @@
   color: inherit;
   line-height: inherit;
   margin-left: 9px;
+}
+
+.gradientDecorMobile {
+  position: absolute;
+  top: 124px;
+  left: 48%;
+  width: 14px;
+  height: 55px;
+  background: radial-gradient(
+    58.87% 47.87% at 52.7% 47.05%,
+    rgba(111, 145, 113, 0.21) 0%,
+    rgba(69, 84, 116, 0) 108%
+  );
+}
+
+.gradientDecorMobileBottom {
+  position: absolute;
+  top: 75%;
+  left: 68%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    42.31% 42.63% at 53.97% 50.15%,
+    rgba(28, 244, 240, 0.2) 0%,
+    rgba(54, 30, 181, 0) 100%
+  );
 }

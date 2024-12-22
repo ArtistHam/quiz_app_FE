@@ -1,36 +1,13 @@
-/* quiz_app_FE/src/pages/MainQuizPage/components/StartScreen/StartScreen.jsx */
 import React from "react";
 import Button from "../../../../components/Button/Button";
 import * as styles from "./StartScreen.module.css";
 
-/**
- * Логика для мобильной версии (mobileStep):
- *
- *  - "initial":
- *      показываем заголовок "Can you spot a deepfake?" + 2 кнопки (Start quiz, View highscores) + декор man
- *      при клике на "Start quiz" => переходим к step="info1"
- *
- *  - "info1":
- *      показываем тот же заголовок "Can you spot a deepfake?" + блок о том, как deepfake опасны
- *      (As criminals get better...) + кнопка "Start quiz"
- *      при клике => переходим к step="info2"
- *
- *  - "info2":
- *      заголовок "Real or fake?" + описание, + кнопка "I’m ready!"
- *      при клике => handleMobileReady() (начинаем квиз)
- *
- * Для desktop (isMobile = false) всё осталось как раньше:
- *   показываем "Can You Spot A Deepfake?" + абзац текста + 2 кнопки (Start quiz, View highscores)
- *   при клике "Start quiz" => handleMobileTakeQuiz("startDesktop") => переходим к самому квизу.
- */
-
 const StartScreen = ({
   isMobile,
   mobileStep,
-  handleMobileTakeQuiz, // Функция, меняющая mobileStep (на "info1", "info2") или начинающая квиз в desktop
-  handleMobileReady, // Функция, реально запускающая квиз, если mobileStep === "info2"
+  handleMobileTakeQuiz,
+  handleMobileReady,
 }) => {
-  // Блок контента для шага info1 (мобильного)
   const InfoStep1 = () => (
     <>
       <div className={styles.verticalGradient}></div>
@@ -61,7 +38,6 @@ const StartScreen = ({
     </>
   );
 
-  // Блок контента для шага info2 (мобильного)
   const InfoStep2 = () => (
     <>
       <div className={styles.verticalGradient}></div>
@@ -95,14 +71,12 @@ const StartScreen = ({
     <div className={styles.mainScreenContainer}>
       <div className={styles.mainLayout}>
         <div className={styles.leftColumn}>
-          {/* Общая звёздочка для всех */}
           <img
             src="/images/decorativeStar.svg"
             alt="Star"
             className={styles.starImage}
           />
 
-          {/* ===== DESKTOP логика ===== */}
           {!isMobile && (
             <>
               <h1 className={styles.mainTitle}>Can You Spot A Deepfake?</h1>
@@ -129,7 +103,6 @@ const StartScreen = ({
             </>
           )}
 
-          {/* ===== MOBILE логика ===== */}
           {isMobile && mobileStep === "initial" && (
             <>
               <h1 className={styles.mainTitleMobile}>
@@ -154,8 +127,6 @@ const StartScreen = ({
           {isMobile && mobileStep === "info2" && <InfoStep2 />}
         </div>
 
-        {/* Правая колонка (manDecor)
-            Показываем, если desktop ИЛИ если mobileStep===initial (в мобильном) */}
         {(!isMobile || (isMobile && mobileStep === "initial")) && (
           <div className={styles.rightColumn}>
             <div className={styles.manDecor}></div>

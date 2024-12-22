@@ -39,7 +39,7 @@
 }
 
 .logo {
-  width: 23px;
+  width: 26px;
   height: 23px;
   margin-right: 16px;
 }
@@ -64,5 +64,9 @@
 
   .appName {
     font-size: 14px;
+  }
+
+  .logo {
+    margin-right: 10px;
   }
 }

@@ -129,6 +129,7 @@ const MobileQuiz = ({
           ))}
         </div>
       </div>
+      <div className={styles.bottomRightGradient}></div>
     </div>
   );
 };

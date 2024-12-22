@@ -124,7 +124,7 @@
 
 .answerOverlay {
   position: absolute;
-  top: 0;
+  top: -67px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -151,19 +151,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 40px;
 }
 
 .answerStar {
-  width: 80px;
-  height: 80px;
+  width: 131px;
+  height: 144px;
   transition: transform 0.3s;
 }
 
 .answerText {
+  max-width: 258px;
   font-family: "Ubuntu";
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.1;
   text-align: center;
   color: #f0fdff;
@@ -178,11 +179,10 @@
   width: 327px;
   height: 82px;
   background: linear-gradient(
-    142.99deg,
-    rgba(163, 221, 233, 0.2) 14.13%,
-    rgba(2, 48, 71, 0.2) 105.19%
+    156.99deg,
+    rgba(163, 221, 233, 0.2) 5.13%,
+    rgba(2, 48, 71, 0.2) 95.19%
   );
-  backdrop-filter: blur(7.5px);
   border-radius: 16px;
   display: flex;
   flex-direction: column;
@@ -192,4 +192,18 @@
   position: relative;
   margin-bottom: 2rem;
   z-index: 3;
+}
+
+.bottomRightGradient {
+  position: absolute;
+  top: 79%;
+  left: 71%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    45.31% 42.63% at 53.97% 54.15%,
+    rgba(152, 235, 184, 0.4) -21%,
+    rgba(14, 95, 118, 0) 100%
+  );
+  z-index: 1;
 }
