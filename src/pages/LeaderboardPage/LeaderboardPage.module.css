@@ -233,3 +233,64 @@
     rgba(54, 30, 181, 0) 100%
   );
 }
+
+@media (max-width: 1080px) {
+  .tableContainer {
+    width: 700px;
+  }
+
+  .tableCellNickName {
+    font-size: 24px;
+  }
+
+  .tableCellTime,
+  .tableCellScore {
+    font-size: 26px;
+  }
+
+  .title {
+    font-size: 53px;
+  }
+
+  .buttonsRow {
+    gap: 87px;
+  }
+
+  .tableHeader {
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-height: 1070px) {
+  .tableContainer {
+    width: 700px;
+    margin-bottom: 30px;
+    padding: 38px 66px;
+  }
+
+  .tableCellNickName {
+    font-size: 24px;
+  }
+
+  .tableCellTime,
+  .tableCellScore {
+    font-size: 26px;
+  }
+
+  .title {
+    font-size: 53px;
+    margin-bottom: 41px;
+  }
+
+  .buttonsRow {
+    gap: 87px;
+  }
+
+  .tableHeader {
+    padding-bottom: 24px;
+  }
+
+  .buttonsRow {
+    margin-bottom: 2rem;
+  }
+}

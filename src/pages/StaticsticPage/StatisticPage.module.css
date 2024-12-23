@@ -220,3 +220,46 @@
 
   font-weight: 400;
 }
+
+@media (max-width: 1080px) {
+  .tableContainer {
+    width: 700px;
+    height: 670px;
+  }
+
+  .tableCellTime {
+    font-size: 16px;
+  }
+
+  .title {
+    font-size: 53px;
+  }
+
+  .buttonsRow {
+    gap: 87px;
+  }
+
+  .tableHeader {
+    padding-bottom: 24px;
+  }
+
+  .panelTitle {
+    font-size: 31px;
+  }
+}
+
+@media (max-height: 1070px) {
+  .title {
+    font-size: 53px;
+    margin-bottom: 41px;
+  }
+
+  .tableContainer {
+    margin-bottom: 45px;
+    height: 650px;
+  }
+
+  .buttonsRow {
+    margin-bottom: 2rem;
+  }
+}
