@@ -56,7 +56,7 @@
   margin-bottom: 42px;
 }
 
-.mobileBlurBlock {
+/* .mobileBlurBlock {
   width: 327px;
   height: 82px;
   background: linear-gradient(
@@ -74,7 +74,7 @@
   margin-bottom: 45px;
   padding: 18px 26px;
   z-index: 3;
-}
+} */
 
 .mobileBlurQuestionCounter {
   font-family: "Source Sans 3";
@@ -176,6 +176,7 @@
 }
 
 .mobileBlurBlock {
+  backdrop-filter: blur(7.5px);
   width: 327px;
   height: 82px;
   background: linear-gradient(
@@ -188,7 +189,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  padding: 18px 26px;
   position: relative;
   margin-bottom: 2rem;
   z-index: 3;
@@ -196,7 +197,7 @@
 
 .bottomRightGradient {
   position: absolute;
-  top: 79%;
+  bottom: -11%;
   left: 71%;
   width: 200px;
   height: 200px;
@@ -206,4 +207,58 @@
     rgba(14, 95, 118, 0) 100%
   );
   z-index: 1;
+}
+
+@media (max-width: 360px) and (max-height: 640px) {
+  .media,
+  .image {
+    width: 241px;
+    height: 326px;
+    margin-bottom: 18px;
+  }
+
+  .mobileMediaFrame {
+    padding: 18px;
+  }
+
+  .mobileBar {
+    font-size: 16px;
+  }
+
+  .answerButtonsMobile {
+    gap: 18px;
+    margin: 33px 0;
+  }
+
+  .mobileBlurBlock {
+    width: 284px;
+    height: 66px;
+  }
+
+  .mobileBlurQuestionCounter {
+    font-size: 25px;
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .mobileProgressDots {
+    gap: 15.33px;
+  }
+
+  .answerContent {
+    gap: 24px;
+  }
+
+  .answerText {
+    font-size: 20px;
+    max-width: 10rem;
+  }
+
+  .answerStar {
+    width: 98px;
+    height: 85px;
+  }
 }

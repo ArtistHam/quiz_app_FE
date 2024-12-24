@@ -48,6 +48,7 @@
   border: none;
   z-index: 1;
   overflow: hidden;
+  backdrop-filter: blur(7.5px);
 }
 
 .secondary-results::before {
@@ -92,6 +93,7 @@
   border: none;
   z-index: 1;
   overflow: hidden;
+  backdrop-filter: blur(7.5px);
 }
 
 .secondary::before {
@@ -148,6 +150,7 @@
   color: rgba(2, 48, 71, 1);
   font-weight: 700;
   font-size: 20px;
+  backdrop-filter: blur(7.5px);
 }
 
 .outline-orange {
@@ -157,6 +160,7 @@
   border: 1px solid var(--color-orange);
   font-size: 16px;
   font-weight: 600;
+  backdrop-filter: blur(7.5px);
 }
 
 .mobile-secondary {
@@ -276,6 +280,7 @@
   font-size: 16px;
   font-weight: 500;
   color: rgba(240, 253, 255, 1);
+  backdrop-filter: blur(7.5px);
 }
 
 .results-secondary-mobile::before {
@@ -331,6 +336,7 @@
   color: rgba(240, 253, 255, 1);
   background-color: transparent;
   position: relative;
+  backdrop-filter: blur(7.5px);
 }
 
 .highscore-mobile-secondary::before {
@@ -507,5 +513,16 @@
     font-size: 25px;
     width: 187px;
     height: 45px;
+  }
+}
+
+@media (max-width: 360px) and (max-height: 640px) {
+  .quiz-mobile {
+    width: 128px;
+    height: 35px;
+  }
+
+  .quiz-mobile-next {
+    width: 273px;
   }
 }

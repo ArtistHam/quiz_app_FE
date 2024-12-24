@@ -83,6 +83,8 @@ const QuizResults = ({
 
   let mobilePanelResult = null;
 
+  isTopTen = false;
+
   if (!isTopTen) {
     mobilePanelResult = (
       <>
