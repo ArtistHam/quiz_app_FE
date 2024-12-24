@@ -538,7 +538,6 @@
 .panelTextMobile {
   font-size: 16px;
   font-weight: 200;
-  /* text-align: center; */
 }
 
 .mobileArrowsRow {
@@ -589,14 +588,16 @@
 
 @media (max-width: 1550px) {
   .position {
-    /* padding-top: 135px; */
     padding-left: 4rem;
+  }
+
+  .gradientOverlay {
+    right: -40%;
   }
 }
 
 @media (max-width: 1200px) {
   .position {
-    /* padding-top: 135px; */
     padding-left: 0;
   }
 }
@@ -610,11 +611,16 @@
   .buttonsRowBottom {
     margin-left: 0;
     gap: 31px;
+    align-self: center;
   }
 
   .star {
     width: 256.73px;
     height: 275.79px;
+  }
+
+  .gradientOverlay {
+    right: -54%;
   }
 }
 
@@ -622,6 +628,7 @@
   .glassContainer {
     width: 715px;
     height: 781px;
+    margin-bottom: 3rem;
   }
 
   .buttonsRowBottom {
@@ -667,7 +674,10 @@
   }
 }
 
-@media (max-height: 1000px) {
+@media (max-width: 1014px) and (max-height: 1080) {
+}
+
+@media (max-height: 1080px) {
   .position {
     padding-top: 106px;
   }
@@ -679,6 +689,7 @@
 
   .glassContainer {
     padding: 2.5rem 3rem;
+    height: 613px;
   }
 
   .star {
@@ -709,12 +720,17 @@
   }
 
   .panelTextGeneral {
-    margin-bottom: 104px;
+    margin-bottom: 92px;
   }
 
   .gradientOverlay {
     width: 1000px;
     height: 1000px;
+    right: -44%;
+  }
+
+  .buttonsRowBottom {
+    flex-direction: row;
   }
 }
 
@@ -724,9 +740,9 @@
   }
 
   .glassContainer {
-    padding: 1.4rem 1.7rem;
+    padding: 1.8rem 1.7rem;
     width: 850px;
-    height: 438px;
+    height: 450px;
   }
 
   .title {
@@ -776,6 +792,7 @@
   .buttonsRowBottom {
     margin-left: 0;
     gap: 28px;
+    align-self: center;
   }
 
   .nameInput {

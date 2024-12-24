@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+
 import * as styles from "./LeaderboardPage.module.css";
+
+import { fetchHighscores } from "../../utils/api";
+
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
-import { fetchHighscores } from "../../utils/api";
 
 const LeaderboardPage = () => {
   const [scores, setScores] = useState(null);
@@ -161,7 +164,7 @@ const LeaderboardPage = () => {
           >
             Learn more <span className={styles.buttonTextDecor}> &raquo;</span>
           </Button>
-          <Button variant="secondary" as="link" to="/?start=1">
+          <Button variant="secondary-results" as="link" to="/?start=1">
             Try yourself
           </Button>
         </div>

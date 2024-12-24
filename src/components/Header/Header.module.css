@@ -30,6 +30,7 @@
 
 .right {
   justify-content: flex-end;
+  margin-right: 160px;
 }
 
 .logoContainer {
@@ -51,6 +52,53 @@
 }
 
 .resultsPage {
+}
+
+@media (max-width: 1600px) {
+  .headerInner {
+    max-width: 74rem;
+  }
+
+  .right {
+    margin-right: -4rem;
+  }
+}
+
+@media (max-width: 1550px) {
+  .headerInner {
+    max-width: 74rem;
+  }
+
+  .right {
+    margin-right: 7rem;
+  }
+}
+
+@media (max-width: 1246px) {
+  .headerInner {
+    max-width: 65rem;
+  }
+
+  .right {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1131px) {
+  .right {
+    margin-right: 114px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .left {
+    justify-content: center;
+  }
+
+  .right {
+    justify-content: center;
+    margin: 0;
+  }
 }
 
 @media (max-width: 576px) {

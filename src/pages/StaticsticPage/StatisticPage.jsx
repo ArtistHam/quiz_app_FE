@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import * as styles from "./StatisticPage.module.css";
+
+import { fetchStatistic } from "../../utils/api";
+
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
-import { fetchStatistic } from "../../utils/api";
 
 const StatisticPage = () => {
   const [statistic, setStatistic] = useState(null);
@@ -29,6 +31,14 @@ const StatisticPage = () => {
     loadStatistic();
   }, []);
 
+  const convertSecondsToMinutes = (seconds) => {
+    return (seconds / 60).toFixed(2);
+  };
+
+  const roundAverageScore = (score) => {
+    return score.toFixed(3);
+  };
+
   const renderDesktop = () => (
     <>
       <Header alignment="center" />
@@ -50,10 +60,10 @@ const StatisticPage = () => {
               <tr>
                 <td className={styles.tableCellNickName}>All Time</td>
                 <td className={styles.tableCellTime}>
-                  {statistic.allTimeAverageScore}
+                  {roundAverageScore(statistic.allTimeAverageScore)}
                 </td>
                 <td className={styles.tableCellTime}>
-                  {statistic.allTimeAverageTime} mins
+                  {convertSecondsToMinutes(statistic.allTimeAverageTime)} mins
                 </td>
                 <td className={styles.tableCellTime}>
                   {statistic.allTimeCompletion}
@@ -63,10 +73,10 @@ const StatisticPage = () => {
               <tr>
                 <td className={styles.tableCellNickName}>Last 7 Days</td>
                 <td className={styles.tableCellTime}>
-                  {statistic.sevenDaysAverageScore}
+                  {roundAverageScore(statistic.sevenDaysAverageScore)}
                 </td>
                 <td className={styles.tableCellTime}>
-                  {statistic.sevenDaysAverageTime} mins
+                  {convertSecondsToMinutes(statistic.sevenDaysAverageTime)} mins
                 </td>
                 <td className={styles.tableCellTime}>
                   {statistic.sevenDaysCompletion}
@@ -92,7 +102,9 @@ const StatisticPage = () => {
                     {new Date(item.timestamp).toLocaleDateString()}
                   </td>
                   <td className={styles.tableCellTime}>{item.score}/10</td>
-                  <td className={styles.tableCellTime}>{item.time} mins</td>
+                  <td className={styles.tableCellTime}>
+                    {convertSecondsToMinutes(item.time)} mins
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -140,10 +152,10 @@ const StatisticPage = () => {
                 <tr>
                   <td className={styles.tableCellNickNameMobile}>All Time</td>
                   <td className={styles.tableCellTimeMobile}>
-                    {statistic.allTimeAverageScore}
+                    {roundAverageScore(statistic.allTimeAverageScore)}
                   </td>
                   <td className={styles.tableCellTimeMobile}>
-                    {statistic.allTimeAverageTime} mins
+                    {convertSecondsToMinutes(statistic.allTimeAverageTime)} mins
                   </td>
                   <td className={styles.tableCellTimeMobile}>
                     {statistic.allTimeCompletion}
@@ -155,10 +167,11 @@ const StatisticPage = () => {
                     Last 7 Days
                   </td>
                   <td className={styles.tableCellTimeMobile}>
-                    {statistic.sevenDaysAverageScore}
+                    {roundAverageScore(statistic.sevenDaysAverageScore)}
                   </td>
                   <td className={styles.tableCellTimeMobile}>
-                    {statistic.sevenDaysAverageTime} mins
+                    {convertSecondsToMinutes(statistic.sevenDaysAverageTime)}{" "}
+                    mins
                   </td>
                   <td className={styles.tableCellTimeMobile}>
                     {statistic.sevenDaysCompletion}
@@ -187,7 +200,7 @@ const StatisticPage = () => {
                       {item.score}/10
                     </td>
                     <td className={styles.tableCellTimeMobile}>
-                      {item.time} mins
+                      {convertSecondsToMinutes(item.time)} mins
                     </td>
                   </tr>
                 ))}

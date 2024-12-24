@@ -1,6 +1,8 @@
 import React from "react";
-import Button from "../../../../components/Button/Button";
+
 import * as styles from "./StartScreen.module.css";
+
+import Button from "../../../../components/Button/Button";
 
 const StartScreen = ({
   isMobile,

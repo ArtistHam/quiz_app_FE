@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+
 import * as styles from "./QuizResults.module.css";
+
 import Button from "../Button/Button";
 
 const QuizResults = ({
@@ -320,7 +322,7 @@ const QuizResults = ({
     );
   }
 
-  // Десктоп
+  // Desktop
   return (
     <div className={styles.container}>
       <div className={styles.backgroundImage}></div>
@@ -395,7 +397,7 @@ const QuizResults = ({
               <Button variant="primary-results" onClick={onTryAgain}>
                 Try again
               </Button>
-              <Button variant="secondary" as="link" to="/leaderboard">
+              <Button variant="secondary-results" as="link" to="/leaderboard">
                 View highscores
               </Button>
             </div>

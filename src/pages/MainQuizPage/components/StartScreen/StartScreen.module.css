@@ -104,6 +104,11 @@
     width: 61vw;
     height: 97vh;
   }
+
+  .buttonsRow {
+    gap: 46px;
+    margin-top: 26px;
+  }
 }
 
 @media (max-width: 1600px) and (max-height: 982px) {
@@ -126,13 +131,21 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
+  .manDecor {
+    width: 66vw;
+    right: -7rem;
+  }
+}
+
+@media (max-width: 1263px) {
   .mainLayout {
     max-width: 65rem;
   }
 
   .manDecor {
-    width: 72vw;
+    width: 74vw;
+    right: -13rem;
   }
 }
 

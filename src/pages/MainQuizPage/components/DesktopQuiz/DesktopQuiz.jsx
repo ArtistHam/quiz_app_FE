@@ -1,7 +1,10 @@
 import React from "react";
+
 import * as styles from "./DesktopQuiz.module.css";
-import Button from "../../../../components/Button/Button";
+
 import { formatTime } from "../../../../utils/formatTime";
+
+import Button from "../../../../components/Button/Button";
 
 const DesktopQuiz = ({
   currentFile,

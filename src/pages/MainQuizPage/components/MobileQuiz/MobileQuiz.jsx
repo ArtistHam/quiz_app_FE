@@ -1,7 +1,10 @@
 import React from "react";
+
 import * as styles from "./MobileQuiz.module.css";
-import Button from "../../../../components/Button/Button";
+
 import { formatTime } from "../../../../utils/formatTime";
+
+import Button from "../../../../components/Button/Button";
 
 const MobileQuiz = ({
   currentFile,

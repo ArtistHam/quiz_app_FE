@@ -239,6 +239,7 @@
 .answerButtons {
   display: flex;
   gap: 58px;
+  z-index: 1;
 }
 
 .blurred {
@@ -366,28 +367,89 @@
   .decorBottomLeft {
     height: 36.5rem;
   }
+
+  .quizText {
+    font-size: 22px;
+  }
+
+  .totalTime {
+    margin-bottom: 2rem;
+  }
+
+  .bottomSection {
+    margin-bottom: 4rem;
+  }
+
+  .quizTitle {
+    font-size: 58px;
+  }
+
+  .questionCounter {
+    margin-bottom: 11px;
+  }
 }
 
 @media (max-height: 973px) {
+  .quizText {
+    font-size: 20px;
+    letter-spacing: 0;
+  }
   .mediaFrame {
     padding: 2.1rem;
     padding-bottom: 1.7rem;
-    margin-bottom: 4.1rem;
+    margin-bottom: 42px;
   }
 
   .media,
   .image {
-    width: 22rem;
-    height: 28.5rem;
+    width: 24rem;
+    height: 30.5rem;
     margin-bottom: 0;
   }
 
   .questionTime {
     margin-bottom: 0.5rem;
+    margin-top: 16px;
   }
 
   .decorBottomLeft {
     height: 34rem;
+  }
+
+  .answerButtons {
+    gap: 36px;
+  }
+
+  .totalTimeLabel {
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+  }
+
+  .totalTimeValue {
+    line-height: 1.85rem;
+    font-size: 1.6rem;
+  }
+
+  .questionCounter {
+    font-size: 38px;
+    margin-bottom: 6px;
+  }
+
+  .totalTime {
+    margin-bottom: 30px;
+  }
+  .bottomSection {
+    margin-bottom: 3rem;
+  }
+
+  .quizTitle {
+    font-size: 56px;
+    margin-bottom: 27px;
+  }
+
+  .dot {
+    width: 15px;
+    height: 15px;
   }
 }
 
@@ -502,11 +564,16 @@
 
   .questionTime {
     font-size: 1.1rem;
+    margin-top: 4px;
   }
 
   .timerIcon {
     width: 1.6rem;
     height: 1.46rem;
+  }
+
+  .answerButtons {
+    gap: 35px;
   }
 }
 
@@ -532,7 +599,7 @@
 
   .media,
   .image {
-    width: 20.3rem;
+    width: 24.3rem;
     margin-bottom: 0;
   }
 
@@ -574,7 +641,6 @@
 
   .quizText {
     font-size: 18px;
-    /* line-height: 1.4rem;s */
     margin-bottom: 1.5rem;
     margin-top: 2rem;
   }
@@ -662,13 +728,8 @@
 }
 
 @media (max-height: 900px) {
-  .quizText {
-    font-size: 20px;
-    letter-spacing: 0;
-  }
-
   .totalTime {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .totalTimeLabel {
@@ -679,10 +740,6 @@
   .totalTimeValue {
     line-height: 1.85rem;
     font-size: 1.6rem;
-  }
-
-  .bottomSection {
-    margin-bottom: 5rem;
   }
 
   .questionCounter {
@@ -700,7 +757,7 @@
   }
 }
 
-@media (max-height: 800px) {
+@media (max-height: 857px) {
   .quizLeftColumn {
     padding-top: 104px;
   }
@@ -714,10 +771,6 @@
   .quizText {
     font-size: 17px;
     line-height: 1.4rem;
-  }
-
-  .totalTime {
-    margin-bottom: 3rem;
   }
 
   .totalTimeLabel {
@@ -739,7 +792,7 @@
   .mediaFrame {
     padding: 1.4rem;
     padding-bottom: 1.2rem;
-    margin-bottom: 3.1rem;
+    margin-bottom: 37px;
   }
 
   .bottomSection {
@@ -781,5 +834,9 @@
   .answerStar {
     width: 80px;
     height: 80px;
+  }
+
+  .answerButtons {
+    margin-bottom: 2rem;
   }
 }
