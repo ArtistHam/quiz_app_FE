@@ -1,5 +1,5 @@
 .button {
-  width: 248px;
+  width: 208px;
   height: 58px;
   font-family: "Source Sans 3", sans-serif;
   cursor: pointer;
@@ -15,25 +15,85 @@
 
 .primary {
   background: #ff8300;
-  backdrop-filter: blur(7.5px);
   font-size: 24px;
   font-weight: 700;
   line-height: 34.18px;
   color: #023047;
 }
 
-.secondary {
+.primary:hover {
+  background: rgba(254, 179, 6, 1);
+}
+
+.primary-results {
+  width: 246px;
+  height: 58px;
+  background: #ff8300;
+  font-family: "Source Sans 3";
+  font-size: 26px;
+  font-weight: 400;
+  color: #023047;
+}
+
+.primary-results:hover {
+  background: rgba(254, 179, 6, 1);
+}
+
+.secondary-results {
+  width: 251px;
   position: relative;
   background: transparent;
-  backdrop-filter: blur(7.5px);
   font-size: 24px;
-  font-weight: 500;
-  line-height: 34.18px;
+  font-weight: 400;
   border: none;
-  padding: 10px 20px;
-  cursor: pointer;
   z-index: 1;
   overflow: hidden;
+  backdrop-filter: blur(7.5px);
+}
+
+.secondary-results::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    112.74deg,
+    #cdfe5c 26.75%,
+    rgba(2, 48, 71, 0) 115.6%
+  );
+  z-index: -1;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  box-sizing: border-box;
+}
+
+.quiz-desktop {
+  width: 248px;
+  height: 68px;
+  background: #ff8300;
+  font-size: 30px;
+  font-weight: 700;
+  color: #023047;
+}
+
+.quiz-desktop:hover {
+  background: rgba(254, 179, 6, 1);
+}
+
+.secondary {
+  width: 251px;
+  position: relative;
+  background: transparent;
+  font-size: 24px;
+  font-weight: 400;
+  border: none;
+  z-index: 1;
+  overflow: hidden;
+  backdrop-filter: blur(7.5px);
 }
 
 .secondary::before {
@@ -56,6 +116,11 @@
   box-sizing: border-box;
 }
 
+.secondary:hover {
+  background: rgba(254, 179, 6, 1);
+  color: rgba(2, 48, 71, 1);
+}
+
 .submit-desktop {
   width: 155px;
   height: 38px;
@@ -64,10 +129,18 @@
     rgba(240, 253, 255, 0.3) 12.15%,
     rgba(240, 253, 255, 0.06) 89.04%
   );
-  backdrop-filter: blur(4px);
+
   border-radius: 10px;
   font-weight: 700;
   font-size: 20px;
+}
+
+.submit-desktop:hover {
+  background: linear-gradient(
+    145.15deg,
+    rgba(240, 253, 255, 0.7) 12.15%,
+    rgba(240, 253, 255, 0.14) 89.04%
+  );
 }
 
 .mobile-primary {
@@ -77,6 +150,7 @@
   color: rgba(2, 48, 71, 1);
   font-weight: 700;
   font-size: 20px;
+  backdrop-filter: blur(7.5px);
 }
 
 .outline-orange {
@@ -86,6 +160,7 @@
   border: 1px solid var(--color-orange);
   font-size: 16px;
   font-weight: 600;
+  backdrop-filter: blur(7.5px);
 }
 
 .mobile-secondary {
@@ -121,4 +196,333 @@
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   box-sizing: border-box;
+}
+
+.quiz-next {
+  width: 266px;
+  height: 68px;
+  background: rgba(240, 253, 255, 1);
+  font-size: 30px;
+  font-weight: 700;
+  color: #023047;
+  transition: background-color 0.3s ease;
+  border: none;
+  z-index: 1;
+}
+
+.quiz-next:hover {
+  background: rgba(254, 179, 6, 1);
+}
+
+.quiz-mobile {
+  font-family: Source Sans 3;
+  font-weight: 500;
+  font-size: 18px;
+  color: rgba(2, 48, 71, 1);
+  width: 149px;
+  height: 42px;
+  background-color: rgba(255, 131, 0, 1);
+}
+
+.quiz-mobile-next {
+  width: 327px;
+  height: 42px;
+  background: transparent;
+  font-family: "Source Sans 3";
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(240, 253, 255, 1);
+  position: relative;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.quiz-mobile-next::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1px;
+  background: linear-gradient(
+    150.74deg,
+    #f0fdff 26.75%,
+    rgba(2, 48, 71, 0) 106.6%
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.quiz-mobile-next:hover {
+  background: rgba(254, 179, 6, 0.2);
+}
+
+.results-primary-mobile {
+  width: 243px;
+  height: 42px;
+  background: rgba(255, 131, 0, 1);
+  color: rgba(2, 48, 71, 1);
+  font-family: "Source Sans 3";
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.results-secondary-mobile {
+  width: 243px;
+  height: 42px;
+  position: relative;
+  background: transparent;
+  font-family: "Source Sans 3";
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(240, 253, 255, 1);
+  backdrop-filter: blur(7.5px);
+}
+
+.results-secondary-mobile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    112.74deg,
+    #cdfe5c 26.75%,
+    rgba(2, 48, 71, 0) 115.6%
+  );
+  z-index: -1;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  box-sizing: border-box;
+}
+
+.submit-mobile {
+  width: 243px;
+  height: 42px;
+  background: linear-gradient(
+    145.15deg,
+    rgba(240, 253, 255, 0.3) 12.15%,
+    rgba(240, 253, 255, 0.06) 89.04%
+  );
+
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.highscore-mobile-primary {
+  width: 198px;
+  height: 42px;
+
+  color: rgba(2, 48, 71, 1);
+
+  font-size: 16px;
+  font-weight: 700;
+  background: rgba(255, 131, 0, 1);
+}
+
+.highscore-mobile-secondary {
+  width: 198px;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(240, 253, 255, 1);
+  background-color: transparent;
+  position: relative;
+  backdrop-filter: blur(7.5px);
+}
+
+.highscore-mobile-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1px;
+  background: linear-gradient(96.01deg, #cdfe5c 15.37%, #1e7384 85.79%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+@media (max-width: 1600px) {
+  .primary {
+    width: 200px;
+    height: 49px;
+    background: #ff8300;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 34.18px;
+    color: #023047;
+  }
+
+  .secondary {
+    width: 248px;
+    height: 49px;
+    position: relative;
+    background: transparent;
+    font-size: 24px;
+    font-weight: 400;
+    border: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .quiz-desktop {
+    width: 239px;
+    height: 58px;
+    font-size: 28px;
+  }
+
+  .quiz-next {
+    font-size: 25px;
+    width: 187px;
+    height: 45px;
+  }
+
+  .primary-results {
+    width: 223px;
+    height: 49px;
+
+    font-size: 22px;
+  }
+
+  .secondary-results {
+    width: 223px;
+    height: 49px;
+
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .primary-results {
+    width: 223px;
+    height: 45px;
+    font-size: 22px;
+  }
+
+  .secondary-results {
+    width: 223px;
+    height: 45px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 1246px) {
+  .quiz-desktop {
+    width: 195px;
+    height: 55px;
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .quiz-next {
+    width: 195px;
+    height: 55px;
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .primary-results {
+  }
+}
+
+@media (max-height: 1080px) {
+  .primary-results {
+    width: 223px;
+    height: 52px;
+  }
+
+  .secondary-results {
+    width: 223px;
+    height: 52px;
+  }
+}
+
+@media (max-height: 918px) {
+  .primary-results {
+    width: 195px;
+    height: 43px;
+    font-size: 20px;
+  }
+
+  .secondary-results {
+    width: 195px;
+    height: 43px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1020px) {
+  .primary-results {
+    width: 171px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  .secondary-results {
+    width: 171px;
+    height: 48px;
+    font-size: 20px;
+  }
+  @media (min-height: 1080px) {
+    .primary-results {
+      width: 220px;
+      height: 42px;
+      font-size: 20px;
+    }
+
+    .secondary-results {
+      width: 220px;
+      height: 42px;
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-height: 973px) {
+  .quiz-desktop {
+    width: 205px;
+    height: 50px;
+    font-size: 27px;
+  }
+
+  .quiz-next {
+    width: 205px;
+    height: 50px;
+    font-size: 27px;
+  }
+}
+
+@media (max-height: 857px) {
+  .quiz-desktop {
+    font-size: 25px;
+    width: 187px;
+    height: 45px;
+  }
+
+  .quiz-next {
+    font-size: 25px;
+    width: 187px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 360px) and (max-height: 640px) {
+  .quiz-mobile {
+    width: 128px;
+    height: 35px;
+  }
+
+  .quiz-mobile-next {
+    width: 273px;
+  }
 }

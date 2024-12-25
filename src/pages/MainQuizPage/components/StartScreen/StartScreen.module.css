@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  background: var(--color-dark-teal);
   position: relative;
   overflow: hidden;
 }
@@ -15,166 +14,143 @@
   z-index: 2;
 }
 
-.greenGradient {
-  position: absolute;
-  width: 60vw;
-  height: auto;
-  aspect-ratio: 1146 / 1398;
-  bottom: -25vh;
-  right: 2vh;
-  background: radial-gradient(
-    34.87% 44.87% at 53.7% 50.05%,
-    rgba(111, 145, 113, 0.49) 0%,
-    rgba(69, 84, 116, 0) 100%
-  );
-  z-index: -1;
-}
-
-.orangeGradient {
-  position: absolute;
-  width: 16.4vw;
-  height: auto;
-  aspect-ratio: 315 / 685;
-  left: -8vw;
-  top: 48.2vh;
-  background: rgba(183, 154, 71, 0.5);
-  filter: blur(25vw);
-  z-index: 0;
-}
-
 .leftColumn {
   display: flex;
   flex-direction: column;
-  max-width: 44.25rem;
+  justify-content: center;
+  max-width: 50rem;
   z-index: 1;
-  margin-bottom: 6.5rem;
 }
 
 .starImage {
-  width: 121.32px;
-  height: 121.32px;
-  margin-top: 6.5rem;
-  margin-bottom: 4rem;
+  width: 130px;
+  height: 130px;
+  margin-bottom: 50px;
 }
 
 .mainTitle {
   font-family: "Ubuntu";
-  font-weight: 700;
+  font-weight: 600;
   font-size: 64px;
-  margin-bottom: 2rem;
+  line-height: 73.54px;
+  margin-bottom: 20px;
 }
 
 .infoText {
   font-family: "Source Sans 3";
   font-size: 1.25rem;
   line-height: 1.8rem;
-  margin-bottom: 68px;
+  margin-bottom: 23px;
+  max-width: 39.2rem;
   font-weight: 300;
-  color: #F0FDFF;
+  color: rgba(240, 253, 255, 1);
 }
 
 .buttonsRow {
   display: flex;
   gap: 3rem;
-  margin-top: 1.5rem;
+  margin-top: 35px;
 }
 
 .rightColumn {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  position: relative;
+  flex: 1;
+  min-height: 100vh;
 }
 
-.mainImage {
+.manDecor {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 100vh;
+  top: auto;
+  right: -14rem;
+  width: 55vw;
+
+  height: 99vh;
+  background: url("/quiz_app_FE/images/man.png") no-repeat bottom right;
+  background-size: cover;
+  z-index: 0;
 }
 
-/* =========================
- MEDIA QUERIES BEFORE QUIZ START
-========================= */
-@media (max-width: 1600px) {
-  .mainTitle {
-    font-size: 4.5rem;
-    line-height: 6.5rem;
-    margin-bottom: 1rem;
-  }
+.buttonTextDecor {
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+  margin-left: 9px;
+}
 
-  .infoText {
-    font-size: 1rem;
-    line-height: 1.7rem;
-    margin-bottom: 1rem;
-    max-width: 27.2rem;
+@media (max-width: 1600px) {
+  .mainLayout {
+    max-width: 73rem;
   }
 
   .starImage {
-    width: 8.5rem;
-    height: 8.3rem;
-    margin-top: 5rem;
-    margin-bottom: 2rem;
+    width: 100px;
+    height: 100px;
+  }
+
+  .mainTitle {
+    font-size: 52px;
+    max-width: 26rem;
+  }
+
+  .infoText {
+    font-size: 16px;
+    max-width: 37rem;
+  }
+
+  .manDecor {
+    width: 61vw;
+    height: 97vh;
   }
 
   .buttonsRow {
-    gap: 2.8rem;
-    margin-top: 1.3rem;
+    gap: 46px;
+    margin-top: 26px;
+  }
+}
+
+@media (max-width: 1600px) and (max-height: 982px) {
+  .manDecor {
+    height: 95vh;
+    right: -9rem;
   }
 
-  .greenGradient {
-    width: 64vw;
-    bottom: -40vh;
-    right: -1vw;
+  .starImage {
+    width: 92px;
+    height: 92px;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 1366px) and (max-height: 768px) {
+  .manDecor {
+    width: 52vw;
+    right: -4rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .manDecor {
+    width: 66vw;
+    right: -7rem;
+  }
+}
+
+@media (max-width: 1263px) {
+  .mainLayout {
+    max-width: 65rem;
   }
 
-  .orangeGradient {
-    width: 15vw;
-    height: auto;
-    top: 50vh;
-    left: -7vw;
-    filter: blur(22vw);
-  }
-
-  .greenGradient {
-    width: 70vw;
-    bottom: -30vh;
-    right: -1vw;
+  .manDecor {
+    width: 74vw;
+    right: -13rem;
   }
 }
 
 @media (min-height: 900px) {
   .starImage {
-    margin-top: 157px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .mainTitle {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .infoText {
-    font-size: 1rem;
-    line-height: 1.6rem;
-    margin-bottom: 4rem;
-  }
-
-  .starImage {
-    width: 10rem;
-    height: 10rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .buttonsRow {
-    gap: 2.5rem;
-    margin-top: 1rem;
-  }
-
-  .greenGradient {
-    bottom: -22vh;
-    right: 1vw;
   }
 }
 
@@ -186,145 +162,194 @@
     max-width: 1080px;
   }
 
-  .mainImage {
-    position: relative;
-  }
-
-  .starImage {
-    margin-top: 1rem;
-    margin-bottom: -1rem;
+  .rightColumn {
+    min-height: 50vh;
   }
 
   .leftColumn {
     max-width: 1080px;
     align-items: center;
     margin-bottom: 3rem;
+    margin-top: 7rem;
+  }
+
+  .manDecor {
+    right: -16rem;
+
+    width: 51vh;
+    height: 51vh;
+  }
+
+  .mainLayout {
+    max-width: 74rem;
+  }
+
+  .starImage {
+    width: 92px;
+    height: 92px;
+    margin-bottom: 34px;
+  }
+
+  .mainTitle {
+    max-width: 41rem;
   }
 
   .infoText {
+    font-size: 15px;
     max-width: 35.2rem;
   }
 }
 
-@media (max-width: 768px) {
-  .mainLayout {
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 2rem;
-    margin-top: 2rem;
+@media (max-width: 1024px) and (max-height: 768px) {
+  .manDecor {
+    right: -12rem;
   }
+}
 
-  .leftColumn {
-    margin: 0;
-    display: flex;
-    align-items: center;
-  }
-
-  .starImage {
-    width: 13rem;
-    height: 13rem;
-    position: absolute;
-    top: -5%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    margin: 0;
-    z-index: -1;
-  }
-
+@media (max-width: 695px) {
   .mainTitle {
-    font-weight: 700;
-    font-size: 2.5rem;
-    line-height: 3rem;
-    margin-top: 5.75rem;
-    margin-bottom: 3rem;
-    color: #ff8300;
-    max-width: 12rem;
+    font-size: 45px;
   }
 
-  .buttonsRow {
-    flex-direction: column;
-    gap: 1.25rem;
-    margin-top: 1.5rem;
+  .infoText {
+    text-align: center;
+    max-width: 29.2rem;
   }
 
-  .mainImage {
-    width: 29.8rem;
-    height: 26.25rem;
-    margin-top: 2rem;
-    position: relative;
-    object-fit: cover;
-  }
-
-  .greenGradient {
-    position: absolute;
-    width: 80vw;
-    height: auto;
-    aspect-ratio: 1146 / 1398;
-    bottom: 0;
-    left: 10%;
-    z-index: -1;
-  }
-
-  .orangeGradient {
-    display: none;
+  .manDecor {
+    right: -16rem;
   }
 }
 
 @media (max-width: 576px) {
   .mainLayout {
     position: relative;
-    margin-top: 0;
+    align-items: center;
+    justify-content: normal;
+  }
+
+  .mobileCentered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .leftColumn {
     margin: 0;
     display: flex;
     align-items: center;
+    margin-top: 80px;
   }
 
   .starImage {
+    position: relative;
     width: 51px;
     height: 52px;
-    position: absolute;
-    top: 2%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    margin: 0;
-    z-index: -1;
-  }
-
-  .mainTitle {
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 3rem;
-    margin-bottom: 48px;
-    margin-top: 100px;
-    color: rgba(240, 253, 255, 1);
-    max-width: 12rem;
   }
 
   .infoText {
-    font-weight: 300;
-    max-width: 206px;
+    font-weight: 200;
+    max-width: 283px;
+    margin: 0;
+    margin-top: 118px;
+  }
+
+  .infoTextStep2 {
+    max-width: 195px;
+    margin-top: 110px;
   }
 
   .buttonsRow {
     flex-direction: column;
-    gap: 1.25rem;
-    margin-top: 1.5rem;
+    gap: 21px;
+    margin-top: 35px;
     align-items: center;
     justify-content: center;
+    margin-top: 69px;
   }
 
-  .mainImage {
-    width: 29.8rem;
-    height: 26.25rem;
-    margin-top: 2rem;
-    position: relative;
-    object-fit: cover;
-    z-index: 3;
+  .rightColumn {
+    min-height: auto;
+  }
+
+  .manDecor {
+    width: 402px;
+    height: 430px;
+    right: -10.7rem;
+  }
+
+  .buttonsRow {
+    margin-bottom: 3rem;
+  }
+}
+
+.mainTitleMobile {
+  font-family: "Ubuntu";
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.2;
+  color: rgba(240, 253, 255, 1);
+  text-align: center;
+  max-width: 17rem;
+  margin-top: 27px;
+}
+
+.titleMobileStep2 {
+  margin-top: 74px;
+}
+
+.mobileStartContainer {
+  margin-top: 88px;
+}
+
+.infoStepContainer {
+  position: relative;
+  padding: 0 1rem;
+}
+
+.verticalGradient {
+  position: absolute;
+  top: 34%;
+  left: 47%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 62px;
+  background: radial-gradient(
+    55.87% 47.87% at 47.7% 47.05%,
+    rgba(111, 145, 113, 0.21) 0%,
+    rgba(69, 84, 116, 0) 108%
+  );
+  transform: rotate(0.5turn);
+}
+
+.radialGradient {
+  position: absolute;
+  top: 544px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    49.87% 51.87% at 48.7% 62.05%,
+    rgba(111, 145, 113, 0.21) 14%,
+    rgba(-1, 84, 116, 0) 75%
+  );
+  pointer-events: none;
+  overflow: visible;
+}
+
+@media (max-width: 360px) and (max-height: 640px) {
+  .manDecor {
+    width: 51vh;
+    height: 324px;
+    right: -9.7rem;
+  }
+
+  .verticalGradient {
+    top: 36%;
+  }
+
+  .buttonsRow {
+    margin-bottom: 3rem;
   }
 }

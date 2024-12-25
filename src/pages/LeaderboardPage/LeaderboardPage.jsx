@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+
 import * as styles from "./LeaderboardPage.module.css";
+
+import { fetchHighscores } from "../../utils/api";
+
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
-import { fetchHighscores } from "../../utils/api";
 
 const LeaderboardPage = () => {
   const [scores, setScores] = useState(null);
@@ -39,22 +42,21 @@ const LeaderboardPage = () => {
   if (isMobile && !scores) {
     return (
       <>
-        <Header />
+        <Header alignment="center" />
         <div className={styles.containerMobile}>
-          <h1 className={styles.titleMobile}>Highscores</h1>
+          <h1 className={styles.titleMobile}>Highscore list</h1>
           <p className={styles.loadingTextMobile}>Loading...</p>
         </div>
       </>
     );
   }
 
-  // Mobile
   if (isMobile && scores) {
     return (
       <>
-        <Header />
+        <Header alignment="center" />
         <div className={styles.containerMobile}>
-          <h1 className={styles.titleMobile}>Highscores</h1>
+          <h1 className={styles.titleMobile}>Highscore list</h1>
           <div className={styles.tableContainerMobile}>
             <table className={styles.tableMobile}>
               <thead>
@@ -87,13 +89,24 @@ const LeaderboardPage = () => {
             className={styles.starImageMobile}
           />
           <div className={styles.leaderboardButtonsColumnMobile}>
-            <Button variant="primary" as="link" to="/quiz_app_FE/">
-              Take quiz »
+            <Button
+              variant="highscore-mobile-primary"
+              as="link"
+              to="https://www.iproov.com/"
+            >
+              Learn more
+              <span className={styles.buttonTextDecor}> &raquo;</span>
             </Button>
-            <Button variant="secondary" onClick={() => window.history.back()}>
-              Close
+            <Button
+              variant="highscore-mobile-secondary"
+              as="link"
+              to="/?start=1"
+            >
+              Try yourself
             </Button>
           </div>
+          <div className={styles.gradientDecorMobile}></div>
+          <div className={styles.gradientDecorMobileBottom}></div>
         </div>
       </>
     );
@@ -102,64 +115,58 @@ const LeaderboardPage = () => {
   if (!scores) {
     return (
       <>
-        <Header />
+        <Header alignment="center" />
         <div className={styles.container}>
-          <h1 className={styles.title}>Highscores</h1>
+          <h1 className={styles.title}>Highscore list</h1>
           <p>Loading...</p>
         </div>
       </>
     );
   }
 
-  // Desktop
   return (
     <>
-      <Header />
+      <Header alignment="center" />
       <div className={styles.container}>
         <div className={styles.gradientOverlay}></div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "start",
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          <h1 className={styles.title}>Highscores</h1>
-          <div className={styles.tableContainer}>
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th className={styles.tableHeader}>Name</th>
-                  <th className={styles.tableHeader}>Time</th>
-                  <th className={styles.tableHeader}>Score</th>
+        <h1 className={styles.title}>Highscore list</h1>
+        <div className={styles.tableContainer}>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th
+                  className={`${styles.tableHeader} ${styles.tableHeaderName}`}
+                >
+                  Name
+                </th>
+                <th className={styles.tableHeader}>Time</th>
+                <th className={styles.tableHeader}>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {scores.map((item, index) => (
+                <tr key={index}>
+                  <td className={styles.tableCellNickName}>{item.name}</td>
+                  <td className={styles.tableCellTime}>
+                    {formatTime(item.time)}
+                  </td>
+                  <td className={styles.tableCellScore}>{item.score}/10</td>
                 </tr>
-              </thead>
-              <tbody>
-                {scores.map((item, index) => (
-                  <tr key={index}>
-                    <td className={styles.tableCellNickName}>{item.name}</td>
-                    <td className={styles.tableCellTime}>
-                      {formatTime(item.time)}
-                    </td>
-                    <td className={styles.tableCellScore}>{item.score}/10</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className={styles.buttonsRow}>
-            <Button variant="primary" as="link" to="/quiz_app_FE/">
-              Take quiz »
-            </Button>
-            <Button variant="secondary" onClick={() => window.history.back()}>
-              Close
-            </Button>
-          </div>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className={styles.buttonsRow}>
+          <Button
+            variant="primary-results"
+            as="link"
+            to="https://www.iproov.com/"
+          >
+            Learn more <span className={styles.buttonTextDecor}> &raquo;</span>
+          </Button>
+          <Button variant="secondary-results" as="link" to="/?start=1">
+            Try yourself
+          </Button>
         </div>
       </div>
     </>

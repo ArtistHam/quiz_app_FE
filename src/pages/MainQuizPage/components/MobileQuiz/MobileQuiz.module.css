@@ -5,28 +5,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+
   overflow: hidden;
+  margin-top: 90px;
 }
 
 .mobileMediaFrame {
-  width: 327px;
   border: 1px solid var(--color-light-grey);
   border-radius: 20px;
-  padding: 1rem;
+  padding: 24px;
   position: relative;
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s ease;
 }
 
 .mobileBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  color: var(--color-light-grey);
+  font-family: "Source Sans 3";
+  font-size: 20px;
+  font-weight: 300;
 }
 
 .timerIcon {
@@ -35,26 +35,28 @@
 }
 
 .mobileQuestionCounter {
-  font-size: 1rem;
-  color: var(--color-light-grey);
+  align-self: flex-start;
+  color: rgba(240, 253, 255, 1);
 }
 
 .media,
 .image {
-  height: 35.5rem;
   object-fit: cover;
-  margin-bottom: 2rem;
+  margin-bottom: 24px;
   border-radius: 8px;
+  transition: filter 0.3s;
+  width: 279px;
+  height: 493px;
 }
 
 .answerButtonsMobile {
   display: flex;
-  gap: 1.25rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  gap: 29px;
+  margin-top: 42px;
+  margin-bottom: 42px;
 }
 
-.mobileBlurBlock {
+/* .mobileBlurBlock {
   width: 327px;
   height: 82px;
   background: linear-gradient(
@@ -68,28 +70,32 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 45px;
+  padding: 18px 26px;
   z-index: 3;
-}
+} */
 
 .mobileBlurQuestionCounter {
-  font-size: 1.2rem;
-  color: var(--color-light-grey);
+  font-family: "Source Sans 3";
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1;
+  align-self: flex-start;
+  margin-bottom: 10px;
+  color: rgba(240, 253, 255, 1);
 }
 
 .mobileProgressDots {
   display: flex;
-  gap: 0.3rem;
+  gap: 17.33px;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   display: inline-block;
-  margin: 0 4px;
 }
 
 .dotCorrect {
@@ -110,4 +116,149 @@
 
 .dotFuture {
   background: rgba(255, 255, 255, 0.3);
+}
+
+.blurred {
+  filter: blur(15px);
+}
+
+.answerOverlay {
+  position: absolute;
+  top: -67px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.blurBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(15px);
+  z-index: 1;
+}
+
+.answerContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.answerStar {
+  width: 131px;
+  height: 144px;
+  transition: transform 0.3s;
+}
+
+.answerText {
+  max-width: 258px;
+  font-family: "Ubuntu";
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  color: #f0fdff;
+  white-space: pre-line;
+}
+
+.timeHighlight {
+  color: rgba(255, 131, 0, 1) !important;
+}
+
+.mobileBlurBlock {
+  backdrop-filter: blur(7.5px);
+  width: 327px;
+  height: 82px;
+  background: linear-gradient(
+    156.99deg,
+    rgba(163, 221, 233, 0.2) 5.13%,
+    rgba(2, 48, 71, 0.2) 95.19%
+  );
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 26px;
+  position: relative;
+  margin-bottom: 2rem;
+  z-index: 3;
+}
+
+.bottomRightGradient {
+  position: absolute;
+  bottom: -11%;
+  left: 71%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    45.31% 42.63% at 53.97% 54.15%,
+    rgba(152, 235, 184, 0.4) -21%,
+    rgba(14, 95, 118, 0) 100%
+  );
+  z-index: 1;
+}
+
+@media (max-width: 360px) and (max-height: 640px) {
+  .media,
+  .image {
+    width: 241px;
+    height: 326px;
+    margin-bottom: 18px;
+  }
+
+  .mobileMediaFrame {
+    padding: 18px;
+  }
+
+  .mobileBar {
+    font-size: 16px;
+  }
+
+  .answerButtonsMobile {
+    gap: 18px;
+    margin: 33px 0;
+  }
+
+  .mobileBlurBlock {
+    width: 284px;
+    height: 66px;
+  }
+
+  .mobileBlurQuestionCounter {
+    font-size: 25px;
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .mobileProgressDots {
+    gap: 15.33px;
+  }
+
+  .answerContent {
+    gap: 24px;
+  }
+
+  .answerText {
+    font-size: 20px;
+    max-width: 10rem;
+  }
+
+  .answerStar {
+    width: 98px;
+    height: 85px;
+  }
 }

@@ -3,13 +3,34 @@
   top: 0;
   width: 100%;
   height: 72px;
-  display: flex;
-  align-items: center;
   z-index: 4;
-
   background: rgba(217, 217, 217, 0.05);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerInner {
+  max-width: 88rem;
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.center {
+  justify-content: center;
+}
+
+.right {
+  justify-content: flex-end;
+  margin-right: 160px;
 }
 
 .logoContainer {
@@ -20,7 +41,7 @@
 }
 
 .logo {
-  width: 23px;
+  width: 26px;
   height: 23px;
   margin-right: 16px;
 }
@@ -32,11 +53,69 @@
 }
 
 .resultsPage {
-  justify-content: end;
 }
 
-.resultsPage .logoContainer {
-  display: flex;
-  margin-right: 325px;
-  align-items: center;
+@media (max-width: 1600px) {
+  .headerInner {
+    max-width: 74rem;
+  }
+
+  .right {
+    margin-right: -4rem;
+  }
+}
+
+@media (max-width: 1550px) {
+  .headerInner {
+    max-width: 74rem;
+  }
+
+  .right {
+    margin-right: 7rem;
+  }
+}
+
+@media (max-width: 1246px) {
+  .headerInner {
+    max-width: 65rem;
+  }
+
+  .right {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1131px) {
+  .right {
+    margin-right: 114px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .left {
+    justify-content: center;
+  }
+
+  .right {
+    justify-content: center;
+    margin: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    height: 58px;
+  }
+
+  .headerInner {
+    justify-content: center !important;
+  }
+
+  .appName {
+    font-size: 14px;
+  }
+
+  .logo {
+    margin-right: 10px;
+  }
 }

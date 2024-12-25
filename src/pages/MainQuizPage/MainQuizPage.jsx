@@ -23,7 +23,13 @@ const MainQuizPage = () => {
   const [showQuiz, setShowQuiz] = useState(false);
   const { questions, setQuestions, loadQuestions } = useQuestions();
   const [currentQuestion, setCurrentQuestion] = useState(0);
+
   const [userAnswers, setUserAnswers] = useState([]);
+
+  const [currentAnswerState, setCurrentAnswerState] = useState({
+    answered: false,
+    isCorrect: false,
+  });
 
   const [quizMeta, setQuizMeta] = useState({
     startedAt: null,
@@ -36,7 +42,9 @@ const MainQuizPage = () => {
 
   const [userName, setUserName] = useState("");
   const [submitting, setSubmitting] = useState(false);
+
   const [mobileStep, setMobileStep] = useState("initial");
+
   const [questionStartTime, setQuestionStartTime] = useState(null);
 
   const { totalTimeSpent, questionTimeSpent, setQuestionTimeSpent } =
@@ -49,11 +57,16 @@ const MainQuizPage = () => {
     }
   }, []);
 
-  const handleMobileTakeQuiz = () => {
-    if (isMobile && mobileStep === "initial") {
-      setMobileStep("info");
-    } else {
-      handleStartQuiz();
+  const handleMobileTakeQuiz = (step) => {
+    if (!isMobile) {
+      if (step === "startDesktop") {
+        handleStartQuiz();
+      }
+      return;
+    }
+
+    if (step === "info1" || step === "info2") {
+      setMobileStep(step);
     }
   };
 
@@ -77,19 +90,25 @@ const MainQuizPage = () => {
   };
 
   const handleAnswer = (answer) => {
+    if (currentAnswerState.answered) return;
+
     const currentFileObj = questions[currentQuestion];
     const userIsReal = answer === "real";
     const isCorrect = currentFileObj.isReal === userIsReal;
 
-    // Сохраняем правильность ответа сразу
-    setUserAnswers((prevAnswers) => [
-      ...prevAnswers,
-      {
-        id: currentFileObj.id,
-        isReal: userIsReal,
-        correct: isCorrect,
-      },
+    setUserAnswers((prev) => [
+      ...prev,
+      { id: currentFileObj.id, isReal: userIsReal, correct: isCorrect },
     ]);
+
+    setCurrentAnswerState({
+      answered: true,
+      isCorrect,
+    });
+  };
+
+  const handleNext = () => {
+    setCurrentAnswerState({ answered: false, isCorrect: false });
 
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
@@ -165,6 +184,7 @@ const MainQuizPage = () => {
     setQuestions(null);
     setCurrentQuestion(0);
     setUserAnswers([]);
+    setCurrentAnswerState({ answered: false, isCorrect: false });
     setQuizMeta({
       startedAt: null,
       completedAt: null,
@@ -176,14 +196,29 @@ const MainQuizPage = () => {
     setUserName("");
     setQuestionStartTime(null);
     setQuestionTimeSpent(0);
+
     setMobileStep("initial");
   };
+
+  let headerAlignment = "left";
+  if (quizMeta.isCompleted && quizMeta.finalScore !== null) {
+    headerAlignment = "right";
+  } else if (!showQuiz) {
+    headerAlignment = "left";
+  }
+
+  const inQuizOrResults = showQuiz || quizMeta.isCompleted;
+  const onLogoClick = inQuizOrResults
+    ? () => {
+        resetQuiz();
+      }
+    : null;
 
   if (!showQuiz) {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header />
+        <Header alignment={headerAlignment} onLogoClick={onLogoClick} />
         <StartScreen
           isMobile={isMobile}
           mobileStep={mobileStep}
@@ -198,7 +233,7 @@ const MainQuizPage = () => {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header />
+        <Header alignment={headerAlignment} onLogoClick={onLogoClick} />
         <LoadingScreen />
       </div>
     );
@@ -208,7 +243,11 @@ const MainQuizPage = () => {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header isResultsPage={true} />
+        <Header
+          alignment={headerAlignment}
+          isResultsPage={true}
+          onLogoClick={onLogoClick}
+        />
         <LoadingScreen />
       </div>
     );
@@ -218,7 +257,11 @@ const MainQuizPage = () => {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header isResultsPage={true} />
+        <Header
+          alignment={headerAlignment}
+          isResultsPage={true}
+          onLogoClick={onLogoClick}
+        />
         <QuizResults
           score={quizMeta.finalScore}
           timeTaken={quizMeta.finalTime}
@@ -254,7 +297,7 @@ const MainQuizPage = () => {
     return (
       <div className={styles.pageWrapper}>
         <div className={styles.background}></div>
-        <Header />
+        <Header alignment={headerAlignment} onLogoClick={onLogoClick} />
         <MobileQuiz
           currentFile={currentFile}
           isVideo={isVideo}
@@ -262,6 +305,8 @@ const MainQuizPage = () => {
           questionCount={questionCount}
           questionTimeSpent={questionTimeSpent}
           progressDots={progressDots}
+          currentAnswerState={currentAnswerState}
+          onNext={handleNext}
         />
       </div>
     );
@@ -270,7 +315,7 @@ const MainQuizPage = () => {
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.background}></div>
-      <Header />
+      <Header alignment={headerAlignment} onLogoClick={onLogoClick} />
       <DesktopQuiz
         currentFile={currentFile}
         isVideo={isVideo}
@@ -279,6 +324,8 @@ const MainQuizPage = () => {
         questionTimeSpent={questionTimeSpent}
         questionCount={questionCount}
         progressDots={progressDots}
+        currentAnswerState={currentAnswerState}
+        onNext={handleNext}
       />
     </div>
   );

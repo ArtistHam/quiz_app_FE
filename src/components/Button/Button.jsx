@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import classNames from "classnames";
 import * as styles from "./Button.module.css";
 
@@ -16,7 +17,7 @@ const Button = ({
     return (
       <Link
         to={to}
-        className={classNames(styles.button, styles[variant], className)}
+        className={classNames(className, styles.button, styles[variant])}
         {...props}
       >
         {children}

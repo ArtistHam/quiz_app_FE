@@ -15,6 +15,20 @@ export const fetchQuestions = async () => {
   }
 };
 
+export const fetchStatistic = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/statistic`);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error fetching statistic:"
+      // error.response ? error.response.data : error.message
+    );
+    throw error;
+  }
+};
+
 export const submitScore = async (resultData) => {
   try {
     const response = await axios.post(`${BASE_URL}/finish_quiz`, resultData);
@@ -33,7 +47,6 @@ export const fetchHighscores = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/highscore`);
     return response.data.scores;
-    // scores: [{ nickname: "Artist", time: "120", score: "10" }, ...]
   } catch (error) {
     console.error(
       "Error fetching highscores:",
@@ -44,7 +57,6 @@ export const fetchHighscores = async () => {
 };
 
 export const submitHighscore = async (data) => {
-  // data: { name, time, results: [...] }
   try {
     const response = await axios.post(`${BASE_URL}/highscore`, data);
     return response.data;
