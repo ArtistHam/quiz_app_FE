@@ -98,7 +98,7 @@ const StartScreen = ({
                   Start quiz
                   <span className={styles.buttonTextDecor}> &raquo;</span>
                 </Button>
-                <Button variant="secondary" as="link" to="/leaderboard">
+                <Button variant="secondary" as="link" to="/quiz_app_FE/leaderboard">
                   View highscores
                 </Button>
               </div>
@@ -118,7 +118,7 @@ const StartScreen = ({
                   Start quiz
                   <span className={styles.buttonTextDecor}> &raquo;</span>
                 </Button>
-                <Button variant="mobile-secondary" as="link" to="/leaderboard">
+                <Button variant="mobile-secondary" as="link" to="/quiz_app_FE/leaderboard">
                   View highscores
                 </Button>
               </div>

@@ -141,7 +141,7 @@ const DesktopQuiz = ({
                 <div className={styles.answerContent}>
                   <p className={styles.answerText}>{overlayText}</p>
                   <img
-                    src="/images/decorativeStar4.svg"
+                    src="/quiz_app_FE/images/decorativeStar4.svg"
                     alt="starOrCross"
                     className={styles.answerStar}
                     style={starStyle}

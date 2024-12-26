@@ -164,7 +164,7 @@ const LeaderboardPage = () => {
           >
             Learn more <span className={styles.buttonTextDecor}> &raquo;</span>
           </Button>
-          <Button variant="secondary-results" as="link" to="/?start=1">
+          <Button variant="secondary-results" as="link" to="/quiz_app_FE/?start=1">
             Try yourself
           </Button>
         </div>

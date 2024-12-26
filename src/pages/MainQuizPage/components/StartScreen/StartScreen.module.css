@@ -68,7 +68,7 @@
   width: 55vw;
 
   height: 99vh;
-  background: url("/quiz_app_FE/images/man.png") no-repeat bottom right;
+  background: url("https://artistham.github.io/quiz_app_FE/images/man.png") no-repeat bottom right;
   background-size: cover;
   z-index: 0;
 }

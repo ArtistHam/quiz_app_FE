@@ -86,7 +86,7 @@ const QuizResults = ({
 
   let mobilePanelResult = null;
 
-  isTopTen = false;
+  // isTopTen = false;
 
   if (!isTopTen) {
     mobilePanelResult = (
@@ -402,7 +402,7 @@ const QuizResults = ({
               <Button variant="primary-results" onClick={onTryAgain}>
                 Try again
               </Button>
-              <Button variant="secondary-results" as="link" to="/leaderboard">
+              <Button variant="secondary-results" as="link" to="/quiz_app_FE/leaderboard">
                 View highscores
               </Button>
             </div>
