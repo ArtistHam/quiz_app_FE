@@ -14,6 +14,7 @@ import { useQuestions } from "../../utils/hooks/useQuestions";
 import { submitScore, submitHighscore } from "../../utils/api";
 
 import dayjs from "dayjs";
+import { useNavigate } from "react-router-dom";
 
 const MainQuizPage = () => {
   const isMobile = useIsMobile();
@@ -49,11 +50,14 @@ const MainQuizPage = () => {
     useQuizTimer(quizMeta, showQuiz, questionStartTime);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("start") === "1") {
+    const autoStart = sessionStorage.getItem("autoStartQuiz");
+    if (autoStart === "true") {
+      sessionStorage.removeItem("autoStartQuiz");
       handleStartQuiz();
     }
   }, []);
+
+  const navigate = useNavigate();
 
   const handleMobileTakeQuiz = (step) => {
     if (!isMobile) {
@@ -169,7 +173,7 @@ const MainQuizPage = () => {
 
     try {
       await submitHighscore(requestData);
-      window.location.href = "/leaderboard";
+      navigate("/leaderboard");
     } catch (error) {
       console.error("Error submitting highscore:", error);
     } finally {

@@ -1,12 +1,13 @@
 :root {
+  --font-primary: "Ubuntu", sans-serif;
+  --font-secondary: "Source Sans 3", sans-serif;
+
   --color-dark-teal: #023047;
   --color-orange: #ff8300;
   --color-amber: #feb306;
   --color-light-grey: #e1e1e0;
   --color-teal: #0e5f76;
-
-  --font-primary: "Ubuntu", sans-serif;
-  --font-secondary: "Source Sans 3", sans-serif;
+  --color-off-white: rgba(240, 253, 255, 1);
 }
 
 body {

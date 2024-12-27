@@ -1,220 +1,209 @@
-/* desktop*/
+/* ========================================
+   Desktop container & layout
+======================================== */
 .container {
   position: relative;
   min-height: 100vh;
   background: var(--color-dark-teal);
   color: var(--color-light-grey);
-  font-family: var(--font-family);
+  font-family: var(--font-secondary);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   overflow: hidden;
 }
 
 .title {
-  font-size: 56px;
-  line-height: 64px;
-  margin-top: 100px;
-  margin-bottom: 57px;
+  font-size: 3.5rem;
+  line-height: 4rem;
+  margin-top: 6.25rem;
+  margin-bottom: 2.5625rem;
   font-weight: 500;
 }
 
+/* ========================================
+   Table container (desktop)
+======================================== */
 .tableContainer {
-  width: 1008px;
-  height: 662px;
+  width: 63rem;
+  height: 41.375rem;
   background: linear-gradient(
     153.55deg,
     rgba(205, 254, 92, 0.15) -1.67%,
     rgba(2, 48, 71, 0) 97.81%
   );
-
-  backdrop-filter: blur(7.5px);
-  border-radius: 20px;
-  padding: 53px 80px;
+  backdrop-filter: blur(0.46875rem);
+  border-radius: 1.25rem;
+  padding: 3.3125rem 5rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin-bottom: 58px;
+  margin-bottom: 3.625rem;
 }
 
 .table {
   width: 100%;
   margin-bottom: 2rem;
-  color: rgba(240, 253, 255, 1);
+  color: var(--color-off-white);
 }
 
 .tableHeader {
-  font-family: "Source Sans 3";
+  font-family: var(--font-secondary);
   text-align: center;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-style: italic;
-  padding-bottom: 33px;
+  padding-bottom: 1.0625rem;
   font-weight: 300;
   letter-spacing: -0.04em;
 }
 
 .tableHeaderName {
   text-align: left;
-  padding-left: 100px;
+  padding-left: 6.25rem;
 }
 
 .tableCellNickName {
-  padding: 8px;
+  padding: 0.5rem;
   text-align: start;
   font-weight: 400;
-  font-size: 28px;
-  line-height: 34px;
+  font-size: 1.75rem;
+  line-height: 2.125rem;
   letter-spacing: -0.04em;
+  font-family: var(--font-primary);
 }
 
 .tableCellTime {
-  font-family: "Ubuntu Sans";
   text-align: center;
   font-weight: 100;
-  font-size: 28px;
-  line-height: 34px;
+  font-size: 1.75rem;
+  line-height: 2.125rem;
   letter-spacing: -0.04em;
+  font-family: var(--font-primary);
 }
 
 .tableCellScore {
-  font-family: "Ubuntu Sans";
   text-align: center;
   font-weight: 400;
-  font-size: 28px;
-  line-height: 34px;
+  font-size: 1.75rem;
+  line-height: 2.125rem;
   letter-spacing: -0.04em;
+  font-family: var(--font-primary);
 }
 
+/* Desktop buttons row */
 .buttonsRow {
   display: flex;
-  gap: 123px;
+  gap: 7.6875rem;
 }
 
-/* mobile*/
+/* ========================================
+   Mobile container & layout
+======================================== */
 .containerMobile {
   position: relative;
   min-height: 100vh;
   background: var(--color-dark-teal);
   color: var(--color-light-grey);
-  font-family: var(--font-family);
+  font-family: var(--font-secondary);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 83px;
+  padding-top: 5.1875rem;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .titleMobile {
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: 500;
-  line-height: 34px;
-  margin-bottom: 68px;
+  line-height: 2.125rem;
+  margin-bottom: 4.25rem;
 }
 
 .loadingTextMobile {
-  font-size: 20px;
-  margin-top: 20px;
+  font-size: 1.25rem;
+  margin-top: 1.25rem;
 }
 
+/* ========================================
+   Mobile table container
+======================================== */
 .tableContainerMobile {
-  width: 327px;
-  height: 358px;
+  width: 20.4375rem;
+  height: 22.375rem;
   background: linear-gradient(
     153.55deg,
     rgba(205, 254, 92, 0.15) 4.67%,
     rgba(2, 48, 71, 0) 126.81%
   );
-
-  border-radius: 20px;
-  padding: 26px;
+  border-radius: 1.25rem;
+  padding: 1.625rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin-bottom: 33px;
+  margin-bottom: 2.0625rem;
   overflow: auto;
 }
 
 .tableMobile {
   width: 100%;
-  color: rgba(240, 253, 255, 1);
+  color: var(--color-off-white);
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .tableHeaderMobile {
   text-align: center;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-style: italic;
   font-weight: 300;
-  padding-bottom: 18px;
+  padding-bottom: 1.125rem;
 }
 
 .tableCellNickNameMobile,
 .tableCellTimeMobile,
 .tableCellScoreMobile {
-  font-size: 14px;
+  font-size: 0.875rem;
   text-align: center;
   font-weight: 400;
-  padding: 6px;
+  padding: 0.375rem;
 }
 
 .tableCellTimeMobile {
-  font-family: "Ubuntu Sans";
-  font-size: 14px;
+  font-family: var(--font-primary);
   font-weight: 100;
 }
 
 .tableCellNickNameMobile {
-  font-family: "Ubuntu Sans";
-  font-size: 14px;
+  font-family: var(--font-primary);
   font-weight: 500;
   text-align: start;
 }
 
+/* ========================================
+   Mobile star & buttons
+======================================== */
 .starImageMobile {
-  width: 51px;
-  height: 52px;
-  margin-bottom: 40px;
+  width: 3.1875rem;
+  height: 3.25rem;
+  margin-bottom: 2.5rem;
 }
 
 .leaderboardButtonsColumnMobile {
   display: flex;
   flex-direction: column;
-  gap: 27px;
-  margin-bottom: 40px;
-}
-
-.gradientOverlay {
-  position: absolute;
-  bottom: 15%;
-  right: 65%;
-  width: 1428px;
-  height: 772px;
-  background: radial-gradient(
-    42.31% 42.63% at 53.97% 50.15%,
-    rgba(254, 179, 6, 0.3) 0%,
-    rgba(54, 30, 181, 0) 64%
-  );
-  transform: rotate(90deg);
-  z-index: 1;
-}
-
-.buttonTextDecor {
-  font-size: inherit;
-  color: inherit;
-  line-height: inherit;
-  margin-left: 9px;
+  gap: 1.6875rem;
+  margin-bottom: 2.5rem;
 }
 
 .gradientDecorMobile {
   position: absolute;
-  top: 124px;
+  top: 7.75rem;
   left: 48%;
-  width: 14px;
-  height: 55px;
+  width: 0.875rem;
+  height: 3.4375rem;
   background: radial-gradient(
     58.87% 47.87% at 52.7% 47.05%,
     rgba(111, 145, 113, 0.21) 0%,
@@ -226,8 +215,8 @@
   position: absolute;
   top: 75%;
   left: 68%;
-  width: 300px;
-  height: 300px;
+  width: 18.75rem;
+  height: 18.75rem;
   background: radial-gradient(
     42.31% 42.63% at 53.97% 50.15%,
     rgba(28, 244, 240, 0.2) 0%,
@@ -235,11 +224,41 @@
   );
 }
 
+/* ========================================
+   Gradient overlay (desktop)
+======================================== */
+.gradientOverlay {
+  position: absolute;
+  bottom: 15%;
+  right: 65%;
+  width: 89.25rem;
+  height: 48.25rem;
+  background: radial-gradient(
+    42.31% 42.63% at 53.97% 50.15%,
+    rgba(254, 179, 6, 0.3) 0%,
+    rgba(54, 30, 181, 0) 64%
+  );
+  transform: rotate(90deg);
+  z-index: 1;
+}
+
+/* ========================================
+   Shared text decor
+======================================== */
+.buttonTextDecor {
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+  margin-left: 0.5625rem;
+}
+
+/* ========================================
+   Responsive (desktop) adjustments
+======================================== */
 @media (max-width: 1600px) {
   .buttonsRow {
-    gap: 106px;
+    gap: 6.625rem;
   }
-
   .gradientOverlay {
     right: 56%;
   }
@@ -247,30 +266,24 @@
 
 @media (max-width: 1080px) {
   .tableContainer {
-    width: 700px;
+    width: 43.75rem;
   }
-
   .tableCellNickName {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
-
   .tableCellTime,
   .tableCellScore {
-    font-size: 26px;
+    font-size: 1.625rem;
   }
-
   .title {
-    font-size: 53px;
+    font-size: 3.3125rem;
   }
-
   .buttonsRow {
-    gap: 87px;
+    gap: 5.4375rem;
   }
-
   .tableHeader {
-    padding-bottom: 24px;
+    padding-bottom: 1.5rem;
   }
-
   .gradientOverlay {
     right: 40%;
   }
@@ -278,25 +291,22 @@
 
 @media (max-height: 1080px) {
   .title {
-    font-size: 50px;
-    margin-bottom: 36px;
+    font-size: 3.125rem;
+    margin-bottom: 2.25rem;
   }
-
   .tableContainer {
-    padding: 30px 78px;
-    margin-bottom: 44px;
-    height: 621px;
+    padding: 1.875rem 4.875rem;
+    margin-bottom: 2.75rem;
+    height: 38.8125rem;
   }
-
   .tableHeader {
-    padding-bottom: 20px;
-    font-size: 23px;
+    padding-bottom: 0.8rem;
+    font-size: 1.4375rem;
   }
-
   .tableCellNickName,
   .tableCellTime,
   .tableCellScore {
-    font-size: 25px;
+    font-size: 1.5625rem;
   }
   .buttonsRow {
     margin-bottom: 2rem;
@@ -305,17 +315,15 @@
 
 @media (max-height: 988px) {
   .tableContainer {
-    height: 472px;
-    width: 818px;
+    height: 29.5rem;
+    width: 51.125rem;
   }
-
   .tableCellNickName,
   .tableCellTime,
   .tableCellScore {
-    font-size: 21px;
+    font-size: 1.3125rem;
     padding: 0;
   }
-
   .tableCellNickName,
   .tableCellScore {
     font-weight: 300;

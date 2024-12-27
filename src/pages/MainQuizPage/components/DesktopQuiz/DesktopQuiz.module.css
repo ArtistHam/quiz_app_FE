@@ -1,3 +1,6 @@
+/* ========================================
+   Container & layout
+======================================== */
 .container {
   background-color: var(--color-dark-teal);
   color: var(--color-light-grey);
@@ -20,6 +23,9 @@
   overflow: hidden;
 }
 
+/* ========================================
+   Left column
+======================================== */
 .quizLeftColumn {
   flex: 0.86;
   display: flex;
@@ -31,12 +37,12 @@
   );
   min-height: 100vh;
   position: relative;
-  padding-top: 161px;
+  padding-top: 10.0625rem;
 }
 
 .blurredLeft {
   position: relative;
-  filter: blur(4px);
+  filter: blur(0.25rem);
 }
 
 .blurredLeft::before {
@@ -55,7 +61,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-left: 99px;
+  padding-left: 6.1875rem;
 }
 
 .topSection {
@@ -71,29 +77,35 @@
   font-weight: 400;
 }
 
+/* ========================================
+   Quiz title & text
+======================================== */
 .quizTitle {
-  font-family: "Ubuntu";
+  font-family: var(--font-primary);
   font-size: 4.25rem;
   font-weight: 700;
-  margin-bottom: 35px;
+  margin-bottom: 2.1875rem;
   line-height: 4.8rem;
-  color: rgba(240, 253, 255, 1);
+  color: var(--color-off-white);
   letter-spacing: 0.02em;
   z-index: 2;
 }
 
 .quizText {
-  font-family: "Source Sans 3";
+  font-family: var(--font-secondary);
   font-weight: 300;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 1.75rem;
   margin-bottom: 2rem;
   max-width: 30rem;
-  color: rgba(240, 253, 255, 1);
+  color: var(--color-off-white);
   letter-spacing: -0.04em;
   z-index: 3;
 }
 
+/* ========================================
+   Decorations (left column)
+======================================== */
 .decorContainer {
   position: absolute;
   left: 0;
@@ -110,7 +122,7 @@
   bottom: 0;
   width: auto;
   height: 40rem;
-  filter: blur(7.5px);
+  filter: blur(0.46875rem);
   z-index: 1;
 }
 
@@ -118,44 +130,53 @@
   position: absolute;
   left: -21rem;
   bottom: -20rem;
-  width: 751.14px;
-  height: 873.18px;
+  width: 46.944625rem;
+  height: 54.574rem;
   background: radial-gradient(
     42.31% 42.63% at 53.97% 50.15%,
     rgba(152, 235, 184, 0.4) 0%,
     rgba(14, 95, 118, 0) 100%
   );
-
   transform: rotate(-49.51deg);
 }
 
+/* ========================================
+   Total time & question counter
+======================================== */
 .totalTime {
-  font-family: "Source Sans 3";
+  font-family: var(--font-secondary);
   margin-bottom: 3.4rem;
   max-width: 10.75rem;
-  color: rgba(240, 253, 255, 1);
+  color: var(--color-off-white);
   font-weight: 400;
+}
+
+.timeHighlight {
+  color: var(--color-orange) !important;
 }
 
 .totalTimeLabel {
   display: inline-block;
-  font-size: 24px;
+  font-size: 1.5rem;
   margin-bottom: 0.125rem;
   line-height: 2.136rem;
 }
 
 .totalTimeValue {
   line-height: 2.85rem;
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 .questionCounter {
-  font-family: "Source Sans 3";
+  font-family: var(--font-secondary);
   font-weight: 400;
-  font-size: 48px;
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
+/* ========================================
+   Progress dots
+======================================== */
 .progressDots {
   display: flex;
   gap: 0.5rem;
@@ -164,11 +185,11 @@
 }
 
 .dot {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   display: inline-block;
-  margin: 0 4px;
+  margin: 0 0.25rem;
 }
 
 .dotCorrect {
@@ -180,7 +201,7 @@
 }
 
 .dotCurrent {
-  background: rgba(255, 131, 0, 1);
+  background: var(--color-orange);
 }
 
 .dotPast {
@@ -191,6 +212,9 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
+/* ========================================
+   Right column & media frame
+======================================== */
 .quizRightColumn {
   flex: 1;
   display: flex;
@@ -200,13 +224,34 @@
 }
 
 .mediaFrame {
-  border: 1px solid var(--color-light-grey);
+  border: 0.0625rem solid var(--color-light-grey);
   border-radius: 1.25rem;
-  padding: 35px;
+  padding: 2.1875rem;
   padding-bottom: 0;
   position: relative;
   margin-bottom: 3.7rem;
   transition: border-color 0.3s ease;
+}
+
+.mediaWrapper {
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.blurredMedia {
+  filter: blur(0.25rem);
+}
+
+.blurredMedia::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99%;
+  pointer-events: none;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .media,
@@ -214,51 +259,30 @@
   width: 30rem;
   height: 35.5rem;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   z-index: 1;
 }
 
 .questionTime {
-  font-family: "Source Sans 3";
+  font-family: var(--font-secondary);
   font-weight: 300;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1.25rem;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: var(--color-light-grey);
-  margin-bottom: 2.12rem;
-  margin-top: 30px;
+  margin-bottom: 2.125rem;
+  margin-top: 1.875rem;
 }
 
-.timerIcon {
-  width: 1.8rem;
-  height: 1.8rem;
-}
-
+/* ========================================
+   Buttons & overlay
+======================================== */
 .answerButtons {
   display: flex;
-  gap: 58px;
+  gap: 3.625rem;
   z-index: 1;
-}
-
-.blurred {
-  filter: blur(4px);
-}
-
-.blurred::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  pointer-events: none;
-  z-index: 6;
-}
-
-.blurLeft {
 }
 
 .answerOverlay {
@@ -274,182 +298,119 @@
   flex-direction: column;
 }
 
-.blurBackground {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  backdrop-filter: blur(15px);
-  z-index: 1;
-}
-
 .answerContent {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 61px;
-}
-
-.answerStar {
-  width: 100px;
-  height: 100px;
-  transition: transform 0.3s;
+  gap: 3.8125rem;
 }
 
 .answerText {
-  font-family: "Ubuntu";
-  font-size: 30px;
+  font-family: var(--font-primary);
+  font-size: 1.875rem;
   font-weight: 700;
-  line-height: 34.47px;
-  color: #f0fdff;
+  line-height: 2.153125rem;
+  color: var(--color-off-white);
   text-align: center;
   white-space: pre-line;
 }
 
-.timeHighlight {
-  color: rgba(255, 131, 0, 1) !important;
+.answerStar {
+  width: 6.25rem;
+  height: 6.25rem;
+  transition: transform 0.3s;
 }
 
-.quiz-next {
-  width: 266px;
-  height: 68px;
-  background: rgba(240, 253, 255, 1);
-  font-size: 30px;
-  font-weight: 700;
-  color: #023047;
-  transition: background-color 0.3s ease;
-}
-
-.quiz-next:hover {
-  background: rgba(254, 179, 6, 1);
-}
-
-.mediaWrapper {
-  position: relative;
-  padding-bottom: 0;
-  position: relative;
-
-  transition: border-color 0.3s ease;
-}
-
-.mediaWrapper.blurred::before {
-  content: "";
+/* ========================================
+   Additional styling
+======================================== */
+.blurBackground {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  pointer-events: none;
-  z-index: 2;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(0.9375rem);
+  z-index: 1;
 }
 
-.blurredMedia {
-  filter: blur(4px);
-}
-
-.blurredMedia::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 99%;
-  pointer-events: none;
-  z-index: 2;
-  background: rgba(0, 0, 0, 0.3);
-}
-
+/* ========================================
+   Media query: custom heights
+======================================== */
 @media (max-height: 1080px) {
   .decorBottomLeft {
     height: 36.5rem;
   }
-
   .quizText {
-    font-size: 22px;
+    font-size: 1.375rem;
   }
-
   .totalTime {
     margin-bottom: 2rem;
   }
-
   .bottomSection {
     margin-bottom: 4rem;
   }
-
   .quizTitle {
-    font-size: 58px;
+    font-size: 3.625rem;
   }
-
   .questionCounter {
-    margin-bottom: 11px;
+    margin-bottom: 0.6875rem;
   }
 }
 
 @media (max-height: 973px) {
   .quizText {
-    font-size: 20px;
+    font-size: 1.25rem;
     letter-spacing: 0;
   }
   .mediaFrame {
     padding: 2.1rem;
     padding-bottom: 1.7rem;
-    margin-bottom: 42px;
+    margin-bottom: 2.625rem;
   }
-
   .media,
   .image {
     width: 24rem;
     height: 30.5rem;
     margin-bottom: 0;
   }
-
   .questionTime {
     margin-bottom: 0.5rem;
-    margin-top: 16px;
+    margin-top: 1rem;
   }
-
   .decorBottomLeft {
     height: 34rem;
   }
-
   .answerButtons {
-    gap: 36px;
+    gap: 2.25rem;
   }
-
   .totalTimeLabel {
     font-size: 1.3rem;
     line-height: 1.3rem;
   }
-
   .totalTimeValue {
-    line-height: 1.85rem;
-    font-size: 1.6rem;
+    line-height: 1.15625rem;
+    font-size: 1rem;
   }
-
   .questionCounter {
-    font-size: 38px;
-    margin-bottom: 6px;
+    font-size: 2.375rem;
+    margin-bottom: 0.375rem;
   }
-
   .totalTime {
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
   }
   .bottomSection {
     margin-bottom: 3rem;
   }
-
   .quizTitle {
-    font-size: 56px;
-    margin-bottom: 27px;
+    font-size: 3.5rem;
+    margin-bottom: 1.6875rem;
   }
-
   .dot {
-    width: 15px;
-    height: 15px;
+    width: 0.9375rem;
+    height: 0.9375rem;
   }
 }
 
@@ -457,57 +418,46 @@
   .decorBottomLeft {
     height: 36rem;
   }
-
   .mediaFrame {
     padding: 1.8rem;
     margin-bottom: 3.1rem;
   }
-
   .media,
   .image {
     margin-bottom: 1rem;
   }
-
   .questionTime {
     margin-bottom: 0;
     margin-top: 1rem;
-    font-size: 18px;
+    font-size: 1.125rem;
   }
-
   .quizTitle {
     font-size: 4rem;
   }
-
   .quizText {
-    font-size: 23px;
+    font-size: 1.4375rem;
     max-width: 26.5rem;
   }
-
   .centeredLeftColumn {
     padding: 0;
   }
-
   .questionCounter {
     font-size: 2.6rem;
     margin-bottom: 0.7rem;
   }
-
   .progressDots {
     gap: 0.4rem;
   }
-
   .dot {
-    width: 14px;
-    height: 14px;
+    width: 0.875rem;
+    height: 0.875rem;
   }
-
   .answerText {
-    font-size: 29px;
+    font-size: 1.8125rem;
     max-width: 17rem;
   }
-
   .answerContent {
-    gap: 45px;
+    gap: 2.8125rem;
   }
 }
 
@@ -515,65 +465,48 @@
   .decorBottomLeft {
     height: 30rem;
   }
-
   .quizTitle {
     font-size: 3.7rem;
   }
-
   .quizText {
-    font-size: 22px;
+    font-size: 1.375rem;
     max-width: 25rem;
   }
-
   .totalTimeValue {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
-
   .totalTimeLabel {
-    font-size: 22px;
+    font-size: 1.375rem;
     margin-bottom: 0;
     line-height: 0;
   }
-
   .questionCounter {
-    /* font-size: 2rem; */
     margin-bottom: 0.7rem;
   }
-
   .progressDots {
     gap: 0.4rem;
     margin-bottom: 2rem;
   }
-
-  /* .dot {
-    width: 0.7rem;
-    height: 0.7rem;
-  } */
-
   .media,
   .image {
     width: 23.3rem;
     margin-bottom: 0.8rem;
   }
-
   .mediaFrame {
     margin-top: 1.8rem;
     padding: 1.8rem;
     padding-bottom: 1.5rem;
   }
-
   .questionTime {
     font-size: 1.1rem;
-    margin-top: 4px;
+    margin-top: 0.25rem;
   }
-
   .timerIcon {
     width: 1.6rem;
     height: 1.46rem;
   }
-
   .answerButtons {
-    gap: 35px;
+    gap: 2.1875rem;
   }
 }
 
@@ -581,118 +514,95 @@
   .decorBottomLeft {
     height: 30rem;
   }
-
   .questionCounter {
     font-size: 2rem;
     margin-bottom: 0.7rem;
   }
-
   .progressDots {
     gap: 0.4rem;
     margin-bottom: 2rem;
   }
-
   .dot {
     width: 0.7rem;
     height: 0.7rem;
   }
-
   .media,
   .image {
     width: 24.3rem;
     margin-bottom: 0;
   }
-
   .mediaFrame {
     margin-top: 0;
     padding: 1.8rem;
     padding-bottom: 1.5rem;
   }
-
   .questionTime {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
-
   .timerIcon {
-    width: 1.6rem;
-    height: 1.46rem;
+    width: 1.4rem;
+    height: 1.4rem;
   }
-
   .quizLayout {
     display: block;
   }
-
   .topSection {
     margin-top: 1.3rem;
   }
-
   .bottomSection {
     display: flex;
     flex-direction: column;
     margin-bottom: 4rem;
     font-weight: 400;
   }
-
   .quizTitle {
     font-size: 3.6rem;
     margin-bottom: 0;
     line-height: 4.4rem;
   }
-
   .quizText {
-    font-size: 18px;
+    font-size: 1.125rem;
     margin-bottom: 1.5rem;
     margin-top: 2rem;
   }
-
   .totalTime {
     margin-bottom: 1rem;
     max-width: 10.75rem;
-    color: rgba(240, 253, 255, 1);
+    color: var(--color-off-white);
   }
-
   .totalTimeLabel {
     font-size: 1.1rem;
     line-height: 1.4rem;
   }
-
   .totalTimeValue {
     font-size: 1.5rem;
   }
-
   .questionCounter {
     font-size: 1.8rem;
     margin-bottom: 0.4rem;
   }
-
   .progressDots {
-    display: flex;
     gap: 0.5rem;
     margin-bottom: 2rem;
   }
-
   .dot {
     width: 0.6rem;
     height: 0.6rem;
   }
-
   .mediaFrame {
     margin-top: 1.8rem;
     padding: 1.6rem;
     margin-bottom: 2.1rem;
   }
-
   .questionTime {
     font-size: 1rem;
   }
-
   .timerIcon {
     width: 1.4rem;
     height: 1.4rem;
   }
-
   .answerButtons {
-    gap: 2.625rem;
+    gap: 1.640625rem;
     margin-bottom: 2.5rem;
   }
 }
@@ -711,17 +621,15 @@
 
 @media (max-width: 1600px) and (max-height: 982px) {
   .quizText {
-    font-size: 20px;
+    font-size: 1.25rem;
     letter-spacing: 0;
   }
-
   .media,
   .image {
     width: 28rem;
     height: 35.5rem;
     margin-bottom: 0;
   }
-
   .decorBottomLeft {
     height: 30rem;
   }
@@ -731,26 +639,21 @@
   .totalTime {
     margin-bottom: 1.5rem;
   }
-
   .totalTimeLabel {
     font-size: 1.3rem;
     line-height: 1.3rem;
   }
-
   .totalTimeValue {
     line-height: 1.85rem;
     font-size: 1.6rem;
   }
-
   .questionCounter {
     font-size: 2.4rem;
   }
-
   .dot {
-    width: 13px;
-    height: 13px;
+    width: 0.8125rem; /* 13px */
+    height: 0.8125rem; /* 13px */
   }
-
   .media,
   .image {
     margin-bottom: 0;
@@ -759,83 +662,67 @@
 
 @media (max-height: 857px) {
   .quizLeftColumn {
-    padding-top: 104px;
+    padding-top: 6.5rem;
   }
-
   .quizTitle {
     font-size: 3rem;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     line-height: 4.4rem;
   }
-
   .quizText {
-    font-size: 17px;
+    font-size: 1.0625rem;
     line-height: 1.4rem;
   }
-
   .totalTimeLabel {
     font-size: 1.1rem;
     line-height: 1.3rem;
   }
-
   .totalTimeValue {
     line-height: 1.85rem;
     font-size: 1.4rem;
   }
-
   .media,
   .image {
     width: 23rem;
     height: 26.5rem;
   }
-
   .mediaFrame {
     padding: 1.4rem;
     padding-bottom: 1.2rem;
-    margin-bottom: 37px;
+    margin-bottom: 2.3125rem;
   }
-
   .bottomSection {
     margin-bottom: 2rem;
   }
-
   .questionCounter {
     font-size: 2.2rem;
     margin-bottom: 0.7rem;
   }
-
   .progressDots {
     gap: 0.3rem;
   }
-
   .dot {
-    width: 12px;
-    height: 12px;
+    width: 0.75rem;
+    height: 0.75rem;
   }
-
   .quizRightColumn {
     margin-top: 0rem;
   }
-
   .media,
   .image {
-    margin-bottom: 18px;
+    margin-bottom: 1.125rem;
   }
-
   .answerContent {
-    gap: 50px;
+    gap: 3.125rem;
   }
-
   .answerText {
-    font-size: 24px;
+    font-size: 1.5rem;
     max-width: 10rem;
   }
-
   .answerStar {
-    width: 80px;
-    height: 80px;
+    width: 5rem;
+    height: 5rem;
   }
-
   .answerButtons {
     margin-bottom: 2rem;
   }

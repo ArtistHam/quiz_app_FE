@@ -20,6 +20,7 @@ const DesktopQuiz = ({
   const { answered, isCorrect } = currentAnswerState;
 
   let borderColor = "var(--color-light-grey)";
+
   if (answered) {
     borderColor = isCorrect ? "rgba(205, 254, 92, 1)" : "rgba(255, 51, 0, 1)";
   }
