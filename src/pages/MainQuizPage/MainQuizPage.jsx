@@ -100,7 +100,7 @@ const MainQuizPage = () => {
 
     setUserAnswers((prev) => [
       ...prev,
-      { id: currentFileObj.id, isReal: userIsReal, correct: isCorrect },
+      { url: currentFileObj.url, isReal: userIsReal, correct: isCorrect },
     ]);
 
     setCurrentAnswerState({
@@ -135,7 +135,7 @@ const MainQuizPage = () => {
         setSubmitting(true);
         const requestData = {
           results: userAnswers.map((ans) => ({
-            id: ans.id,
+            url: ans.url,
             isReal: ans.isReal,
           })),
           time: totalTimeSpent,
@@ -166,7 +166,7 @@ const MainQuizPage = () => {
       name: userName,
       time: quizMeta.finalTime,
       results: userAnswers.map((ans) => ({
-        id: ans.id,
+        url: ans.url,
         isReal: ans.isReal,
       })),
     };
