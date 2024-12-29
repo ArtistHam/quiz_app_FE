@@ -91,8 +91,10 @@ const LeaderboardPage = () => {
             </Button>
             <Button
               variant="highscore-mobile-secondary"
-              as="link"
-              to="/?start=1"
+              onClick={() => {
+                sessionStorage.setItem("autoStartQuiz", "true");
+                window.location.href = "/";
+              }}
             >
               Try yourself
             </Button>
