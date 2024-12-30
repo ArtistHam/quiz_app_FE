@@ -1,0 +1,270 @@
+/* ========================================
+   Mobile quiz container & layout
+======================================== */
+.mobileQuizContainer {
+  position: relative;
+  background: var(--color-dark-teal);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 5.625rem;
+}
+
+/* ========================================
+   Media frame & bar
+======================================== */
+.mobileMediaFrame {
+  border: 0.0625rem solid var(--color-light-grey);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease;
+}
+
+.mobileBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.timerIcon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.mobileQuestionCounter {
+  align-self: flex-start;
+  color: var(--color-off-white);
+}
+
+/* ========================================
+   Media (video/image)
+======================================== */
+.media,
+.image {
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  transition: filter 0.3s;
+  width: 17.4375rem;
+  height: 30.8125rem;
+}
+
+.blurred {
+  filter: blur(0.9375rem);
+}
+
+/* ========================================
+   Answer buttons (mobile)
+======================================== */
+.answerButtonsMobile {
+  display: flex;
+  gap: 1.8125rem;
+  margin-top: 2.625rem;
+  margin-bottom: 2.625rem;
+}
+
+/* ========================================
+   Bottom blur block (progress, counter)
+======================================== */
+.mobileBlurBlock {
+  backdrop-filter: blur(0.46875rem);
+  width: 20.4375rem;
+  height: 5.125rem;
+  background: linear-gradient(
+    156.99deg,
+    rgba(163, 221, 233, 0.2) 5.13%,
+    rgba(2, 48, 71, 0.2) 95.19%
+  );
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.125rem 1.625rem;
+  position: relative;
+  margin-bottom: 2rem;
+  z-index: 3;
+}
+
+.mobileBlurQuestionCounter {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  font-size: 1.875rem;
+  line-height: 1;
+  align-self: flex-start;
+  margin-bottom: 0.625rem;
+  color: var(--color-off-white);
+}
+
+.mobileProgressDots {
+  display: flex;
+  gap: 1.083125rem;
+}
+
+.dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dotCorrect {
+  background: rgba(88, 119, 17, 1);
+}
+
+.dotIncorrect {
+  background: rgba(255, 30, 0, 0.5);
+}
+
+.dotCurrent {
+  background: rgba(255, 131, 0, 1);
+}
+
+.dotPast {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.dotFuture {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ========================================
+   Answer overlay (on correct/incorrect)
+======================================== */
+.answerOverlay {
+  position: absolute;
+  top: -4.1875rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.blurBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(0.9375rem);
+  z-index: 1;
+}
+
+.answerContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.answerStar {
+  width: 8.1875rem;
+  height: 9rem;
+  transition: transform 0.3s;
+}
+
+.answerText {
+  max-width: 16.125rem;
+  font-family: var(--font-primary);
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  color: var(--color-off-white);
+  white-space: pre-line;
+}
+
+/* ========================================
+   Highlighted time color
+======================================== */
+.timeHighlight {
+  color: rgba(255, 131, 0, 1) !important;
+}
+
+/* ========================================
+   Decorative gradient at bottom right
+======================================== */
+.bottomRightGradient {
+  position: absolute;
+  bottom: -11%;
+  left: 71%;
+  width: 12.5rem;
+  height: 12.5rem;
+  background: radial-gradient(
+    45.31% 42.63% at 53.97% 54.15%,
+    rgba(152, 235, 184, 0.4) -21%,
+    rgba(14, 95, 118, 0) 100%
+  );
+  z-index: 1;
+}
+
+/* ========================================
+   Very small screens
+======================================== */
+@media (max-width: 360px) and (max-height: 640px) {
+  .media,
+  .image {
+    width: 15.0625rem;
+    height: 20.375rem;
+    margin-bottom: 1.125rem;
+  }
+
+  .mobileMediaFrame {
+    padding: 1.125rem;
+  }
+
+  .mobileBar {
+    font-size: 1rem;
+  }
+
+  .answerButtonsMobile {
+    gap: 1.125rem;
+    margin: 2.0625rem 0;
+  }
+
+  .mobileBlurBlock {
+    width: 17.75rem;
+    height: 4.125rem;
+  }
+
+  .mobileBlurQuestionCounter {
+    font-size: 1.5625rem;
+  }
+
+  .dot {
+    width: 0.5625rem;
+    height: 0.5625rem;
+  }
+
+  .mobileProgressDots {
+    gap: 0.958125rem;
+  }
+
+  .answerContent {
+    gap: 1.5rem;
+  }
+
+  .answerText {
+    font-size: 1.25rem;
+    max-width: 10rem;
+  }
+
+  .answerStar {
+    width: 6.125rem;
+    height: 5.3125rem;
+  }
+}

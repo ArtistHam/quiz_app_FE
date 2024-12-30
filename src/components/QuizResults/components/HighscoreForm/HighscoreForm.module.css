@@ -1,0 +1,63 @@
+.submitHighscoreBlock {
+  display: flex;
+  align-items: center;
+  gap: 1.8125rem;
+}
+
+.nameInput {
+  width: 18.125rem;
+  height: 2.375rem;
+  font-size: 1rem;
+  background: var(--color-off-white);
+  border-radius: 0.625rem;
+  color: rgb(30, 28, 28);
+  backdrop-filter: blur(0.46875rem);
+  border: none;
+  outline: none;
+  padding: 0.8125rem 1.3125rem;
+}
+
+.nameInput::placeholder {
+  color: var(--color-light-grey);
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(14, 95, 118, 0.5);
+}
+
+/* Mobile */
+.submitBlockMobile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.nameInputMobile {
+  width: 15.1875rem;
+  height: 2.0625rem;
+  font-size: 0.875rem;
+  font-style: italic;
+  font-weight: 300;
+  background: var(--color-off-white);
+  border-radius: 0.625rem;
+  color: rgba(14, 95, 118, 0.5);
+  border: none;
+  outline: none;
+  padding: 1.125rem 0.625rem;
+}
+
+.nameInputMobile::placeholder {
+  font-size: 0.875rem;
+  font-weight: 100;
+  font-style: italic;
+  color: rgba(14, 95, 118, 0.5);
+}
+
+.submitButtonMobile {
+  width: 15.1875rem;
+  height: 2.625rem;
+  font-size: 1rem;
+  font-weight: 600;
+}

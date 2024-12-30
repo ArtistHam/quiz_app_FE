@@ -1,73 +1,30 @@
-.container {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.title {
-  font-size: 2rem;
-  color: #333;
-}
-
-.buttons {
-  margin-top: 20px;
-}
-
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 10px;
-  text-decoration: none;
-  color: white;
-  background-color: #007bff;
-  border-radius: 5px;
-}
-
-.button:hover {
-  background-color: #0056b3;
-}
-
-.container {
-  text-align: center;
-  margin-top: 30px;
+/* ========================================
+   Main quiz page wrapper
+======================================== */
+.pageWrapper {
+  position: relative;
   width: 100%;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  height: 100vh;
+  overflow: auto;
 }
 
-.title {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.image {
+/* ========================================
+   Dark background overlay
+======================================== */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 400px;
-  height: auto;
-  margin-bottom: 20px;
+  height: 100%;
+  background: var(--color-dark-teal);
 }
 
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.button {
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.media {
-  max-width: 300px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-.button:hover {
-  background-color: #218838;
+/* ========================================
+   Responsive fix for small screens
+======================================== */
+@media (max-width: 67.5rem) {
+  .pageWrapper {
+    height: auto;
+  }
 }

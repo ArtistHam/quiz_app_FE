@@ -1,0 +1,320 @@
+/* ========================================
+   Main container & layout
+======================================== */
+.mainScreenContainer {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.mainLayout {
+  display: flex;
+  color: var(--color-light-grey);
+  max-width: 88rem;
+  width: 100%;
+  z-index: 2;
+}
+
+/* ========================================
+   Left column (star, titles, text, buttons)
+======================================== */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 50rem;
+  z-index: 1;
+}
+
+.starImage {
+  width: 8.125rem;
+  height: 8.125rem;
+  margin-bottom: 3.125rem;
+}
+
+.mainTitle {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 4rem;
+  line-height: 4.59625rem;
+  margin-bottom: 1.25rem;
+}
+
+.infoText {
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  line-height: 1.8rem;
+  font-weight: 300;
+  color: var(--color-off-white);
+  max-width: 39.2rem;
+  margin-bottom: 1.4375rem;
+}
+
+.buttonsRow {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2.1875rem;
+}
+
+.buttonTextDecor {
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+  margin-left: 0.5625rem;
+}
+
+/* ========================================
+   Right column (image decoration)
+======================================== */
+.rightColumn {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+  flex: 1;
+  min-height: 100vh;
+}
+
+.manDecor {
+  position: absolute;
+  top: auto;
+  right: -14rem;
+  width: 55vw;
+  height: 99vh;
+  background: url("http://localhost:3000/images/man.png") no-repeat bottom right;
+  background-size: cover;
+  z-index: 0;
+}
+
+/* ========================================
+   Mobile titles (steps)
+======================================== */
+.mainTitleMobile {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 2.25rem;
+  line-height: 1.2;
+  color: var(--color-off-white);
+  text-align: center;
+  max-width: 17rem;
+  margin-top: 1.6875rem;
+}
+
+.titleMobileStep2 {
+  margin-top: 4.625rem;
+}
+
+.infoTextStep2 {
+  max-width: 12.1875rem;
+  margin-top: 6.875rem;
+}
+
+/* ========================================
+   Gradients for mobile steps
+======================================== */
+.verticalGradient {
+  position: absolute;
+  top: 34%;
+  left: 47%;
+  transform: translateX(-50%);
+  width: 1.5rem;
+  height: 3.875rem;
+  background: radial-gradient(
+    55.87% 47.87% at 47.7% 47.05%,
+    rgba(111, 145, 113, 0.21) 0%,
+    rgba(69, 84, 116, 0) 108%
+  );
+  transform: rotate(0.5turn);
+}
+
+.radialGradient {
+  position: absolute;
+  top: 34rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18.75rem;
+  height: 18.75rem;
+  background: radial-gradient(
+    49.87% 51.87% at 48.7% 62.05%,
+    rgba(111, 145, 113, 0.21) 14%,
+    rgba(-1, 84, 116, 0) 75%
+  );
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* ========================================
+   Responsive adjustments
+======================================== */
+@media (max-width: 1600px) {
+  .mainLayout {
+    max-width: 73rem;
+  }
+  .starImage {
+    width: 6.25rem;
+    height: 6.25rem;
+  }
+  .mainTitle {
+    font-size: 3.25rem;
+    max-width: 26rem;
+  }
+  .infoText {
+    font-size: 1rem;
+    max-width: 37rem;
+  }
+  .manDecor {
+    width: 61vw;
+    height: 97vh;
+  }
+  .buttonsRow {
+    gap: 2.875rem;
+    margin-top: 1.625rem;
+  }
+}
+
+@media (max-width: 1600px) and (max-height: 982px) {
+  .manDecor {
+    height: 95vh;
+    right: -9rem;
+  }
+  .starImage {
+    width: 5.75rem;
+    height: 5.75rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 1366px) and (max-height: 768px) {
+  .manDecor {
+    width: 52vw;
+    right: -4rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .manDecor {
+    width: 66vw;
+    right: -7rem;
+  }
+}
+
+@media (max-width: 1263px) {
+  .mainLayout {
+    max-width: 65rem;
+  }
+  .manDecor {
+    width: 74vw;
+    right: -13rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  .mainLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 67.5rem;
+    position: relative;
+  }
+  .leftColumn {
+    max-width: 67.5rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    margin-top: 7rem;
+  }
+  .rightColumn {
+    min-height: 50vh;
+  }
+  .manDecor {
+    right: -16rem;
+    width: 51vh;
+    height: 51vh;
+  }
+  .starImage {
+    width: 5.75rem;
+    height: 5.75rem;
+    margin-bottom: 2.125rem;
+  }
+  .mainTitle {
+    max-width: 41rem;
+  }
+  .infoText {
+    font-size: 0.9375rem;
+    max-width: 35.2rem;
+  }
+}
+
+@media (max-width: 1024px) and (max-height: 768px) {
+  .manDecor {
+    right: -12rem;
+  }
+}
+
+@media (max-width: 695px) {
+  .mainTitle {
+    font-size: 2.8125rem;
+  }
+  .infoText {
+    text-align: center;
+    max-width: 29.2rem;
+  }
+  .manDecor {
+    right: -16rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .mainLayout {
+    align-items: center;
+    justify-content: normal;
+  }
+  .leftColumn {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    margin-top: 5rem;
+  }
+  .starImage {
+    position: relative;
+    width: 3.1875rem;
+    height: 3.25rem;
+  }
+  .infoText {
+    font-weight: 200;
+    max-width: 17.6875rem;
+    margin: 0;
+    margin-top: 7.375rem;
+  }
+  .buttonsRow {
+    flex-direction: column;
+    gap: 1.3125rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4.3125rem;
+    margin-bottom: 3rem;
+  }
+  .rightColumn {
+    min-height: auto;
+  }
+  .manDecor {
+    width: 25.125rem;
+    height: 26.875rem;
+    right: -10.6875rem;
+  }
+}
+
+@media (max-width: 360px) and (max-height: 640px) {
+  .manDecor {
+    width: 51vh;
+    height: 20.25rem;
+    right: -9.6875rem;
+  }
+  .verticalGradient {
+    top: 36%;
+  }
+  .buttonsRow {
+    margin-bottom: 3rem;
+  }
+}
