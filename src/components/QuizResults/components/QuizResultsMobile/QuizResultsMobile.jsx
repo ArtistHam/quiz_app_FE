@@ -88,9 +88,6 @@ export default function QuizResultsMobile({
     );
   }
 
-  const mobileActivePanel =
-    mobileSlide === 0 ? mobilePanelLearn : mobilePanelResult;
-
   return (
     <div className={styles.containerMobile}>
       <div className={styles.backgroundImageMobile}></div>
@@ -102,58 +99,8 @@ export default function QuizResultsMobile({
             <div className={styles.starMobile}></div>
 
             <div className={styles.mobilePanelsWrapper}>
-              {mobileActivePanel}
-            </div>
-
-            <div className={styles.mobileArrowsRow}>
-              <div
-                className={styles.mobileArrow}
-                style={{ opacity: mobileSlide === 0 ? 0.5 : 1 }}
-                onClick={() => handleMobileSlide(-1)}
-              >
-                <svg width="32" height="32" fill="none">
-                  <path
-                    d="M17.8 9.6L12 15.5L17.8 21.4"
-                    stroke="white"
-                    strokeOpacity={mobileSlide === 0 ? 0.4 : 0.9}
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <circle
-                    cx="16"
-                    cy="16"
-                    r="15"
-                    stroke="white"
-                    strokeOpacity={mobileSlide === 0 ? 0.4 : 0.9}
-                    strokeWidth="2"
-                  />
-                </svg>
-              </div>
-
-              <div
-                className={styles.mobileArrow}
-                style={{ opacity: mobileSlide === 1 ? 0.5 : 1 }}
-                onClick={() => handleMobileSlide(1)}
-              >
-                <svg width="32" height="32" fill="none">
-                  <path
-                    d="M14.2 9.6L20 15.5L14.2 21.4"
-                    stroke="white"
-                    strokeOpacity={mobileSlide === 1 ? 0.4 : 0.9}
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <circle
-                    cx="16"
-                    cy="16"
-                    r="15"
-                    transform="matrix(-1 0 0 1 32 0)"
-                    stroke="white"
-                    strokeOpacity={mobileSlide === 1 ? 0.4 : 0.9}
-                    strokeWidth="2"
-                  />
-                </svg>
-              </div>
+              {mobilePanelResult}
+              {mobilePanelLearn}
             </div>
           </div>
 

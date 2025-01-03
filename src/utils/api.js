@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5001/api";
+const BASE_URL = "http://vds68611.hyperhost.name/api";
 
 export const fetchQuestions = async () => {
   try {

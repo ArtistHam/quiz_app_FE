@@ -55,6 +55,15 @@ export default function QuizResultsDesktop({
         deepfake threat. Visit our website to learn how we’re making digital
         interactions safer.
       </p>
+      <div className={styles.learnMoreButton}>
+        <Button
+          variant="primary-results"
+          as="link"
+          to="https://www.iproov.com/"
+        >
+          Learn more
+        </Button>
+      </div>
     </div>
   );
 
@@ -74,6 +83,14 @@ export default function QuizResultsDesktop({
               correct guesses <span>in</span> {timeFormatted}
             </p>
           </div>
+        </div>
+        <div className={styles.buttonsRowBottom}>
+          <Button variant="primary-results" onClick={onTryAgain}>
+            Try again
+          </Button>
+          <Button variant="secondary-results" as="link" to="/leaderboard">
+            View highscores
+          </Button>
         </div>
       </div>
     );
@@ -104,11 +121,17 @@ export default function QuizResultsDesktop({
             />
           </div>
         </div>
+        <div className={styles.buttonsRowBottom}>
+          <Button variant="primary-results" onClick={onTryAgain}>
+            Try again
+          </Button>
+          <Button variant="secondary-results" as="link" to="/leaderboard">
+            View highscores
+          </Button>
+        </div>
       </div>
     );
   }
-
-  const activePanel = currentSlide === 0 ? panelLearnMore : panelResult;
 
   return (
     <div className={styles.container}>
@@ -122,71 +145,9 @@ export default function QuizResultsDesktop({
           <div className={styles.glassContainer}>
             <div className={styles.star}></div>
 
-            <div className={styles.mainPanel}>{activePanel}</div>
-
-            <div className={styles.panelArrows}>
-              <div
-                className={styles.arrowButton}
-                onClick={() => handleSlide(-1)}
-                style={{ cursor: leftArrowDisabled ? "default" : "pointer" }}
-              >
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <g>
-                    <path
-                      d="M23 11L15 19.5L23 28"
-                      stroke={leftArrowStroke}
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <circle
-                      cx="20"
-                      cy="20"
-                      r="19.5"
-                      stroke={leftArrowStroke}
-                      strokeWidth="2"
-                    />
-                  </g>
-                </svg>
-              </div>
-
-              <div
-                className={styles.arrowButton}
-                onClick={() => handleSlide(1)}
-                style={{ cursor: rightArrowDisabled ? "default" : "pointer" }}
-              >
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <path
-                    d="M17 11L25 19.5L17 28"
-                    stroke={rightArrowStroke}
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <circle
-                    cx="20"
-                    cy="20"
-                    r="19.5"
-                    transform="matrix(-1 0 0 1 40 0)"
-                    stroke={rightArrowStroke}
-                    strokeWidth="2"
-                  />
-                </svg>
-              </div>
-            </div>
-
-            <div className={styles.buttonsRowBottom}>
-              <Button
-                variant="primary-results"
-                as="link"
-                to="https://www.iproov.com/"
-              >
-                Learn more
-              </Button>
-              <Button variant="primary-results" onClick={onTryAgain}>
-                Try again
-              </Button>
-              <Button variant="secondary-results" as="link" to="/leaderboard">
-                View highscores
-              </Button>
+            <div className={styles.mainPanel}>
+              {panelResult}
+              {panelLearnMore}
             </div>
           </div>
         </div>
